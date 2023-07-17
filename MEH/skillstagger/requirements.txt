@@ -1,0 +1,4 @@
+python==3.8.12
+tensorflow==2.7.0
+transformers==4.13.0
+jinja2
