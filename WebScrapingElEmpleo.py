@@ -20,12 +20,7 @@ options.add_argument('--ignore-certificate-errors')
 options.add_argument('--log-level=3')
 #options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36')
 
-
-class ofertaElEmpleo:
-    def __init__(self, cargo, nomEmpresa, salario):
-        self.cargo = cargo
-        self.nomEmpresa = nomEmpresa
-        self.salario = salario
+tSleep1 = 1
 
 listaClases = []
 lista_Elementos_depurados = []
@@ -35,7 +30,7 @@ url = 'https://www.elempleo.com/co/ofertas-empleo/hace-1-semana?trabajo=Bogota'
 
 driver = webdriver.Chrome(options=options)
 driver.get(url)
-time.sleep(1)
+time.sleep(tSleep1)
 WebDriverWait(driver, 5).until(ec.element_to_be_clickable((By.XPATH, '/html/body/div[8]/div[3]/div[1]/div[3]')))
 
 
@@ -45,30 +40,47 @@ WebDriverWait(driver, 5).until(ec.element_to_be_clickable((By.XPATH, '/html/body
 div_elements  =  driver.find_elements(By.CSS_SELECTOR, 'div.result-item')
 
 
+
+#Limpieza de datos
 for div in div_elements:
     texto_div = div.text
     lineas = texto_div.split('\n')
-    #print(texto_div)
-    #print()
     if  "EMPRESA CONFIDENCIAL" not in div.text.upper()  and "SALARIO A CONVENIR" not in div.text.upper() :
-        lista_Elementos_depurados.append(div)
+        if "Bogotá" in lineas[2]:
+            lista_Elementos_depurados.append(div)
 
-#lista_Elementos_depurados = [ div for div in div_elements if "SALARIO A CONVENIR" not in div.text.upper() and "EMPRESA CONFIDENCIAL" not in div.text.upper() ]
-
+#ya vamos a trabajar sobre la lista de los empleos validos 
 for div in lista_Elementos_depurados:
-    texto_div = div.text
-    print(texto_div)
-    print()
-    print()
+    texto_div = div.text    
+      
+
+    
 
 
 #esta parte del codigo nos muestra como pasar a otra pagina 
 try:
-   enlace = driver.find_element(By.XPATH, '/html/body/div[8]/div[3]/div[1]/div[3]/div[1]/div[1]/ul/li[1]/h2/a')
-   action_chains = ActionChains(driver)
-   action_chains.key_down(Keys.CONTROL).click(enlace).key_up(Keys.CONTROL).perform()
-   time.sleep(20)
-   driver.close()
+   for div in lista_Elementos_depurados:
+        texto_div = div.text
+        lineas = texto_div.split('\n')
+        enlace = div.find_element(By.CSS_SELECTOR, 'a.text-ellipsis.js-offer-title' )
+        driver.execute_script("arguments[0].scrollIntoView();", enlace)
+        enlace.send_keys(Keys.CONTROL + Keys.RETURN)
+        print(texto_div) 
+        
+        time.sleep(tSleep1)
+        ventanas_abiertas = driver.window_handles
+        driver.switch_to.window(ventanas_abiertas[1])
+        time.sleep(1)
+        
+        #hacer la recolección de datos de las paginas 
+            
+   
+        #cambiar a pestaña 1 de vuelta 
+        driver.close()
+        driver.switch_to.window(ventanas_abiertas[0]) 
+        time.sleep(1)
+   
+   
 
 
     
