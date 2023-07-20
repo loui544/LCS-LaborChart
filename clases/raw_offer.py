@@ -10,4 +10,4 @@ class raw_offer:
         self.date = date
 
     def __str__(self):
-        return '{0}\nEmpresa: {1}\nDescripcción: {2}\nSalario: {3}\nNivel educativo: {4}\nExperiencia requerida: {5}\nTipo de contrato: {6}\nFecha de publicación: {7}\n'.format(self.title, self.company, self.description, self.salary, self.education, self.experience, self.contract, self.date)
+        return 'Nombre: {0}\nEmpresa: {1}\nDescripcción: {2}\nSalario: {3}\nNivel educativo: {4}\nExperiencia requerida: {5}\nTipo de contrato: {6}\nFecha de publicación: {7}\n'.format(self.title, self.company, self.description, self.salary, self.education, self.experience, self.contract, self.date)
