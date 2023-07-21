@@ -4,6 +4,9 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 import time
 import colorama as c
+import os
+
+os.environ['PATH']+=r"C:/SeleniumDrivers"
 
 c.init()
 options = webdriver.ChromeOptions()
