@@ -9,11 +9,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import colorama as c
 import time
+import random
 
 from clases.raw_offer import raw_offer 
 
 
-#opciones de navegación 
+#navigation options
 c.init()
 options = webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
@@ -23,95 +24,81 @@ options.add_argument('--ignore-certificate-errors')
 options.add_argument('--log-level=3')
 #options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36')
 
+timeRandom = random.uniform(0,5)
 tSleep1 = 1
-lista_offertas = []
-listaClases = []
+listOffers = []
 
 
-#inizializar navegador 
+#initialize browser
 url = 'https://www.elempleo.com/co/ofertas-empleo/bogota/hace-1-semana'
-#https://www.elempleo.com/co/ofertas-empleo/bogota/hace-1-semana
 
 driver = webdriver.Chrome(options=options)
 driver.get(url)
-time.sleep(0)
+time.sleep(timeRandom)
 WebDriverWait(driver, 5).until(ec.element_to_be_clickable((By.XPATH, '/html/body/div[8]/div[3]/div[1]/div[3]')))
 
 
-lista_Elementos_depurados = []
-# Obtener todos los elementos <div> dentro del elemento padre utilizando el selector CSS deseado
-div_elements  =  driver.find_elements(By.CSS_SELECTOR, 'div.result-item')
+# Get all <div> elements inside the parent element using the desired CSS selector
+divElements  =  driver.find_elements(By.CSS_SELECTOR, 'div.result-item')
 
 
 
-#Limpieza de datos
-for div in div_elements:
-    texto_div = div.text
-    lineas = texto_div.split('\n')
-    if  "EMPRESA CONFIDENCIAL" not in div.text.upper()  and "SALARIO A CONVENIR" not in div.text.upper() :
-        if "Bogotá" in lineas[2]:
-            lista_Elementos_depurados.append(div)
-
-
-#esta parte del codigo intera sobre la lista que sale en la pagina 
+#This part of the code goes through the list that appears on the page
 try:
-    for div in lista_Elementos_depurados:
+    for div in divElements:
             aux = raw_offer
-            texto_div = div.text
-            lineas = texto_div.split('\n')
-            enlace = div.find_element(By.CSS_SELECTOR, 'a.text-ellipsis.js-offer-title' )
-            driver.execute_script("arguments[0].scrollIntoView();", enlace)
-            enlace.send_keys(Keys.CONTROL + Keys.RETURN)
-            #print(texto_div) 
-            time.sleep(0)
+            textoDiv = div.text
+            lines = textoDiv.split('\n')
+
+            #find the offer link and click opening the page
+            link = div.find_element(By.CSS_SELECTOR, 'a.text-ellipsis.js-offer-title' )
+            driver.execute_script("arguments[0].scrollIntoView();", link)
+            link.send_keys(Keys.CONTROL + Keys.RETURN)
+            time.sleep(timeRandom)
 
 
-            #crea una pagina , y cambia a la pagina 
-            ventanas_abiertas = driver.window_handles
-            driver.switch_to.window(ventanas_abiertas[1])
-            time.sleep(0)
+            #change to the recently created page 
+            openTabs = driver.window_handles
+            driver.switch_to.window(openTabs[1])
+            time.sleep(timeRandom)
 
 
-            #hacer la recolección de datos de las paginas 
+            #do the data collection of the pages
             aux = raw_offer(None, None,None, None, None, None, None,None  )
             title = driver.find_element(By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/h1/span')
-            company = driver.find_element(By.CSS_SELECTOR, 'h2.ee-mod.ee-wrap-text.ee-offer-company-title.js-company-name')
             description = driver.find_element(By.CSS_SELECTOR, 'div.description-block')
             salary = driver.find_element(By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/div[2]/div[1]/p[1]/span/span[1]')
             education = driver.find_element(By.CSS_SELECTOR, 'span.js-education-level')
-            experiencia = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[1]/span')#no tienen nombre de itqueta 
-            contract = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[2]/span')#tampoco hay etiqueta 
+            experience = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[1]/span')
+            contract = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[2]/span')
             date = driver.find_element(By.CSS_SELECTOR, 'span.js-publish-date')
+        
             
-            
-            #recolecta las variables y las mete en el auxilar oferta 
-            texto_titulo = title.text
-            texto_empresa = company.text
-            texto_descripcion = description.text
-            texto_descripcion_2 =texto_descripcion.replace('\n', '')
-            texto_salario = salary.text
-            texto_educacion = education.text
-            texto_experiencia = experiencia.text
-            text_contract = contract.text
-            texto_fecha = date.text
-            aux = raw_offer(texto_titulo, texto_empresa,texto_descripcion_2, texto_salario, texto_educacion, texto_experiencia, text_contract,texto_fecha  )
-            #print(aux)
-            lista_offertas.append(aux)
+            #collects the variables and puts them in the auxiliary offer class
+            titleText = title.text
+            companyText = lines[1]
+            descriptionText = description.text
+            descriptionsText2 =descriptionText.replace('\n', '')
+            salaryText = salary.text
+            educacionText = education.text
+            experienceText = experience.text
+            contractText= contract.text
+            dateText = date.text
+            aux = raw_offer(titleText, companyText,descriptionsText2, salaryText, educacionText, experienceText, contractText,dateText  )
+            listOffers.append(aux)
 
 
-            #cambiar a pestaña 1 de vuelta 
+            #switch to tab 1 back and close the previously created tab
             driver.close()
-            driver.switch_to.window(ventanas_abiertas[0]) 
-            time.sleep(0)   
+            driver.switch_to.window(openTabs[0]) 
+            time.sleep(timeRandom)   
 except Exception as e:
     print("Error: ", e)
 
-for div in lista_offertas:
-    """lista_texto = div.text
-    print(lista_texto)"""
+for div in listOffers:
     print(div)
 
-    
+print(len(listOffers))
 driver.close()
 
 
