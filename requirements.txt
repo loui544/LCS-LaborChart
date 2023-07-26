@@ -1,2 +1,3 @@
 Selenium lib
 JSON lib
+pika lib
