@@ -28,6 +28,42 @@ timeRandom = random.uniform(0,5)
 tSleep1 = 1
 listOffers = []
 
+def offer():
+    """
+    This function is designed to be sub pages and take all the imformatión that we required, the put it in the instance off the class, instances that we return
+    Parameters:
+
+    Generated parameters:
+
+
+    returns:
+        retorna una instancia de de la clase raw_offer con todos los parametros llenos, del recorrido en la pagina 
+    """
+    aux = raw_offer 
+    #do the data collection of the pages
+    aux = raw_offer(None, None,None, None, None, None, None,None  )
+    title = driver.find_element(By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/h1/span')
+    description = driver.find_element(By.CSS_SELECTOR, 'div.description-block')
+    salary = driver.find_element(By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/div[2]/div[1]/p[1]/span/span[1]')
+    education = driver.find_element(By.CSS_SELECTOR, 'span.js-education-level')
+    experience = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[1]/span')
+    contract = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[2]/span')
+    date = driver.find_element(By.CSS_SELECTOR, 'span.js-publish-date')
+        
+    #collects the variables and puts them in the auxiliary offer class
+    titleText = title.text
+    companyText = lines[1]
+    descriptionText = description.text
+    descriptionsText2 =descriptionText.replace('\n', '')
+    salaryText = salary.text
+    educacionText = education.text
+    experienceText = experience.text
+    contractText= contract.text
+    dateText = date.text
+    aux = raw_offer(titleText, companyText,descriptionsText2, salaryText, educacionText, experienceText, contractText,dateText  )
+        
+
+    return aux
 
 #initialize browser
 url = 'https://www.elempleo.com/co/ofertas-empleo/bogota/hace-1-semana'
@@ -62,31 +98,8 @@ try:
             driver.switch_to.window(openTabs[1])
             time.sleep(timeRandom)
 
-
-            #do the data collection of the pages
-            aux = raw_offer(None, None,None, None, None, None, None,None  )
-            title = driver.find_element(By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/h1/span')
-            description = driver.find_element(By.CSS_SELECTOR, 'div.description-block')
-            salary = driver.find_element(By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/div[2]/div[1]/p[1]/span/span[1]')
-            education = driver.find_element(By.CSS_SELECTOR, 'span.js-education-level')
-            experience = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[1]/span')
-            contract = driver.find_element(By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[2]/span')
-            date = driver.find_element(By.CSS_SELECTOR, 'span.js-publish-date')
-        
-            
-            #collects the variables and puts them in the auxiliary offer class
-            titleText = title.text
-            companyText = lines[1]
-            descriptionText = description.text
-            descriptionsText2 =descriptionText.replace('\n', '')
-            salaryText = salary.text
-            educacionText = education.text
-            experienceText = experience.text
-            contractText= contract.text
-            dateText = date.text
-            aux = raw_offer(titleText, companyText,descriptionsText2, salaryText, educacionText, experienceText, contractText,dateText  )
-            listOffers.append(aux)
-
+            aux = offer()
+            listOffers.append(aux)  
 
             #switch to tab 1 back and close the previously created tab
             driver.close()
