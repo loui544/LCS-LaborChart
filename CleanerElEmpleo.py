@@ -1,4 +1,5 @@
 from clases.raw_offer import raw_offer
+from statistics import mean
 import pika
 from datetime import datetime
 import re
@@ -7,30 +8,21 @@ import json
 from clases.Enums import educationLevel, contractType
 
 elempleoEducationLevels = {
-    'Media (10° - 13°)': educationLevel.HIGH.value,
-    'Técnico Laboral': educationLevel.TECHNIC.value,
-    'Formación Tec profesional': educationLevel.TECHNIC.value,
-    'Tecnológica': educationLevel.TECHNOLOGY.value,
-    'Universitaria': educationLevel.PRE.value,
-    'Especialización': educationLevel.SPEC.value,
-    'Maestría': educationLevel.MASTER.value
+    'Media (10° - 13°)': educationLevel.HIGH,
+    'Técnico Laboral': educationLevel.TECHNIC,
+    'Formación Tec profesional': educationLevel.TECHNIC,
+    'Tecnológica': educationLevel.TECHNOLOGY,
+    'Universitaria': educationLevel.PRE,
+    'Especialización': educationLevel.SPEC,
+    'Maestría': educationLevel.MASTER
 }
 
 elempleoContracts = {
-    'Contrato Por obra o labor': contractType.OBR.value,
-    'Contrato Prestacion de Servicios': contractType.PRES.value,
-    'Contrato Indefinido': contractType.INDEF.value,
-    'Contrato Definido': contractType.DEF.value
+    'Contrato Por obra o labor': contractType.OBR,
+    'Contrato Prestacion de Servicios': contractType.PRES,
+    'Contrato Indefinido': contractType.INDEF,
+    'Contrato Definido': contractType.DEF
 }
-
-
-def average(numberList):
-    if not numberList:
-        return 0.0
-    total = sum(numberList)
-    numberCant = len(numberList)
-    avg = total/numberCant
-    return avg
 
 # Delete from description the substring 'Descripción general'
 
@@ -44,7 +36,7 @@ def cleanDescription(description):
 def calculateSalary(salary):
     numbers = re.findall(r'\d+\.\d+|\d+', salary.replace(',', '.'))
     numbered = [float(number) for number in numbers]
-    calculatedSalary = int(average(numbered)*1000000)
+    calculatedSalary = int(mean(numbered)*1000000)
     if calculatedSalary != 0:
         salary = calculatedSalary
     else:

@@ -1,7 +1,6 @@
-from enum import Enum
 
 
-class educationLevel(Enum):
+class educationLevel:
     HIGH = 'Bachillerato'
     TECHNIC = 'Técnico'
     TECHNOLOGY = 'Tecnológica'
@@ -10,7 +9,7 @@ class educationLevel(Enum):
     MASTER = 'Profesional Maestría'
 
 
-class contractType(Enum):
+class contractType:
     DEF = 'Definido'
     INDEF = 'Indefinido'
     OBR = 'Por obra'
