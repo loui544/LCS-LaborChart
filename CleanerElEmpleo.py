@@ -36,11 +36,11 @@ def cleanDescription(description):
 def calculateSalary(salary):
     numbers = re.findall(r'\d+\.\d+|\d+', salary.replace(',', '.'))
     numbered = [float(number) for number in numbers]
-    calculatedSalary = int(mean(numbered)*1000000)
-    if calculatedSalary != 0:
-        salary = calculatedSalary
-    else:
+    if not numbered:
         salary = 'A convenir'
+    else:
+        calculatedSalary = int(mean(numbered)*1000000)
+        salary = calculatedSalary
     return salary
 
 # Transform experience into int
@@ -58,9 +58,12 @@ def transformExp(experience):
 
 
 def formatDate(date):
-    date = datetime.strptime(date.replace(
-        'Publicado ', ''), '%d %b %Y').strftime('%d-%m-%Y')
-    return date
+    try:
+        date = datetime.strptime(date.replace(
+            'Publicado ', ''), '%d %b %Y').strftime('%d-%m-%Y')
+        return date
+    except Exception as e:
+        raise ValueError('Campo date no es correcta (' + str(e) + ')')
 
 # Standardizes the level of education
 
@@ -86,23 +89,39 @@ def standardizeContractType(contract):
 
 
 def sendList(offers):
-    connection = pika.BlockingConnection(
-        pika.ConnectionParameters('localhost'))
-    channel = connection.channel()
+    try:
+        connection = pika.BlockingConnection(
+            pika.ConnectionParameters('localhost'))
+        channel = connection.channel()
 
-    channel.queue_declare(queue='elempleo')
+        channel.queue_declare(queue='elempleo')
 
-    message = json.dumps([offer.__dict__ for offer in offers])
-    channel.basic_publish(exchange='', routing_key='elempleo', body=message)
-    print('\nLista de ofertas enviada\n')
-    connection.close()
+        message = json.dumps([offer.__dict__ for offer in offers])
+
+        channel.basic_publish(
+            exchange='', routing_key='elempleo', body=message)
+        connection.close()
+    except Exception as e:
+        raise e
+
+
+# Normalizes Elempleo offers list
 
 
 def offersCleaning(offers):
     for offer in offers:
-        offer.description = cleanDescription(offer.description)
-        offer.salary = calculateSalary(offer.salary)
-        offer.experience = transformExp(offer.experience)
-        offer.date = formatDate(offer.date)
-        offer.education = standardizeEducationLevel(offer.education)
-        offer.contract = standardizeContractType(offer.contract)
+        try:
+            offer.description = cleanDescription(offer.description)
+            offer.salary = calculateSalary(offer.salary)
+            offer.experience = transformExp(offer.experience)
+            offer.date = formatDate(offer.date)
+            offer.education = standardizeEducationLevel(offer.education)
+            offer.contract = standardizeContractType(offer.contract)
+        except Exception as e:
+            raise ValueError('Error: ' + str(e))
+    try:
+        sendList(offers)
+        return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
+    except Exception as e:
+        raise ValueError(
+            'Error al enviar las ofertas a la cola de RabbitMQ:' + str(e))
