@@ -1,11 +1,11 @@
-from clases.raw_offer import raw_offer
+from Classes.RawOffer import rawOffer
 from statistics import mean
 import pika
 from datetime import datetime
 import re
 import json
 
-from clases.Enums import educationLevel, contractType
+from Classes.Enums import educationLevel, contractType
 
 elempleoEducationLevels = {
     'Media (10° - 13°)': educationLevel.HIGH,

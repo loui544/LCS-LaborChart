@@ -7,7 +7,6 @@ import time
 import random
 
 from Classes.RawOffer import rawOffer
-from Classes.Time import randomTime
 
 # navigation options
 options = webdriver.ChromeOptions()
@@ -17,7 +16,7 @@ options.add_argument('--blink-settings=imagesEnabled=false')
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--log-level=3')
 
-timeRandom = random.uniform(randomTime.MIN, randomTime.MAX)
+timeRandom = random.uniform(2, 4)
 
 
 def offer(driver, lines):
@@ -111,12 +110,14 @@ def webScraperElempleo():
             driver.switch_to.window(openTabs[1])
             time.sleep(timeRandom)
             aux = offer(driver, lines)
+            print(aux)
             listOffers.append(aux)
 
             # switch to tab 1 back and close the previously created tab
             driver.close()
             driver.switch_to.window(openTabs[0])
             time.sleep(timeRandom)
+
         for div in listOffers:
             print(div)
 
