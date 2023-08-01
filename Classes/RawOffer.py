@@ -1,4 +1,4 @@
-class raw_offer:
+class rawOffer:
     def __init__(self, title, company, description, salary, education, experience, contract, date):
         self.title = title
         self.company = company
