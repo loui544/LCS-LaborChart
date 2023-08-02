@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from datetime import datetime
 import time
 import random
 
@@ -19,7 +20,7 @@ options.add_argument('--log-level=3')
 timeRandom = random.uniform(2, 4)
 
 
-def offer(driver, lines):
+def offer(driver, company):
     """
     This function is designed to be sub pages and take all the imformatión that we required, the put it in the instance off the class, instances that we return
     Parameters:
@@ -35,9 +36,9 @@ def offer(driver, lines):
         returns an instance of the rawOffer class with all parameters filled in, from the path in the page
     """
     try:
-        aux = rawOffer
+        # aux = rawOffer
         # do the data collection of the pages
-        aux = rawOffer(None, None, None, None, None, None, None, None)
+        # aux = rawOffer(None, None, None, None, None, None, None, None)
         title = driver.find_element(
             By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/h1/span')
         description = driver.find_element(
@@ -50,21 +51,20 @@ def offer(driver, lines):
             By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[1]/span')
         contract = driver.find_element(
             By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[2]/span')
-        date = driver.find_element(By.CSS_SELECTOR, 'span.js-publish-date')
+        date = datetime.today().strftime('%d-%m-%Y')
 
         # collects the variables and puts them in the auxiliary offer class
         titleText = title.text
-        companyText = lines[1]
+        companyText = company[1]
         descriptionText = description.text
         descriptionsText2 = descriptionText.replace('\n', '')
         salaryText = salary.text
         educacionText = education.text
         experienceText = experience.text
         contractText = contract.text
-        dateText = date.text
+        dateText = date
         aux = rawOffer(titleText, companyText, descriptionsText2, salaryText,
                        educacionText, experienceText, contractText, dateText)
-
         return aux
     except Exception:
         pass
@@ -96,7 +96,7 @@ def webScraperElempleo():
         for div in divElements:
             aux = rawOffer
             textoDiv = div.text
-            lines = textoDiv.split('\n')
+            company = textoDiv.split('\n')
 
             # find the offer link and click opening the page
             link = div.find_element(
@@ -109,7 +109,7 @@ def webScraperElempleo():
             openTabs = driver.window_handles
             driver.switch_to.window(openTabs[1])
             time.sleep(timeRandom)
-            aux = offer(driver, lines)
+            aux = offer(driver, company)
             print(aux)
             listOffers.append(aux)
 
