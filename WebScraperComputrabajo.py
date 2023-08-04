@@ -28,27 +28,57 @@ def Offer(box_details, date):
         # do the data collection of the pages
         aux = rawOffer(None, None, None, None, None, None, None, None)
         
-        title = box_details.find_element(
-            By.CSS_SELECTOR, 'p.title_offer').text
+        #Get the title of the offer
+        try:
+            title = box_details.find_element(
+                By.CSS_SELECTOR, 'p.title_offer').text
+        except:
+            print('Title\n')
+            return None
+        
+        #Get the name of the company
         try:
             company = box_details.find_element(
                 By.XPATH, 'div[1]/div[1]/a').text
         except:
+            print('Empresa')
             company='Importante empresa del sector'
-        description = box_details.find_element(
-            By.CSS_SELECTOR, 'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs16').text.replace('\n', ' ')
-        salary = box_details.find_element(
-            By.CSS_SELECTOR, 'span.tag base mb10'.replace(' ', '.')).text
-        requirements = box_details.find_elements(By.CSS_SELECTOR, 'li.mb5')
-        education=requirements[0].text
-        if len(requirements)>1:
-            if 'experiencia' in requirements[1].text:
-                experience=requirements[1].text
-            else:
-                experience='mes'
-        contract= box_details.find_element(
-            By.CSS_SELECTOR,'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs14.mb10 > div > span:nth-child(2)').text
         
+        #Get the description of the offer
+        try: 
+            description = box_details.find_element(
+                By.CSS_SELECTOR, 'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs16').text.replace('\n', ' ')
+        except:
+            print('Description\n')
+            return None  
+        
+        #Get the salary of the offer
+        try:
+            salary = box_details.find_element(
+                By.CSS_SELECTOR, 'span.tag base mb10'.replace(' ', '.')).text
+        except:
+            print('Salary\n')
+            return None
+        #Get the requirements of the offer
+        try:
+            requirements = box_details.find_elements(By.CSS_SELECTOR, 'li.mb5')
+            education=requirements[0].text
+            if len(requirements)>1:
+                if 'experiencia' in requirements[1].text:
+                    experience=requirements[1].text
+                else:
+                    experience='mes'
+        except:
+            print('Requirements\n')
+            return None
+        
+        #Get the contract type
+        try:
+            contract= box_details.find_element(
+            By.CSS_SELECTOR,'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs14.mb10 > div > span:nth-child(2)').text
+        except:
+            print('Contract\n')
+            return None
         aux = rawOffer(title, company, description, salary,education, experience, contract, date)
 
         return aux
@@ -73,7 +103,7 @@ def WebScraperComputrabajo():
         
         # Iterate each offert in a page
         page=1
-        for tab in range(455):
+        for tab in range(200):
             # Set the url, adding the page to start
             driver.get(url+str(page))
             # Get box_offer class elements
@@ -89,9 +119,12 @@ def WebScraperComputrabajo():
                 # Select the offer to extract information
                 box = box_offers[i]
                 #Get the date of the offer
-                date=box.find_element(By.CLASS_NAME,'fc_aux').text
-                box.click()
-
+                try:
+                    date=box.find_element(By.CLASS_NAME,'fc_aux').text
+                    box.click()
+                except Exception as e:
+                    print(f'Error en id: {ids[i]}\n {e}')
+                    pass
                 #End the program and send the raw_offers
                 if 'día' in date:
                     return listOffers
@@ -102,7 +135,10 @@ def WebScraperComputrabajo():
                 
                 time.sleep(timeRandom)
                 aux=Offer(box_details,date)
-                listOffers.append(aux)
+                if aux is not None:
+                    listOffers.append(aux)
+                    
+                #print(aux)
 
             # Click button to the next page offer
             nextButton = driver.find_element(
@@ -110,14 +146,14 @@ def WebScraperComputrabajo():
             nextButton.click()
             
             page+=1
-        for div in listOffers:
-            print(div)
         driver.close()
         print(len(listOffers))
         listOffers=list(filter(None,listOffers))
         
         return listOffers
-    except Exception:
-        ValueError('Error al acceder a la pagina web')
+    except Exception as e:
+        print(e)
+        print(len(listOffers))
+        return listOffers
         
 #WebScraperComputrabajo()

@@ -95,15 +95,14 @@ def sendList(offers):
 #Normalizes Computrabajo offers list
 def OffersCleaning(offers):
     for offer in offers:
-        if offer is not None:
-            try:
-                offer.salary = CalculateSalary(offer.salary)
-                offer.experience = TransformExp(offer.experience)
-                offer.date = FormatDate(offer.date)
-                offer.education = StandardizeEducationLevel(offer.education)
-                offer.contract = StandardizeContractType(offer.contract)
-            except Exception as e:
-                raise ValueError('Error: ' + str(e))
+        try:
+            offer.salary = CalculateSalary(offer.salary)
+            offer.experience = TransformExp(offer.experience)
+            offer.date = FormatDate(offer.date)
+            offer.education = StandardizeEducationLevel(offer.education)
+            offer.contract = StandardizeContractType(offer.contract)
+        except Exception as e:
+            raise ValueError('Error: ' + str(e))
     try:
         #sendList(offers)
         

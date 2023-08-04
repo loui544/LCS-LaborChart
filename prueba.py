@@ -1,0 +1,5 @@
+import WebScraperComputrabajo
+import NormalizerComputrabajo
+
+offers=WebScraperComputrabajo.WebScraperComputrabajo()
+NormalizerComputrabajo.OffersCleaning(offers)
