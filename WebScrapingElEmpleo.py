@@ -4,10 +4,12 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
+from Classes import *
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 import random
-
 from Classes.RawOffer import rawOffer
+
 
 # navigation options
 options = webdriver.ChromeOptions()
@@ -28,6 +30,7 @@ def offer(driver, company):
     Parameters:
 
     Generated parameters:
+
 
     driver: selenium.webdriver.chrome.webdriver.WebDriver
         Webdriver that is scrolling through the sub-page
