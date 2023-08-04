@@ -99,7 +99,7 @@ def sendList(offers):
 # Normalizes Elempleo offers list
 
 
-def offersCleaning(offers):
+def offersNormalizer(offers):
     for offer in offers:
         try:
             offer.description = cleanDescription(offer.description)
@@ -111,7 +111,7 @@ def offersCleaning(offers):
             raise ValueError('Error: ' + str(e))
     try:
         sendList(offers)
-        return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
+        return '\nLista de ofertas enviada correctamente a la cola de RabbitMQ\n'
     except Exception as e:
         raise ValueError(
             'Error al enviar las ofertas a la cola de RabbitMQ:' + str(e))
