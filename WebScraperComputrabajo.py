@@ -103,7 +103,7 @@ def WebScraperComputrabajo():
         
         # Iterate each offert in a page
         page=1
-        for tab in range(200):
+        for tab in range(300):
             # Set the url, adding the page to start
             driver.get(url+str(page))
             # Get box_offer class elements
@@ -126,7 +126,8 @@ def WebScraperComputrabajo():
                     print(f'Error en id: {ids[i]}\n {e}')
                     pass
                 #End the program and send the raw_offers
-                if 'día' in date:
+                if 'dia' in date:
+                    print(f'Ofertas del dia: {len(listOffers)}')
                     return listOffers
         
                 # Define the element to read
