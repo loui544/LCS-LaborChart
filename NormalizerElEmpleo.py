@@ -7,6 +7,7 @@ import json
 
 from Classes.Enums import educationLevel, contractType
 
+# Elempleo education level dict
 elempleoEducationLevels = {
     'Media (10° - 13°)': educationLevel.HIGH,
     'Técnico Laboral': educationLevel.TECHNIC,
@@ -17,6 +18,7 @@ elempleoEducationLevels = {
     'Maestría': educationLevel.MASTER
 }
 
+# Elempleo contract type dict
 elempleoContracts = {
     'Contrato Por obra o labor': contractType.OBR,
     'Contrato Prestacion de Servicios': contractType.PRES,
@@ -53,17 +55,6 @@ def transformExp(experience):
     else:
         experience = [int(number) for number in expNumber][0]
     return experience
-
-# Formats offer's date string into date
-
-
-def formatDate(date):
-    try:
-        date = datetime.strptime(date.replace(
-            'Publicado ', ''), '%d %b %Y').strftime('%d-%m-%Y')
-        return date
-    except Exception as e:
-        raise ValueError('Campo date no es correcta (' + str(e) + ')')
 
 # Standardizes the level of education
 
@@ -108,20 +99,19 @@ def sendList(offers):
 # Normalizes Elempleo offers list
 
 
-def offersCleaning(offers):
+def offersNormalizer(offers):
     for offer in offers:
         try:
             offer.description = cleanDescription(offer.description)
             offer.salary = calculateSalary(offer.salary)
             offer.experience = transformExp(offer.experience)
-            offer.date = formatDate(offer.date)
             offer.education = standardizeEducationLevel(offer.education)
             offer.contract = standardizeContractType(offer.contract)
         except Exception as e:
             raise ValueError('Error: ' + str(e))
     try:
         sendList(offers)
-        return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
+        return '\nLista de ofertas enviada correctamente a la cola de RabbitMQ\n'
     except Exception as e:
         raise ValueError(
             'Error al enviar las ofertas a la cola de RabbitMQ:' + str(e))

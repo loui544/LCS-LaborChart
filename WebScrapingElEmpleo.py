@@ -3,10 +3,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from datetime import datetime
+from Classes import *
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 import random
-
 from Classes.RawOffer import rawOffer
+
 
 # navigation options
 options = webdriver.ChromeOptions()
@@ -16,15 +19,18 @@ options.add_argument('--blink-settings=imagesEnabled=false')
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--log-level=3')
 
-timeRandom = random.uniform(2, 4)
+
+def randomSleep():
+    return random.uniform(2, 4)
 
 
-def offer(driver, lines):
+def offer(driver, company):
     """
     This function is designed to be sub pages and take all the imformatión that we required, the put it in the instance off the class, instances that we return
     Parameters:
 
     Generated parameters:
+
 
     driver: selenium.webdriver.chrome.webdriver.WebDriver
         Webdriver that is scrolling through the sub-page
@@ -35,36 +41,22 @@ def offer(driver, lines):
         returns an instance of the rawOffer class with all parameters filled in, from the path in the page
     """
     try:
-        aux = rawOffer
         # do the data collection of the pages
-        aux = rawOffer(None, None, None, None, None, None, None, None)
         title = driver.find_element(
-            By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/h1/span')
+            By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/h1/span').text
         description = driver.find_element(
-            By.CSS_SELECTOR, 'div.description-block')
+            By.CSS_SELECTOR, 'div.description-block').text
         salary = driver.find_element(
-            By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/div[2]/div[1]/p[1]/span/span[1]')
+            By.XPATH, '/html/body/div[7]/div[1]/div/div[1]/div[2]/div[1]/p[1]/span/span[1]').text
         education = driver.find_element(
-            By.CSS_SELECTOR, 'span.js-education-level')
+            By.CSS_SELECTOR, 'span.js-education-level').text
         experience = driver.find_element(
-            By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[1]/span')
+            By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[1]/span').text
         contract = driver.find_element(
-            By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[2]/span')
-        date = driver.find_element(By.CSS_SELECTOR, 'span.js-publish-date')
-
-        # collects the variables and puts them in the auxiliary offer class
-        titleText = title.text
-        companyText = lines[1]
-        descriptionText = description.text
-        descriptionsText2 = descriptionText.replace('\n', '')
-        salaryText = salary.text
-        educacionText = education.text
-        experienceText = experience.text
-        contractText = contract.text
-        dateText = date.text
-        aux = rawOffer(titleText, companyText, descriptionsText2, salaryText,
-                       educacionText, experienceText, contractText, dateText)
-
+            By.XPATH, '/html/body/div[7]/div[2]/div[1]/div[2]/div[2]/div[2]/p[2]/span').text
+        date = datetime.today().strftime('%d-%m-%Y')
+        aux = rawOffer(title, company, description, salary,
+                       education, experience, contract, date)
         return aux
     except Exception:
         pass
@@ -84,7 +76,7 @@ def webScraperElempleo():
         url = 'https://www.elempleo.com/co/ofertas-empleo/bogota/hace-1-semana'
         driver = webdriver.Chrome(options=options)
         driver.get(url)
-        time.sleep(timeRandom)
+        time.sleep(randomSleep())
         WebDriverWait(driver, 3).until(ec.element_to_be_clickable(
             (By.XPATH, '/html/body/div[8]/div[3]/div[1]/div[3]')))
 
@@ -94,39 +86,39 @@ def webScraperElempleo():
         # This part of the code goes through the list that appears on the page
         listOffers = []
         for div in divElements:
-            aux = rawOffer
             textoDiv = div.text
-            lines = textoDiv.split('\n')
+            company = textoDiv.split('\n')[1]
 
             # find the offer link and click opening the page
             link = div.find_element(
                 By.CSS_SELECTOR, 'a.text-ellipsis.js-offer-title')
             driver.execute_script("arguments[0].scrollIntoView();", link)
             link.send_keys(Keys.CONTROL + Keys.RETURN)
-            time.sleep(timeRandom)
+            time.sleep(randomSleep())
 
             # change to the recently created page
             openTabs = driver.window_handles
             driver.switch_to.window(openTabs[1])
-            time.sleep(timeRandom)
-            aux = offer(driver, lines)
-            print(aux)
+            time.sleep(randomSleep())
+            aux = offer(driver, company)
             listOffers.append(aux)
 
             # switch to tab 1 back and close the previously created tab
             driver.close()
             driver.switch_to.window(openTabs[0])
-            time.sleep(timeRandom)
+            time.sleep(randomSleep())
 
         for div in listOffers:
             print(div)
 
-        print(len(listOffers))
         driver.close()
 
-        return listOffers
+        try:
+            listOffers = list(filter(None, listOffers))
+            print(len(listOffers))
+            return listOffers
+        except Exception as e:
+            print(e)
     except Exception:
-        return ValueError('Error al acceder a la página web')
-
-
-webScraperElempleo()
+        print(ValueError('Error al acceder a la página web'))
+        return listOffers
