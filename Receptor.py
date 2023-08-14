@@ -1,15 +1,17 @@
 import pika
 from pymongo import MongoClient
 import json
+from Classes.Values import *
+from Classes.Values import queue as q
 
 
 def receiveList():
     try:
         connection = pika.BlockingConnection(
-            pika.ConnectionParameters('localhost'))
+            pika.ConnectionParameters(uri.RABBITMQ))
         channel = connection.channel()
 
-        queues = ['elempleo', 'computrabajo']
+        queues = [q.ELEMPLEO, q.COMPUTRABAJO]
         offersLists = []
 
         for queue in queues:
@@ -37,12 +39,11 @@ def receiveList():
 
 
 def loadMongoDB(offersLists):
-    uri = 'mongodb://localhost:27017'
-    client = MongoClient(uri)
+    client = MongoClient(uri.MONGODB)
     try:
 
-        db = client['LaborChart']
-        collection = db['Offers']
+        db = client[mongoDB.LABORCHART]
+        collection = db[mongoCollection.OFFERS]
         for offerList in offersLists:
 
             result = collection.insert_many(offerList)
