@@ -1,5 +1,3 @@
-
-
 class educationLevel:
     HIGH = 'Bachillerato'
     TECHNIC = 'Técnico'
