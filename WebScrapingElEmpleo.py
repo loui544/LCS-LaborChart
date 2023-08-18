@@ -4,8 +4,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
-from Classes import *
-from selenium.webdriver.common.action_chains import ActionChains
+from Classes.Values import *
 import time
 import random
 from Classes.RawOffer import rawOffer
@@ -21,7 +20,7 @@ options.add_argument('--log-level=3')
 
 
 def randomSleep():
-    return random.uniform(2, 4)
+    return random.uniform(times.MIN, times.MAX)
 
 
 def offer(driver, company):
@@ -73,9 +72,8 @@ def webScraperElempleo():
     """
     try:
         # initialize browser
-        url = 'https://www.elempleo.com/co/ofertas-empleo/bogota/hace-1-semana'
         driver = webdriver.Chrome(options=options)
-        driver.get(url)
+        driver.get(url.ELEMPLEO)
         time.sleep(randomSleep())
         WebDriverWait(driver, 3).until(ec.element_to_be_clickable(
             (By.XPATH, '/html/body/div[8]/div[3]/div[1]/div[3]')))

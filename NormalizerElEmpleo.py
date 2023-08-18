@@ -1,9 +1,9 @@
 from Classes.RawOffer import rawOffer
 from statistics import mean
 import pika
-from datetime import datetime
 import re
 import json
+from Classes.Values import *
 
 from Classes.Enums import educationLevel, contractType
 
@@ -82,15 +82,15 @@ def standardizeContractType(contract):
 def sendList(offers):
     try:
         connection = pika.BlockingConnection(
-            pika.ConnectionParameters('localhost'))
+            pika.ConnectionParameters(uri.RABBITMQ))
         channel = connection.channel()
 
-        channel.queue_declare(queue='elempleo')
+        channel.queue_declare(queue=queue.ELEMPLEO)
 
         message = json.dumps([offer.__dict__ for offer in offers])
 
         channel.basic_publish(
-            exchange='', routing_key='elempleo', body=message)
+            exchange='', routing_key=queue.ELEMPLEO, body=message)
         connection.close()
     except Exception as e:
         raise e
