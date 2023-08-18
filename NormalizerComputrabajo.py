@@ -106,7 +106,7 @@ def OffersCleaning(offers):
     try:
         #sendList(offers)
         
-        with open("offers.json", "w") as computrabajo:
+        with open("offers.json", "a") as computrabajo:
             json.dump([offer.__dict__ for offer in offers],computrabajo)
         return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
     except Exception as e:
