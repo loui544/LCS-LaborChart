@@ -11,7 +11,7 @@ def receiveList():
             pika.ConnectionParameters(uri.RABBITMQ))
         channel = connection.channel()
 
-        queues = [q.ELEMPLEO, q.COMPUTRABAJO]
+        queues = q.QUEUES
         offersLists = []
 
         for queue in queues:
