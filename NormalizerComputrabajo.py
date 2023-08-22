@@ -118,6 +118,9 @@ def OffersCleaning(offers):
             raise ValueError('Error: ' + str(e))
     try:
         sendList(offers)
+
+        # with open("offers.json", "w",encoding='utf-8') as computrabajo:
+        #    json.dump([offer.__dict__ for offer in offers],computrabajo,ensure_ascii=False,indent=4)
         return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
     except Exception as e:
         raise ValueError(
