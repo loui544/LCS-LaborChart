@@ -1,6 +1,7 @@
 import pika
 from pymongo import MongoClient
 import json
+from datetime import datetime
 from Classes.Values import *
 from Classes.Values import queue as q
 
@@ -12,7 +13,7 @@ def receiveList():
         channel = connection.channel()
 
         queues = q.QUEUES
-        offersLists = []
+        offersList = []
 
         for queue in queues:
 
@@ -25,29 +26,37 @@ def receiveList():
             if methodFrame:
                 if body is not None:
                     # decodes offersList in JSON format
-                    offersLists.append(json.loads(body.decode('utf-8')))
+                    offersList.extend(json.loads(body.decode('utf-8')))
 
         connection.close()
 
-        if offersLists:
+        if offersList:
             print('\nListas de ofertas recibidas de RabbitMQ correctamente\n')
-            return offersLists
+            return offersList
         else:
             raise ValueError('Error: No hay lista de ofertas en cola')
     except Exception as e:
         raise e
 
 
-def loadMongoDB(offersLists):
+def loadMongoDB(offersList):
     client = MongoClient(uri.MONGODB)
     try:
 
         db = client[mongoDB.LABORCHART]
         collection = db[mongoCollection.OFFERS]
-        for offerList in offersLists:
 
-            result = collection.insert_many(offerList)
-            print('Documentos insertados: ', len(result.inserted_ids))
+        # Functions that converts 'date' string field to date type field
+        def convertDateType(item): return {
+            **item, 'date': datetime.strptime(item['date'], '%d-%m-%Y')}
+
+        # Maps data type convert with offers list
+        offersList = list(map(convertDateType, offersList))
+
+        # Stores offers list into MongoDB collection
+        result = collection.insert_many(offersList)
+        print('Documentos insertados: ', len(result.inserted_ids))
+
         client.close()
     except Exception as e:
         client.close()
@@ -56,7 +65,7 @@ def loadMongoDB(offersLists):
 
 def reception():
     try:
-        offersLists = receiveList()
-        loadMongoDB(offersLists)
+        offersList = receiveList()
+        loadMongoDB(offersList)
     except Exception as e:
         print(e)

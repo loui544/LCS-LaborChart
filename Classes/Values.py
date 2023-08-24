@@ -25,3 +25,11 @@ class mongoCollection:
 class times:
     MIN = 2
     MAX = 4
+
+
+class faissParameters:
+    VORONOICELLS = 50
+    CENTROIDIDS = 8
+    CENTROIDBITS = 6
+    SEARCHSCOPE = 5
+    NEAREST = 5
