@@ -1,5 +1,5 @@
-import WebScraperComputrabajo
-import NormalizerComputrabajo
+import ETL.Extraction.WebScraperComputrabajo as WebScraperComputrabajo
+import ETL.Extraction.NormalizerComputrabajo as NormalizerComputrabajo
 import time
 import datetime
 

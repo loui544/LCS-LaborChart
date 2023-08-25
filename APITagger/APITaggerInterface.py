@@ -11,7 +11,9 @@ server = Flask(__name__)
 def retrieveData():
     try:
         descriptions = json.dumps(request.get_json())
-        return make_response(tagOffers(descriptions), 200)    
+        result=tagOffers(descriptions)
+        print(result)
+        return make_response(result, 200)    
     except Exception as e:
         return make_response("JSON vacío", 400)
 

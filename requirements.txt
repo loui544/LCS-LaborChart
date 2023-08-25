@@ -1,3 +1,14 @@
 Selenium lib
 JSON lib
 pika lib
+numpy lib
+tensorFlow lib
+transformers lib
+flask lib
+pandas lib
+sentence_transformers lib
+faiss lib
+thefuzz lib
+pymongo lib
+time lib
+requests lib
