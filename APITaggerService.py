@@ -4,10 +4,8 @@ import json
 
 
 def tagOffers(descriptions):
+    descriptions = json.loads(descriptions)
     descriptions = list(map(lambda item: item['description'], descriptions))
-    print('\n', descriptions)
-    print(type(descriptions))
-
     result = descriptionsResult(descriptions)
 
     class NpEncoder(json.JSONEncoder):
