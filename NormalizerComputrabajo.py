@@ -26,7 +26,7 @@ computrabajoContracts = {
     'Contrato a término fijo': contractType.DEF
 }
 
-# extract the float number of the salary in the offer
+# Extract the float number of the salary in the offer
 
 
 def CalculateSalary(salary):
@@ -37,7 +37,7 @@ def CalculateSalary(salary):
     return calculatedSalary
 
 
-# extract the integer nunber of the experience in the offer
+# Extract the integer nunber of the experience in the offer
 def TransformExp(experience):
     if 'mes' in experience:
         experience = 0
@@ -50,7 +50,7 @@ def TransformExp(experience):
         experience = [int(number) for number in expNumber][0]
     return experience
 
-# adjust the date of the offer to the current day
+# Adjust the date of the offer to the current day
 
 
 def FormatDate(date):
