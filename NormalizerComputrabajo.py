@@ -33,7 +33,7 @@ def CalculateSalary(salary):
     if 'convenir' in salary:
         salary = 'A convenir'
         return salary
-    calculatedSalary = int(''.join(filter(str.isdigit, salary)))
+    calculatedSalary = int(''.join(filter(str.isdigit, salary)))/100
     return calculatedSalary
 
 
@@ -117,10 +117,17 @@ def OffersCleaning(offers):
         except Exception as e:
             raise ValueError('Error: ' + str(e))
     try:
+<<<<<<< HEAD
+        #sendList(offers)
+        
+        with open("offers.json", "a", encoding='utf-8') as computrabajo:
+            json.dump([offer.__dict__ for offer in offers],computrabajo, ensure_ascii=False,indent=4)
+=======
         sendList(offers)
 
         # with open("offers.json", "w",encoding='utf-8') as computrabajo:
         #    json.dump([offer.__dict__ for offer in offers],computrabajo,ensure_ascii=False,indent=4)
+>>>>>>> main
         return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
     except Exception as e:
         raise ValueError(
