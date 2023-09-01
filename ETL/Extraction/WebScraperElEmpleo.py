@@ -4,10 +4,10 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
-from Classes.Values import *
+from ETL.Classes.Values import *
 import time
 import random
-from Classes.RawOffer import rawOffer
+from ETL.Classes.RawOffer import rawOffer
 
 
 # navigation options
@@ -113,10 +113,10 @@ def webScraperElempleo():
 
         try:
             listOffers = list(filter(None, listOffers))
-            print(len(listOffers))
+            print('Ofertas extraídas: ', len(listOffers))
             return listOffers
         except Exception as e:
-            print(e)
+            raise (ValueError('Error al filtrar ofertas vacías'))
     except Exception:
-        print(ValueError('Error al acceder a la página web'))
+        print('Error producido al relizar la extracción. Se retornan ofertas que se lograron extraer')
         return listOffers

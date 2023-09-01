@@ -1,13 +1,12 @@
-from Classes.RawOffer import rawOffer
+from ETL.Classes.RawOffer import rawOffer
 from statistics import mean
 from datetime import datetime
 import re
 import json
 from Classes.Values import *
-
 import pika
 
-from Classes.Enums import educationLevel, contractType
+from ETL.Classes.Enums import educationLevel, contractType
 
 computrabajoEducationLevels = {
     'Educación Básica Primaria': educationLevel.HIGH,
@@ -106,7 +105,7 @@ def sendList(offers):
 # Normalizes Computrabajo offers list
 
 
-def OffersCleaning(offers):
+def OffersNormalizer(offers):
     for offer in offers:
         try:
             offer.salary = CalculateSalary(offer.salary)
@@ -118,9 +117,6 @@ def OffersCleaning(offers):
             raise ValueError('Error: ' + str(e))
     try:
         sendList(offers)
-
-        # with open("offers.json", "w",encoding='utf-8') as computrabajo:
-        #    json.dump([offer.__dict__ for offer in offers],computrabajo,ensure_ascii=False,indent=4)
         return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
     except Exception as e:
         raise ValueError(

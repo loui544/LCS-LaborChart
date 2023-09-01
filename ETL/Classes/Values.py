@@ -10,16 +10,15 @@ class queue:
 
 
 class uri:
+    SkillsTaggerAPI = 'http://localhost:5000/retrieveDescriptions'
+    ElasticSearch = 'http://localhost:9200'
     RABBITMQ = 'localhost'
     MONGODB = 'mongodb://localhost:27017'
 
 
 class mongoDB:
-    LABORCHART = 'LaborChart'
-
-
-class mongoCollection:
-    OFFERS = 'Offers'
+    DataBase = 'LaborChart'
+    Collection = 'Offers'
 
 
 class times:

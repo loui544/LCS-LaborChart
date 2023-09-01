@@ -3,8 +3,6 @@ from selenium.webdriver.common.by import By
 from Classes.Values import *
 import time
 import random
-import os
-
 from Classes.RawOffer import rawOffer
 
 
@@ -128,7 +126,7 @@ def WebScraperComputrabajo():
                 except Exception as e:
                     print(f'Error en id: {ids[i]}\n {e}')
                     pass
-                #End the program and send the raw_offers
+                # End the program and send the raw_offers
                 if 'Ayer' in date:
                     print(f'Ofertas del dia: {len(listOffers)}')
                     return listOffers
@@ -149,11 +147,13 @@ def WebScraperComputrabajo():
 
             page += 1
         driver.close()
-        print('Ofertas extraidas: '+len(listOffers)+ '\nPaginas recorridas: '+page)
-        listOffers=list(filter(None,listOffers))
-        
+        print('Ofertas extraidas: '+len(listOffers) +
+              '\nPaginas recorridas: '+page)
+        listOffers = list(filter(None, listOffers))
+
         return listOffers
     except Exception as e:
         print(e)
-        print('Ofertas extraidas: '+len(listOffers)+ '\nPaginas recorridas: '+page)
+        print('Ofertas extraidas: '+len(listOffers) +
+              '\nPaginas recorridas: '+page)
         return listOffers

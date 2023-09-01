@@ -1,33 +1,31 @@
 import requests
 import json
+from ETL.Classes.Values import *
 
-    
 
 # File where are the offers
 filename = 'ETL\Extraction\offers.json'
 try:
-    with open(filename, 'r',encoding='utf-8') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     if data:
         # Obtener solo las descripciones de las ofertas
-        descriptions = [{"description":offer['description']} for offer in data]
-    
+        descriptions = [{"description": offer['description']}
+                        for offer in data]
+
 except FileNotFoundError:
     print("El archivo no se encontró.")
 except Exception as e:
     print("Error:", e)
 
-# URL del servidor API
-api_url = 'http://localhost:5000/retrieveDescriptions'
-
 try:
-    # 
-    response = requests.post(api_url, json=descriptions)
-    # 
+    #
+    response = requests.post(uri.SkillsTaggerAPI, json=descriptions)
+    #
     if response.status_code == 200:
         result = response.json()
-        
+
         for idx, item in enumerate(data):
             if str(idx) in result:
                 data[idx]["entities"] = result[str(idx)]["entities"]

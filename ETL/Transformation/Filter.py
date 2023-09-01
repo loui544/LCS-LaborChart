@@ -1,18 +1,18 @@
-from pymongo import MongoClient
-from Classes.Values import *
-from datetime import datetime, timedelta
-import pandas as pd
-from sentence_transformers import SentenceTransformer
-import faiss
-import json
+from ETL.Classes.Values import *
 from thefuzz import fuzz
+import json
+import faiss
+from sentence_transformers import SentenceTransformer
+import pandas as pd
+from datetime import datetime, timedelta
+from pymongo import MongoClient
 
 
 def filterLastTwentyDays():
     client = MongoClient(uri.MONGODB)
     try:
-        db = client[mongoDB.LABORCHART]
-        collection = db[mongoCollection.OFFERS]
+        db = client[mongoDB.DataBase]
+        collection = db[mongoDB.Collection]
 
         # Calculates the twenty days ago date
         twentyDaysAgo = datetime.now() - timedelta(days=20)
@@ -20,17 +20,16 @@ def filterLastTwentyDays():
         # Does the Mongo Query to remove the offers before 20 deays ago
         deleteResult = collection.delete_many({"date": {"$lt": twentyDaysAgo}})
         print(deleteResult.deleted_count, "Documentos eliminados")
-    except Exception as e:
-        raise Exception(
+    except Exception:
+        raise ValueError(
             'Error: error al filtrar las ofertas de los últimos 20 días')
 
 
 def filterExactDuplicates():
     client = MongoClient(uri.MONGODB)
-
     # The corresponding query to remove the exact duplicates (exact title and company)
     try:
-        db = client[mongoDB.LABORCHART]
+        db = client[mongoDB.DataBase]
 
         pipeline = [{"$sort": {"_id": 1}},
                     {
@@ -40,11 +39,12 @@ def filterExactDuplicates():
             }
         },
             {"$replaceRoot": {"newRoot": "$doc"}},
-            {"$out": mongoCollection.OFFERS}
+            {"$out": mongoDB.Collection}
         ]
 
-        db[mongoCollection.OFFERS].aggregate(pipeline)
-    except Exception as e:
+        db[mongoDB.Collection].aggregate(pipeline)
+
+    except Exception:
         raise ValueError('Error: error al realizar filtrado exacto')
 
 
@@ -53,9 +53,10 @@ def filterSimilars():
     try:
 
         # gets all offers from MongoDB -> 'Laborchart' DB -> 'Offers' collection without '_id' field
-        db = client[mongoDB.LABORCHART]
-        collection = db[mongoCollection.OFFERS]
+        db = client[mongoDB.DataBase]
+        collection = db[mongoDB.Collection]
         offers = collection.find({}, {'_id': False})
+        client.close()
 
         # Converts to dataframe and concatenates title and company
         offers = pd.DataFrame(offers)
@@ -112,7 +113,7 @@ def filterSimilars():
         return list(filter(lambda item: pd.to_datetime(
             int(item['date']), utc=True, unit='ms') == datetime.now(), offers))
 
-    except Exception as e:
+    except Exception:
         raise ValueError('Error: error al realizar el filtrado de por PQ')
 
 
@@ -125,4 +126,4 @@ def filterOffers():
         raise ValueError(e)
 
 
-filterOffers()
+filterExactDuplicates()

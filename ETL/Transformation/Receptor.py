@@ -2,8 +2,8 @@ import pika
 from pymongo import MongoClient
 import json
 from datetime import datetime
-from Classes.Values import *
-from Classes.Values import queue as q
+from ETL.Classes.Values import *
+from ETL.Classes.Values import queue as q
 
 
 def receiveList():
@@ -36,15 +36,15 @@ def receiveList():
         else:
             raise ValueError('Error: No hay lista de ofertas en cola')
     except Exception as e:
-        raise e
+        raise ValueError('Error al conectar con RabbitMQ')
 
 
 def loadMongoDB(offersList):
     client = MongoClient(uri.MONGODB)
     try:
 
-        db = client[mongoDB.LABORCHART]
-        collection = db[mongoCollection.OFFERS]
+        db = client[mongoDB.DataBase]
+        collection = db[mongoDB.Collection]
 
         # Functions that converts 'date' string field to date type field
         def convertDateType(item): return {

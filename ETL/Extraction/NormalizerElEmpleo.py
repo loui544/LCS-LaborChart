@@ -1,11 +1,11 @@
-from Classes.RawOffer import rawOffer
+from ETL.Classes.RawOffer import rawOffer
 from statistics import mean
 import pika
 import re
 import json
-from Classes.Values import *
+from ETL.Classes.Values import *
 
-from Classes.Enums import educationLevel, contractType
+from ETL.Classes.Enums import educationLevel, contractType
 
 # Elempleo education level dict
 elempleoEducationLevels = {
