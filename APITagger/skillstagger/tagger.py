@@ -4,13 +4,6 @@ from transformers import AutoTokenizer, TFAutoModelForTokenClassification, pipel
 from skillstagger.utilis import ner_cleaning
 
 
-def removeKeys(entity):
-    entity.pop('index', None)
-    entity.pop('start', None)
-    entity.pop('end', None)
-    return entity
-
-
 def descriptionsResult(offersDescriptions):
 
     # Load Model and Instantiate Token Classification Pipeline
@@ -42,7 +35,7 @@ def descriptionsResult(offersDescriptions):
     # Dump labeled entities into a Json file
     result = {
         i: {
-            "entities": list(map(removeKeys, entities))
+            "entities": entities
         }
         for i, entities in
         enumerate(labeledEntities)

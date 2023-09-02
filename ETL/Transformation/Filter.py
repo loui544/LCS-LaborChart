@@ -4,25 +4,9 @@ import json
 import faiss
 from sentence_transformers import SentenceTransformer
 import pandas as pd
-from datetime import datetime, timedelta
 from pymongo import MongoClient
-
-
-def filterLastTwentyDays():
-    client = MongoClient(uri.MONGODB)
-    try:
-        db = client[mongoDB.DataBase]
-        collection = db[mongoDB.Collection]
-
-        # Calculates the twenty days ago date
-        twentyDaysAgo = datetime.now() - timedelta(days=20)
-
-        # Does the Mongo Query to remove the offers before 20 deays ago
-        deleteResult = collection.delete_many({"date": {"$lt": twentyDaysAgo}})
-        print(deleteResult.deleted_count, "Documentos eliminados")
-    except Exception:
-        raise ValueError(
-            'Error: error al filtrar las ofertas de los últimos 20 días')
+from ETL.Config import *
+import datetime
 
 
 def filterExactDuplicates():

@@ -22,42 +22,42 @@
         "entities": [
             {
                 "entity": "competencia-digital",
-                "score": 0.6014829874038696,
+                "score": 0.6014826893806458,
                 "word": "Infraestructura"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.8195828795433044,
+                "score": 0.819582998752594,
                 "word": "Servidores Ompremise"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.8313010931015015,
+                "score": 0.8313009738922119,
                 "word": "AWS"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.7733463644981384,
+                "score": 0.7733465433120728,
                 "word": "Windows Server"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.686765730381012,
+                "score": 0.6867657899856567,
                 "word": "Linux Centos"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.6510505080223083,
+                "score": 0.6510506868362427,
                 "word": "ubunto"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.7206663489341736,
+                "score": 0.7206665277481079,
                 "word": "Open Source"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.5660687685012817,
+                "score": 0.5660688877105713,
                 "word": "File Server"
             }
         ]
@@ -74,7 +74,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.7979852557182312,
+                "score": 0.7979851961135864,
                 "word": "manejo de instrumentos de medicion"
             }
         ]
@@ -91,7 +91,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.6963041424751282,
+                "score": 0.6963045001029968,
                 "word": "Dermatología Cosmética"
             }
         ]
@@ -100,7 +100,7 @@
         "title": "Agentes chat / servicio al cliente / estabilidad / proyección laboral / horarios flexibles",
         "company": "Importante empresa del sector",
         "description": "Organizacion solida del sector de contact center, esta en busqueda de personal con disponibilidad inmediata de contratación, que cuente como mínimo con bachilleres culminado al grado 11 claramente si cuentan con técnicos tecnólogos estudiantes profesionales, pueden aplicar y 6 meses de experiencia en la parte de servicio al cliente presencial o por call certificable.  Contarán con una excelente estabilidad laboral, contrato a termino indefinido, EPS, ARL prestaciones de ley, fondo de pensiones y cesantias, plan carrera, plan de crecimiento corporativo, beneficios para los mejores agentes, salario base garantizado, de 1160000 más variable de incluso 30% por servicio al cliente, auxiliio de transporte, capacitación dentro de contrato, claramente remunerada, campaña presencial, y no se validan reportes de riesgo.  No pierdas la oportunidad de crecimiento laboral y profesional, postulate ya!!!",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 1,
         "contract": "Indefinido",
@@ -108,7 +108,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.5491147637367249,
+                "score": 0.5491144061088562,
                 "word": "servicio"
             }
         ]
@@ -117,7 +117,7 @@
         "title": "Banco Nacional/ Contrato Indefinido 1 mes de experiencia en ventas o servicio al cliente",
         "company": "Importante empresa del sector",
         "description": "Buscamos asesores comerciales para línea de ventas de créditos preaprobados, personal con 1 meses de experiencia en ventas intangibles o tangibles o en callcenter por call center o de manera Presencial.  OFERTA LABORAL:  Salario: MLV + comisiones desde $400.000 hasta 4.000.000 + auxilio de transporte + Prestaciones de ley.  Horario: lunes a sábado 8:00 am – 8:00 pm (turnos rotativo 8 horas diarias, asegurando las 48 horas semanales de acuerdo con la malla asignada). se descansan Domingos y festivos.  Funciones: Llamar a las personas de las empresas afiliadas del Banco para cerrar la venta( Creditos preaprobado).  ¿Qué te brindamos?  - Estabilidad laboral - Plan carrera para que puedas crecer dentro de nuestra compañía. - Múltiples descuentos en universidades y diferentes entidades.  Si cumples con el perfil aplica tu hoja de vida y déjanos tu número para contactarte.   ¿Qué esperas para unirte a este gran equipo?",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 1,
         "contract": "Por obra",
@@ -125,7 +125,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.542199969291687,
+                "score": 0.5421998500823975,
                 "word": "intangibles"
             }
         ]
@@ -142,7 +142,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.6273543238639832,
+                "score": 0.6273548007011414,
                 "word": "Cosmética"
             }
         ]
@@ -159,7 +159,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.6273543238639832,
+                "score": 0.6273548007011414,
                 "word": "Cosmética"
             }
         ]
@@ -168,7 +168,7 @@
         "title": "Conductor",
         "company": "Mectronics",
         "description": "En Mectronics, queremos el mejor talento, por eso nos encontramos en la búsqueda de un Conductor.  Bachiller o Técnico en Logística y/o carreras afines  Experiencia de dos años como Conductor de vehículos para transporte de mercancía o repuestos.  Contrato: Directamente con la compañía a termino indefinido  Salario: 1.314.000 + aux de transporte y prestaciones de ley.  Horarios: 7:00 a 5:00 y sábados hasta las 2:00  Lugar de trabajo: Bogotá  Cumplir el 100% de los requisitos  ¡TE ESPERAMOS!",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 2,
         "contract": "Indefinido",
@@ -198,7 +198,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.4909909665584564,
+                "score": 0.4909910261631012,
                 "word": "servicio"
             }
         ]
@@ -215,17 +215,17 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.6222589612007141,
+                "score": 0.622259259223938,
                 "word": "instalación de equipo eléctrico"
             },
             {
                 "entity": "competencia-tecnica",
-                "score": 0.8101913928985596,
+                "score": 0.81019127368927,
                 "word": "conocimiento de lectura de dibujos técnicos"
             },
             {
                 "entity": "competencia-tecnica",
-                "score": 0.8559156656265259,
+                "score": 0.8559157848358154,
                 "word": "manejo de herramientas manuales"
             }
         ]
@@ -242,7 +242,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.49419066309928894,
+                "score": 0.4941905736923218,
                 "word": "servicio"
             }
         ]
@@ -251,7 +251,7 @@
         "title": "Ayudante de obra (bachero",
         "company": "ASERTEMPO COLOMBIA S.A",
         "description": "Importante empresa del sector de construccionn esta en busca de ayudante de obra con minimo 1 año de experiencia certificada contratacion directa con la empresa  Se ofrece salario MLV + aux de transporte + prestaciones de ley + recargos Horarios depende de las obras Contrato Obra o labor, se ofrece estabilidad laboral importante vivir cerca a soacha Haz parte del mejor equipo",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 2,
         "contract": "Por obra",
@@ -270,7 +270,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.46231719851493835,
+                "score": 0.4623168110847473,
                 "word": "comerciales"
             },
             {
@@ -292,17 +292,17 @@
         "entities": [
             {
                 "entity": "competencia-digital",
-                "score": 0.7785686254501343,
+                "score": 0.7785683870315552,
                 "word": "de bases de datos"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.7504843473434448,
+                "score": 0.7504841685295105,
                 "word": "paquete de office"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.8266795873641968,
+                "score": 0.826679527759552,
                 "word": "de ERP"
             }
         ]
@@ -319,7 +319,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.8862018585205078,
+                "score": 0.8862019777297974,
                 "word": "manejo de herramientas para identificar fallas"
             }
         ]
@@ -336,7 +336,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.8862018585205078,
+                "score": 0.8862019777297974,
                 "word": "manejo de herramientas para identificar fallas"
             }
         ]
@@ -356,7 +356,7 @@
         "title": "Montacarguistas con experiencia, parque industrial Terrapuerto vía cota por la 80",
         "company": "ACTIVOS S A S",
         "description": "Importante empresa del sector logístico requiere Montacarguistas con mínimo 1 año de experiencia certificada en montacargas eléctricos o de combustible.  SALARIO ASIGNADO: $ 1.280.637 + prestaciones de ley y horas extras HORARIO DE TRABAJO: lunes a sábado 6 00am a 4:30 pm. (Disponibilidad siempre de horas extras). CONTRATO: obra labor BENEFICIOS: Se cuenta con ruta ida y vuelta desde el portal 80 a la empresa después de firmar contrato. Kilómetro 1.5 vía cota Siberia PARQUE INDUSTRIAL TERRAPUERTO",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 1,
         "contract": "Por obra",
@@ -364,12 +364,12 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.6235554814338684,
+                "score": 0.6235552430152893,
                 "word": "montacargas"
             },
             {
                 "entity": "competencia-tecnica",
-                "score": 0.505677342414856,
+                "score": 0.5056774020195007,
                 "word": "de"
             }
         ]
@@ -430,17 +430,17 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.6482046842575073,
+                "score": 0.6482045650482178,
                 "word": "SERVICIO AL CLIENTE"
             },
             {
                 "entity": "competencia-tecnica",
-                "score": 0.5710983872413635,
+                "score": 0.5710985064506531,
                 "word": "SERVICIO AL CLIENTE"
             },
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.6810755729675293,
+                "score": 0.6810758113861084,
                 "word": "Conciliación"
             }
         ]
@@ -457,12 +457,12 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.8074854612350464,
+                "score": 0.8074856400489807,
                 "word": "seguimiento"
             },
             {
                 "entity": "competencia-tecnica",
-                "score": 0.7962548136711121,
+                "score": 0.7962546944618225,
                 "word": "seguimiento"
             }
         ]
@@ -479,7 +479,7 @@
         "entities": [
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.6260395646095276,
+                "score": 0.6260396838188171,
                 "word": "comunicación"
             }
         ]
@@ -488,7 +488,7 @@
         "title": "Asesores comerciales call center SIN experiencia",
         "company": "COVISIAN COLOMBIA S.A.S",
         "description": "Si actualmente te encuentras en búsqueda de empleo, eres bachiller, cuentas o NO con experiencia laboral y cuentas con toda la actitud y habilidades comerciales esta es tu gran oportunidad de empezar tu vida laboral!!!  *Funciones: Realizar la *VENTA* de planes y portabilidad *vía call center.*  Te ofrecemos: -Pagos mensuales. -Sede de trabajo *inicialmente 100% presencial en Bogotá* cra 29C # 71A- 48 al frente de la estación transmilenio av chile. -Horarios rotativos de *8 horas diarias - 47 semanales* en una franja de Lunes a Viernes de 10:00am a 8:00pm, Sábados de 10:00am a 2:00pm, disponibilidad para laborar Festivos y 1 Domingo al mes *solo en caso de que la campaña lo requiera.* -Salario *básico fijo* de $1.160.000 + comisiones sin techo prestacionales (promedio entre $300.000 a $1.500.000) + auxilio de transporte de $140.606 + todas las prestaciones de ley. -*NO ACEPTAMOS ESTUDIANTES debido a los horarios rotativos que maneja la campaña.  Beneficios!!!: -Plan carrera, estabilidad y crecimiento laboral como analista, formador, coordinador y demás cargos de la operación. -Contrato directo con la empresa COVISIAN, sin temporales. -Aceleradores para que salgas antes de completar tu jornada laboral.  Postúlate ya y nos pondremos en contacto contigo vía WhatsApp para enviarte la información completa y el link de la entrevista virtual PROCESO INMEDIATO!!!",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 0,
         "contract": "Por obra",
@@ -496,7 +496,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.5426734089851379,
+                "score": 0.5426735281944275,
                 "word": "habilidades comerciales"
             }
         ]
@@ -505,7 +505,7 @@
         "title": "Líder de productividad y procesos",
         "company": "IKSO",
         "description": "En IKEA, estamos buscando nuestro líder de productividad y procesos, quien debe garantizar, definir e implementar el correcto flujo de clientes y operativos dentro de la tienda, dimensionando la fuerza laboral que se requiera para estos procesos.  Dentro de tus funciones estarán: -Definir los flujos de operación y atención al cliente para garantizar el customer journey establecido de la compañía para asegurar la experiencia satisfactoria del cliente. -Analizar los flujos de la operación identificando restricciones, recursos y tiempos para implementar los procesos necesarios para que éstos sean costo eficientes. -Definir procesos que garanticen que la información base de la plataforma laboral; horas, ventas y transacciones se cargan y actualizan correctamente para asegurar el acceso a información confiable para la correcta toma de decisiones.  -Gestionar con las áreas y empresas involucradas para asegurar soluciones y mitigar futuros errores, asegurando la confiabilidad y consistencia de los datos.  Requisitos: -Experiencia en Retail. -Experiencia en proyectos de productividad y eficiencia -Experiencia liderando equipos  Contrato directo con la compañía, a termino INDEFINIDO Salario a Convenir",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Profesional Pregrado",
         "experience": 1,
         "contract": "Indefinido",
@@ -549,7 +549,7 @@
         "title": "Asesor/a Servicio al Cliente Call Center",
         "company": "KONECTA",
         "description": "En Konecta no nos quedamos parados, evolucionamos. Vamos un paso adelante y contigo construimos el mejor de los equipos.  TE OFRECEMOS:  - Estabilidad laboral, oportunidad de crecimiento, fondo de empleados y flexibilización de turnos. - Salario: - Salario Básico + Variable por desempeño - Todas las prestaciones de Ley. - Capacitación Presencial paga. - Contratación directa con la compañía - Inicio de proceso inmediato.  REQUISITOS DE LA CAMPAÑA PERFIL:  - Bachiller en Adelante. - Tener experiencia de mínimo 6 meses en Servicio al Cliente presencial o telefónico. - Disponibilidad de Domingo a Domingo en una franja de 7:00 am a 7:00 pm con un día de Descanso. - Disponibilidad para trabajar en Buro 24 (Centro Empresarial Buro 24 - Avenida Calle 24 # 86 – 49) - Nuestro proceso de selección es 100% virtual.  Si tu hoja de vida queda seleccionada revisa tu correo electrónico (también el correo no deseado) donde enviaremos información muy importante que te permitirá avanzar con nuestro proceso.",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 1,
         "contract": "Definido",
@@ -557,7 +557,7 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.6935854554176331,
+                "score": 0.6935858726501465,
                 "word": "Servicio al Cliente"
             }
         ]
@@ -566,7 +566,7 @@
         "title": "Asesores Comerciales / Representantes de Ventas/ Horarios Flexibles (casa)",
         "company": "Importante empresa del sector",
         "description": "Empresa reconocida y líder en la prestación de servicios médicos a domicilio ha creado una oportunidad de negocio para toda persona que quiera generar calidad de vida. Actualmente requerimos Ejecutivos Comerciales con mínimo 6 meses de experiencia en ventas de productos tangibles o Intangibles.  Queremos que te unas a nuestra fuerza comercial y te conviertas en un gran empresario, te brindamos excelentes comodidades y grandes beneficios para inicies una gran trayectoria de independencia financiera y manejo y control del tiempo, podrás tener flexibilidad horaria, permitiendo tener un equilibrio perfecto entre tu vida laboral y personal.  ¿Has soñado con tener libertad financiera?  ¿Poder obtener altos ingresos sin tener que someterte a largas jornadas de trabajo?  ¿Disfrutar y compartir con tu familia y hacer todo lo que te gusta cuando lo deseas?  Te ofrecemos increíbles beneficios que estamos seguros te van a gustar:  - Bonos de arranque garantizados a partir del 1 mes aproximadamente desde $400.000 + comisiones sin límite y Pagos Quincenales.  - La tabla de comisiones más alta del mercado, por cada afiliación que realizas, no hay piso, no hay techo y te pagamos desde la primera afiliación. 2 ventas diarias trabajando de lunes a viernes te garantizan un ingreso mínimo de $ 2.000.000  - Flexibilidad horaria total, lo que te permite tener un equilibrio perfecto entre tu vida laboral y personal.  - Programa de premios e incentivos semanales que te permiten aumentar ganancias.  - Capacitación, formación y entrenamiento constantes y gratuitos.  - Herramientas de trabajo ilimitadas y sin ningún costo (papelería, POP, etc.).  - Viajas de manera gratuita todos los años a un destino internacional para que puedas vivir nuevas experiencias en increíbles lugares.  - Puedes trabajar donde desees, puedes hacer uso de nuestras oficinas, salas de telemercadeo, trabajar de manera externa o por qué no, desde la comodidad de tu hogar.  - Tendrás el servicio de atención medica domiciliaria número uno del país de manera gratuita y grandes beneficios para tu familia.  - Nunca estarás solo, nuestro compromiso es darte acompañamiento constante y ayudarte a cumplir todas tus metas.  - Posibilidad de tener coexistencia de contratos de trabajo (Sigue laborando en la empresa en la que estas y utiliza nuestro modelo para generar ingresos extra).  - Proceso de selección corto y con respuesta inmediata (las plataformas de gestión son 100% digitales).  ¿Aceptas el reto de pertenecer a una de las empresas más grandes y con más reconocimiento del país? ¿Estás listo para cambiar tu vida y lograr todo lo que siempre has deseado?  No lo dudes, pronto me comunicare contigo.",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 1,
         "contract": "Prestación de servicios",
@@ -585,7 +585,7 @@
         "entities": [
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.66128009557724,
+                "score": 0.6612799763679504,
                 "word": "comunicación con"
             }
         ]
@@ -602,7 +602,7 @@
         "entities": [
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.6369917392730713,
+                "score": 0.6369916796684265,
                 "word": "comunicación con las"
             }
         ]
@@ -619,7 +619,7 @@
         "entities": [
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.6345937252044678,
+                "score": 0.6345942616462708,
                 "word": "comunicación con las"
             }
         ]
@@ -647,7 +647,7 @@
         "entities": [
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.6369917392730713,
+                "score": 0.6369916796684265,
                 "word": "comunicación con las"
             }
         ]
@@ -664,7 +664,7 @@
         "entities": [
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.6369917392730713,
+                "score": 0.6369916796684265,
                 "word": "comunicación con las"
             }
         ]
@@ -697,7 +697,7 @@
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.8266741633415222,
+                "score": 0.8266740441322327,
                 "word": "PowerBi"
             },
             {
@@ -707,7 +707,7 @@
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.7628682255744934,
+                "score": 0.7628679871559143,
                 "word": "bases de datos"
             },
             {
@@ -721,7 +721,7 @@
         "title": "Backoffice / Validador / Contrato a termino indefinido",
         "company": "ATENTO S.A.",
         "description": "Importante multinacional requiere para su equipo de trabajo  PERFIL: Técnicos, Tecnólogos o estudiantes de tercer semestre en carreras administrativas, para el cargo de Back Office,  EXPERIENCIA: Mínima de 6 meses en servicio servicio al cliente  SALARIO: SMLV + VARIABLE x PQR TRAMITADAS $500.000 + SUB DE TRANSPORTE + TODO LO DE LEY  ¡Contrato Indefinido - Trabajo 100% presencial en la ciudad de Bogotá!  ¡Nos comprometemos a brindarte excelentes oportunidades!",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Técnico",
         "experience": 1,
         "contract": "Por obra",
@@ -729,12 +729,12 @@
         "entities": [
             {
                 "entity": "competencia-digital",
-                "score": 0.6574146747589111,
+                "score": 0.6574147939682007,
                 "word": "Back Office"
             },
             {
                 "entity": "competencia-tecnica",
-                "score": 0.4974570870399475,
+                "score": 0.4974573254585266,
                 "word": "cliente"
             }
         ]
@@ -751,7 +751,7 @@
         "entities": [
             {
                 "entity": "competencia-socioemocional",
-                "score": 0.5706700086593628,
+                "score": 0.5706698894500732,
                 "word": "ATENCION"
             }
         ]
@@ -760,7 +760,7 @@
         "title": "Gran Convocatoria Operarios De Producción",
         "company": "Eficacia",
         "description": "Reconocida empresa requiere para su equipo de trabajo Bachilleres, con experiencia mínima de 5 meses como operarios de Producción certificables, para laborar de lunes a sábados y dos domingos al mes turnos rotativos de 8 horas de 6: Am a 2Pm, 2Pm a 10Pm y 10Pm a 6Am. Funciones básicas a realizar manejo de materia prima, hornos, amasado, mezcla, manejo de molinos, envasado, cocción, manejo de hormadoras; funciones propias de operario de producción en alimentos Salario básico de $1.160.000 + $140.000 De auxilio legal de transportes + Desayuno y onces + Recargos que se generen + Todas las prestaciones de Ley (Se labora por los lados del Ricaurte)",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 0,
         "contract": "Por obra",
@@ -771,7 +771,7 @@
         "title": "Gran Convocatoria Operarios De Producción",
         "company": "Eficacia",
         "description": "Reconocida empresa requiere para su equipo de trabajo Bachilleres, con experiencia mínima de 5 meses como operarios de Producción certificables, para laborar de lunes a sábados y dos domingos al mes turnos rotativos de 8 horas de 6: Am a 2Pm, 2Pm a 10Pm y 10Pm a 6Am. Funciones básicas a realizar manejo de materia prima, hornos, amasado, mezcla, manejo de molinos, envasado, cocción, manejo de hormadoras; funciones propias de operario de producción en alimentos Salario básico de $1.160.000 + $140.000 De auxilio legal de transportes + Desayuno y onces + Recargos que se generen + Todas las prestaciones de Ley (Se labora por los lados del Ricaurte)",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Bachillerato",
         "experience": 0,
         "contract": "Por obra",
@@ -782,7 +782,7 @@
         "title": "Asesor Servicio al Cliente",
         "company": "Atlantic Quantum Innovations",
         "description": "¿Buscas crecimiento profesional y/o personal, estabilidad laboral, buen ambiente de trabajo y excelentes beneficios? En Atlantic apoyamos tus ganas de crecer.  Aplica a esta oferta de servicio al cliente en área de telecomunicaciones y sé parte de nuestra familia.  Buscamos asesores con experiencia 100% servicio al cliente Presencial o Call Center con disponibilidad de tiempo completo.  ¿Qué te ofrecemos?  - Franja horaria de 6:00AM a 10:00PM con turnos rotativos de 8 horas díarias. - SMLV + Variable de $168.000 + Prestaciones de Ley + Aux. de Transporte y Comisiones de $250.0000 - Contrato directamente con la compañía.  ¿Cuáles son los requisitos?  - Experiencia mínima de 12 meses en servicio al cliente, soporte técnico o área Comercial 100% certificada. - Ser bachilleres, técnicos, tecnólogos o estudiantes de 3 semestre en adelante. - Disponibilidad de tiempo completo. - Vivir en Bogotá o Soacha.  ¡No lo pienses más y haz parte de nuestra familia, te esperamos!",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Técnico",
         "experience": 1,
         "contract": "Por obra",
@@ -790,12 +790,12 @@
         "entities": [
             {
                 "entity": "competencia-tecnica",
-                "score": 0.506161093711853,
+                "score": 0.5061610341072083,
                 "word": "servicio"
             },
             {
                 "entity": "competencia-tecnica",
-                "score": 0.5913554430007935,
+                "score": 0.5913549065589905,
                 "word": "servicio"
             }
         ]
@@ -812,17 +812,17 @@
         "entities": [
             {
                 "entity": "competencia-digital",
-                "score": 0.5590028166770935,
+                "score": 0.5590024590492249,
                 "word": "WMS"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.6572622060775757,
+                "score": 0.6572616696357727,
                 "word": "JDE"
             },
             {
                 "entity": "competencia-digital",
-                "score": 0.873920738697052,
+                "score": 0.8739208579063416,
                 "word": "SAP"
             }
         ]
@@ -856,7 +856,7 @@
         "entities": [
             {
                 "entity": "competencia-digital",
-                "score": 0.893869936466217,
+                "score": 0.8938699960708618,
                 "word": "aplicativo SAP"
             }
         ]
@@ -865,7 +865,7 @@
         "title": "Ejecutivo/a call center con experiencia en ventas financieras/ Bank at phone",
         "company": "Eficacia",
         "description": "En EFICACIA S.A te estamos buscando.   Somos una compañía enfocada en contratar el mejor talento comercial y operativo del país. En esta oportunidad importante entidad bancaria con presencia a nivel internacional solicita para su equipo de trabajo Asesor de Call center con experiencia Mínima de 1 año, en el sector financiero, pensiones y/o seguros. En en la ciudad de Bogotá.  Requisitos:  . Técnico tecnólogo o profesional de carreras administrativas financieras o afines, Mínima de 1 año como asesor comercial de call center, en el sector financiero, pensiones y/o seguros.  Condiciones:  - Salario de $1.160.000+ comisiones entre 0 y 7 Millones + Prestaciones de ley.  HORARIO: Lunes a Viernes de 7:00 am a 5:00 pm  Beneficios  - Oportunidades de crecimiento. - Fondo de empleados con créditos de desembolso inmediato - Paso a contrato indefinido por desempeño. - Familia: Nos encanta que compartas con ellos. Por eso, tenemos proyectos de vivienda, escuela de padres, entre otros. - Educación: Promovemos el desarrollo y el aprendizaje por medio de convenios educativos, de idiomas y convenio SENA - Recreación: Sabemos la importancia de generar espacios para compartir en familia, por lo tanto contamos con convenios en parques y agencias de turismo. Y muchos beneficios más, Trabaja con nosotros y conócelos.  Trabaja en una empresa que piensa en ti y en tu familia.",
-        "salary": "A convenir",
+        "salary": null,
         "education": "Técnico",
         "experience": 1,
         "contract": "Por obra",

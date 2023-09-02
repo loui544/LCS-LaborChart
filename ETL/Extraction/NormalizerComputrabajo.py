@@ -1,4 +1,5 @@
 from ETL.Classes.RawOffer import rawOffer
+from ETL.Config import *
 from statistics import mean
 from datetime import datetime
 import re
@@ -30,7 +31,7 @@ computrabajoContracts = {
 
 def CalculateSalary(salary):
     if 'convenir' in salary:
-        salary = 'A convenir'
+        salary = None
         return salary
     calculatedSalary = int(''.join(filter(str.isdigit, salary)))
     return calculatedSalary
@@ -92,12 +93,12 @@ def sendList(offers):
             pika.ConnectionParameters(uri.RABBITMQ))
         channel = connection.channel()
 
-        channel.queue_declare(queue=queue.COMPUTRABAJO)
+        channel.queue_declare(queue=rabbitQueue.COMPUTRABAJO)
 
         message = json.dumps([offer.__dict__ for offer in offers])
 
         channel.basic_publish(
-            exchange='', routing_key=queue.COMPUTRABAJO, body=message)
+            exchange='', routing_key=rabbitQueue.COMPUTRABAJO, body=message)
         connection.close()
     except Exception as e:
         raise e
@@ -106,6 +107,11 @@ def sendList(offers):
 
 
 def OffersNormalizer(offers):
+
+    offers = json.loads(offers)
+    offers = [rawOffer(off[offer.TITLE], off[offer.COMPANY], off[offer.DESCRIPTION], off[offer.SALARY],
+                       off[offer.EDUCATION], off[offer.EXPERIENCE], off[offer.CONTRACT], off[offer.DATE])for off in offers]
+
     for offer in offers:
         try:
             offer.salary = CalculateSalary(offer.salary)

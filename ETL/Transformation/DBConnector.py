@@ -1,37 +1,28 @@
 from elasticsearch import Elasticsearch
-from elasticsearch.helpers import bulk
+from elasticsearch.helpers import bulk, BulkIndexError
 from ETL.Classes.Values import *
+from ETL.Config import *
+import json
 
-es = Elasticsearch(uri.ElasticSearch)
 
-docs = [
-    {
-        'title': 'titulo 3',
-        'company': 'empresa 3',
-        'description': 'descripcion 3',
-        'salary': 200000
-    },
-    {
-        'title': 'titulo 4',
-        'company': 'empresa 4',
-        'description': 'descripcion 4',
-        'salary': 200000
-    },
-    {
-        'title': 'titulo 5',
-        'company': 'empresa 5',
-        'description': 'descripcion 5',
-        'salary': 200000
-    },
-]
+def SendToElasticSearch(offers):
+    try:
+        es = Elasticsearch(uri.ElasticSearch)
+        # offers = json.loads(offers)
+        offers = [{'_index': 'laborchart', '_source': offer}
+                  for offer in offers]
+        success, _ = bulk(es, offers)
+        print(success, ' ofertas cargadas exitosamente')
 
-docs = [{'_index': 'sample', '_source': doc} for doc in docs]
+    except BulkIndexError as e:
+        raise ValueError('Error: ', e)
 
-success, _ = bulk(es, docs)
 
-print(success)
-
-resp = es.search(index='sample', query={'match_all': {}})
-print('Hits: ', resp['hits']['total']['value'])
-for hit in resp['hits']['hits']:
-    print(hit['_source'])
+try:
+    with open('ETL\Transformation\desc.json', 'r', encoding='utf-8') as file:
+        offers = json.load(file)
+    SendToElasticSearch(offers)
+except FileNotFoundError:
+    print('Archivo no encontrado')
+except Exception as e:
+    print('Error: ', e)

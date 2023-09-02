@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 from ETL.Classes.Values import *
 from ETL.Classes.Values import queue as q
+from ETL.Config import *
 
 
 def receiveList():

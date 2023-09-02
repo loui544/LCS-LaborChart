@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from Classes.Values import *
+from ETL.Config import *
+from ETL.Classes.Values import *
 import time
 import random
 from Classes.RawOffer import rawOffer
@@ -106,7 +107,7 @@ def WebScraperComputrabajo():
         page = 1
         for tab in range(300):
             # Set the url, adding the page to start
-            driver.get(url.COMPUTRABAJO+str(page))
+            driver.get(pageURL.COMPUTRABAJO+str(page))
             # Get box_offer class elements
             box_offers = driver.find_elements(By.CLASS_NAME, 'box_offer')
             ids = []

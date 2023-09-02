@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
+from ETL.Config import *
 from ETL.Classes.Values import *
 import time
 import random
@@ -73,7 +74,7 @@ def webScraperElempleo():
     try:
         # initialize browser
         driver = webdriver.Chrome(options=options)
-        driver.get(url.ELEMPLEO)
+        driver.get(pageURL.ELEMPLEO)
         time.sleep(randomSleep())
         WebDriverWait(driver, 3).until(ec.element_to_be_clickable(
             (By.XPATH, '/html/body/div[8]/div[3]/div[1]/div[3]')))
@@ -105,9 +106,6 @@ def webScraperElempleo():
             driver.close()
             driver.switch_to.window(openTabs[0])
             time.sleep(randomSleep())
-
-        for div in listOffers:
-            print(div)
 
         driver.close()
 

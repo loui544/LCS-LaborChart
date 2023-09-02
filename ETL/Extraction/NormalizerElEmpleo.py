@@ -1,4 +1,5 @@
 from ETL.Classes.RawOffer import rawOffer
+from ETL.Config import *
 from statistics import mean
 import pika
 import re
@@ -39,7 +40,7 @@ def calculateSalary(salary):
     numbers = re.findall(r'\d+\.\d+|\d+', salary.replace(',', '.'))
     numbered = [float(number) for number in numbers]
     if not numbered:
-        salary = 'A convenir'
+        salary = None
     else:
         calculatedSalary = int(mean(numbered)*1000000)
         salary = calculatedSalary
@@ -85,12 +86,12 @@ def sendList(offers):
             pika.ConnectionParameters(uri.RABBITMQ))
         channel = connection.channel()
 
-        channel.queue_declare(queue=queue.ELEMPLEO)
+        channel.queue_declare(queue=rabbitQueue.ELEMPLEO)
 
         message = json.dumps([offer.__dict__ for offer in offers])
 
         channel.basic_publish(
-            exchange='', routing_key=queue.ELEMPLEO, body=message)
+            exchange='', routing_key=rabbitQueue.ELEMPLEO, body=message)
         connection.close()
     except Exception as e:
         raise e
@@ -100,18 +101,24 @@ def sendList(offers):
 
 
 def offersNormalizer(offers):
-    for offer in offers:
+
+    # offers = json.loads(offers)
+    # offers = [rawOffer(off[offer.TITLE], off[offer.COMPANY], off[offer.DESCRIPTION], off[offer.SALARY],
+    #                   off[offer.EDUCATION], off[offer.EXPERIENCE], off[offer.CONTRACT], off[offer.DATE])for off in offers]
+
+    for off in offers:
         try:
-            offer.description = cleanDescription(offer.description)
-            offer.salary = calculateSalary(offer.salary)
-            offer.experience = transformExp(offer.experience)
-            offer.education = standardizeEducationLevel(offer.education)
-            offer.contract = standardizeContractType(offer.contract)
+            off.description = cleanDescription(off.description)
+            off.salary = calculateSalary(off.salary)
+            off.experience = transformExp(off.experience)
+            off.education = standardizeEducationLevel(off.education)
+            off.contract = standardizeContractType(off.contract)
         except Exception as e:
             raise ValueError('Error: ' + str(e))
     try:
-        sendList(offers)
-        return '\nLista de ofertas enviada correctamente a la cola de RabbitMQ\n'
+        # sendList(offers)
+        # return '\nLista de ofertas enviada correctamente a la cola de RabbitMQ\n'
+        return offers
     except Exception as e:
         raise ValueError(
             'Error al enviar las ofertas a la cola de RabbitMQ:' + str(e))
