@@ -154,6 +154,7 @@ def WebScraperComputrabajo():
         
         return listOffers
     except Exception as e:
+        driver.close()
         print(e)
-        print('Ofertas extraidas: '+len(listOffers)+ '\nPaginas recorridas: '+page)
+        print(f'Ofertas del dia: {len(listOffers)}')
         return listOffers
