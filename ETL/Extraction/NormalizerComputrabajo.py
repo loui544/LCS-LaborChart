@@ -32,12 +32,20 @@ computrabajoContracts = {
 def CalculateSalary(salary):
     try:
         if 'convenir' in salary:
+<<<<<<< Updated upstream:ETL/Extraction/NormalizerComputrabajo.py
             salary = None
+=======
+            salary = -1 
+>>>>>>> Stashed changes:NormalizerComputrabajo.py
             return salary
         calculatedSalary = int(''.join(filter(str.isdigit, salary)))/100
         return calculatedSalary
     except:
+<<<<<<< Updated upstream:ETL/Extraction/NormalizerComputrabajo.py
         salary = None
+=======
+        salary =-1 
+>>>>>>> Stashed changes:NormalizerComputrabajo.py
         return salary
 
 
