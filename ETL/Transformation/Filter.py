@@ -6,7 +6,6 @@ from sentence_transformers import SentenceTransformer
 import pandas as pd
 from pymongo import MongoClient
 from ETL.Config import *
-import datetime
 
 
 def filterExactDuplicates():
@@ -29,7 +28,7 @@ def filterExactDuplicates():
         db[mongoDB.Collection].aggregate(pipeline)
 
     except Exception:
-        raise ValueError('Error: error al realizar filtrado exacto')
+        raise ValueError('Error: error trying to do exact offers filtering')
 
 
 def filterSimilars():
@@ -40,10 +39,12 @@ def filterSimilars():
         db = client[mongoDB.DataBase]
         collection = db[mongoDB.Collection]
         offers = collection.find({}, {'_id': False})
-        client.close()
 
         # Converts to dataframe and concatenates title and company
         offers = pd.DataFrame(offers)
+
+        client.close()
+
         pd.set_option('display.max_columns', None)
         titlesCompanies = (offers['title'] + ' ' + offers['company']).tolist()
 
@@ -55,7 +56,7 @@ def filterSimilars():
         # setting parameters for Product Quantization model
         vectorsDimensionality = offersEmbeddings.shape[1]
         quantizier = faiss.IndexFlatL2(vectorsDimensionality)
-        index = faiss.IndexIVFPQ(quantizier, vectorsDimensionality, faissParameters.VORONOICELLS,
+        index = faiss.IndexIVFPQ(quantizier, vectorsDimensionality, faissParameters.CLUSTERS,
                                  faissParameters.CENTROIDIDS, faissParameters.CENTROIDBITS)
 
         # Training and preparing model for production
@@ -63,51 +64,64 @@ def filterSimilars():
         index.add(offersEmbeddings)
         index.nprobe = faissParameters.SEARCHSCOPE
 
-        # For each offer title-company, find the 5 nearest Indexes
         deleted = 0
-        print('Inicialmente hay: ', offers.shape)
-        duplicates = []
-        for titleCompany in titlesCompanies:
+        print(f'\nInitial quantity of offers: {offers.shape[0]}\n')
+
+        skip = []
+        # For each offer title-company, find the 5 nearest Indexes
+        for i, titleCompany in enumerate(titlesCompanies):
             D, nearestIndexes = index.search(model.encode([titleCompany]),
                                              faissParameters.NEAREST)
 
-            # Deletes the first index, that is the same offer to find
             nearestIndexes = nearestIndexes[0]
-            currentIndex = nearestIndexes[0]
-            nearestIndexes = nearestIndexes[1:]
-            # For each offers title- company, compares the string similarity
-            for nearIndex in [x for x in nearestIndexes if x not in duplicates]:
-                print(titleCompany + ' <-> ' + titlesCompanies[nearIndex])
-                print(fuzz.ratio(titleCompany, titlesCompanies[nearIndex]))
-                # If offer's title-companies have a pecentage equal or higher of similarity, the second one is deleted
-                if fuzz.ratio(titleCompany, titlesCompanies[nearIndex]) >= 95:
-                    offers = offers.drop(nearIndex)
-                    duplicates.append(currentIndex)
-                    deleted += 1
-            print('\n')
-        print('Eliminados: ', deleted)
+            nearestIndexes = [
+                near for near in nearestIndexes if near != i and near not in skip]
+            if nearestIndexes:
+                print(f'\nNear indexes found for index #{i}')
+                # For each offers title-company, compares the string similarity percentage
+                for nearIndex in nearestIndexes:
+                    print(
+                        f'({i}) {titleCompany} <-> ({nearIndex}) {titlesCompanies[nearIndex]}')
+                    print(
+                        f"Similarity percentage: {fuzz.ratio(titleCompany, titlesCompanies[nearIndex])}%")
+                    # If offer's title-companies have a pecentage equal or higher of similarity, the second one is deleted
+                    if fuzz.ratio(titleCompany, titlesCompanies[nearIndex]) >= 95:
+                        offers = offers.drop(nearIndex)
+                        skip.append(nearIndex)
+                        deleted += 1
+                    skip.append(i)
+            else:
+                print(f'\nNo near indexes found for index #{i}')
 
-        print('Quedaron: ', offers.shape)
+        print(f'\nDeleted: {deleted}')
+        print(f'Offers left after filter: {offers.shape[0]}\n')
 
         # Converts again into JSON list the offers dataframe
-        offers = json.loads(offers.to_json(
+        return json.loads(offers.to_json(
             orient='records', force_ascii=False))
 
-        # Returns just the current day offers
-        return list(filter(lambda item: pd.to_datetime(
-            int(item['date']), utc=True, unit='ms') == datetime.now(), offers))
-
     except Exception:
-        raise ValueError('Error: error al realizar el filtrado de por PQ')
+        raise ValueError('Error: error trying to filter by PQ technic')
+
+
+def deleteOffers():
+    client = MongoClient(uri.MONGODB)
+    try:
+        db = client[mongoDB.DataBase]
+        collection = db[mongoDB.Collection]
+        # Delete all the current offers in the MongoDB collection
+        collection.delete_many({})
+        client.close()
+    except Exception as e:
+        raise ValueError('Error: error trying to delete offers from MongoDB')
 
 
 def filterOffers():
     try:
-        # filterLastTwentyDays()
         filterExactDuplicates()
-        return filterSimilars()
+        filtered = filterSimilars()
+        # TODO quitar o poner comentario cuando sea necesario
+        deleteOffers()
+        return filtered
     except Exception as e:
         raise ValueError(e)
-
-
-filterExactDuplicates()

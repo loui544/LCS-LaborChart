@@ -4,9 +4,8 @@ from statistics import mean
 from datetime import datetime
 import re
 import json
-from Classes.Values import *
+from ETL.Classes.Values import *
 import pika
-
 from ETL.Classes.Enums import educationLevel, contractType
 
 computrabajoEducationLevels = {
@@ -29,7 +28,7 @@ computrabajoContracts = {
 # Extract the float number of the salary in the offer
 
 
-def CalculateSalary(salary):
+def calculateSalary(salary):
     try:
         if 'convenir' in salary:
             salary = None
@@ -42,7 +41,7 @@ def CalculateSalary(salary):
 
 
 # Extract the integer nunber of the experience in the offer
-def TransformExp(experience):
+def transformExp(experience):
     if 'mes' in experience:
         experience = 0
         return experience
@@ -57,17 +56,17 @@ def TransformExp(experience):
 # Adjust the date of the offer to the current day
 
 
-def FormatDate(date):
+def formatDate(date):
     try:
         date = datetime.today().strftime('%d-%m-%Y')
         return date
     except Exception as e:
-        raise ValueError('Campo date no es correcta (' + str(e) + ')')
+        raise ValueError(f'Incorrect date field ({e})')
 
 # Standardizes the level of education
 
 
-def StandardizeEducationLevel(education):
+def standardizeEducationLevel(education):
     valid = education.find("Educación mínima:")
     if valid != -1:
         # Extraemos la parte de la cadena después de "Educación mínima:"
@@ -81,7 +80,7 @@ def StandardizeEducationLevel(education):
 # Standardizes the contract type
 
 
-def StandardizeContractType(contract):
+def standardizeContractType(contract):
     for key, value in computrabajoContracts.items():
         if key in contract:
             contract = value
@@ -110,24 +109,19 @@ def sendList(offers):
 # Normalizes Computrabajo offers list
 
 
-def OffersNormalizer(offers):
-
-    offers = json.loads(offers)
-    offers = [rawOffer(off[offer.TITLE], off[offer.COMPANY], off[offer.DESCRIPTION], off[offer.SALARY],
-                       off[offer.EDUCATION], off[offer.EXPERIENCE], off[offer.CONTRACT], off[offer.DATE])for off in offers]
+def offersNormalizer(offers):
 
     for offer in offers:
         try:
-            offer.salary = CalculateSalary(offer.salary)
-            offer.experience = TransformExp(offer.experience)
-            offer.date = FormatDate(offer.date)
-            offer.education = StandardizeEducationLevel(offer.education)
-            offer.contract = StandardizeContractType(offer.contract)
+            offer.salary = calculateSalary(offer.salary)
+            offer.experience = transformExp(offer.experience)
+            offer.date = formatDate(offer.date)
+            offer.education = standardizeEducationLevel(offer.education)
+            offer.contract = standardizeContractType(offer.contract)
         except Exception as e:
             raise ValueError('Error: ' + str(e))
     try:
         sendList(offers)
-        return 'Lista de ofertas enviada correctamente a la cola de RabbitMQ'
+        print('\nOffers sent succesfully to RabbitMQ queue\n')
     except Exception as e:
-        raise ValueError(
-            'Error al enviar las ofertas a la cola de RabbitMQ:' + str(e))
+        raise ValueError(f'Error while trying to send offer to RabbitMQ: {e}')

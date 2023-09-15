@@ -1,20 +1,22 @@
 import requests
-import json
 from ETL.Classes.Values import *
 from ETL.Config import *
+from datetime import datetime
+from pprint import pprint
 
 
-def Client(offers):
+def client(offers):
 
     try:
-        offers = json.loads(offers)
         descriptions = [{"description": offer['description']}
                         for offer in offers]
-        #
+
         response = requests.post(uri.SkillsTaggerAPI, json=descriptions)
-        #
+
         if response.status_code == 200:
 
+            print(
+                f'\nSuccessful request. Status code: {response.status_code}\n')
             result = response.json()
 
             # Removes 'index','start',and 'end' keys
@@ -23,28 +25,16 @@ def Client(offers):
             result = {k: removeKeys(v)
                       for k, v in result.items()}
 
+            # Adds labeled entities to each corresponding offer and convert date format from number to date
             for idx, item in enumerate(offers):
+                item['date'] = datetime.utcfromtimestamp(
+                    item['date']/1000).strftime('%d-%m-%Y')
                 if str(idx) in result:
                     item["entities"] = result[str(idx)]["entities"]
 
             return offers
-            # with open('ETL\Transformation\desc.json', 'w', encoding='utf-8') as desc_file:
-            #    json.dump(offers, desc_file, indent=4, ensure_ascii=False)
-            # print("Respuesta del servidor guardada en 'desc.json'")
         else:
-            raise ValueError("Error en la solicitud. Código de respuesta: ",
-                             response.status_code)
+            raise ValueError(
+                f"Request error. Status code: {response.status_code}")
     except requests.exceptions.RequestException as e:
-        raise ("Error en la conexión:", e)
-
-
-# filename = 'ETL\Extraction\offers.json'
-# try:
-#    with open(filename, 'r', encoding='utf-8') as file:
-#        offers = json.load(file)
-# except FileNotFoundError:
-#    print("El archivo no se encontró.")
-# except Exception as e:
-#    print("Error:", e)
-#
-# Client(offers)
+        raise (f"Connection error: {e}")

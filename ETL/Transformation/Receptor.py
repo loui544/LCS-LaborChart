@@ -2,8 +2,6 @@ import pika
 from pymongo import MongoClient
 import json
 from datetime import datetime
-from ETL.Classes.Values import *
-from ETL.Classes.Values import queue as q
 from ETL.Config import *
 
 
@@ -13,7 +11,7 @@ def receiveList():
             pika.ConnectionParameters(uri.RABBITMQ))
         channel = connection.channel()
 
-        queues = q.QUEUES
+        queues = rabbitQueue.QUEUES
         offersList = []
 
         for queue in queues:
@@ -32,12 +30,12 @@ def receiveList():
         connection.close()
 
         if offersList:
-            print('\nListas de ofertas recibidas de RabbitMQ correctamente\n')
+            print('\nOffers received successfully from RabbitMQ\n')
             return offersList
         else:
-            raise ValueError('Error: No hay lista de ofertas en cola')
+            raise ValueError('Error: No offers available')
     except Exception as e:
-        raise ValueError('Error al conectar con RabbitMQ')
+        raise ValueError('Error while trying to connect to RabbitMQ')
 
 
 def loadMongoDB(offersList):
@@ -56,12 +54,12 @@ def loadMongoDB(offersList):
 
         # Stores offers list into MongoDB collection
         result = collection.insert_many(offersList)
-        print('Documentos insertados: ', len(result.inserted_ids))
+        print('Documents loaded to MongoDB: ', len(result.inserted_ids))
 
         client.close()
     except Exception as e:
         client.close()
-        raise ValueError('Error: no se pudo cargar a MongoDB', e)
+        raise ValueError(f"Couldn't load offers to MongoDB successfully: {e}")
 
 
 def reception():

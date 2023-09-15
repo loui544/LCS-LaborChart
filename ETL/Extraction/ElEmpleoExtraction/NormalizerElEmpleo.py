@@ -102,10 +102,6 @@ def sendList(offers):
 
 def offersNormalizer(offers):
 
-    # offers = json.loads(offers)
-    # offers = [rawOffer(off[offer.TITLE], off[offer.COMPANY], off[offer.DESCRIPTION], off[offer.SALARY],
-    #                   off[offer.EDUCATION], off[offer.EXPERIENCE], off[offer.CONTRACT], off[offer.DATE])for off in offers]
-
     for off in offers:
         try:
             off.description = cleanDescription(off.description)
@@ -114,11 +110,10 @@ def offersNormalizer(offers):
             off.education = standardizeEducationLevel(off.education)
             off.contract = standardizeContractType(off.contract)
         except Exception as e:
-            raise ValueError('Error: ' + str(e))
+            raise ValueError(f'Error: {e}')
     try:
-        # sendList(offers)
-        # return '\nLista de ofertas enviada correctamente a la cola de RabbitMQ\n'
-        return offers
+        sendList(offers)
+        return '\nOffers sent successfully to RabbitMQ queue\n'
     except Exception as e:
         raise ValueError(
-            'Error al enviar las ofertas a la cola de RabbitMQ:' + str(e))
+            f'Error while trying to send offers to RabbitMQ queue: {e}')

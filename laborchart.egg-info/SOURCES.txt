@@ -6,15 +6,12 @@ APITagger/__init__.py
 APITagger/skillstagger/__init__.py
 APITagger/skillstagger/tagger.py
 APITagger/skillstagger/utilis.py
+ETL/Config.py
 ETL/__init__.py
 ETL/Classes/Enums.py
 ETL/Classes/RawOffer.py
 ETL/Classes/Values.py
 ETL/Classes/__init__.py
-ETL/Extraction/NormalizerComputrabajo.py
-ETL/Extraction/NormalizerElEmpleo.py
-ETL/Extraction/WebScraperComputrabajo.py
-ETL/Extraction/WebScraperElEmpleo.py
 ETL/Extraction/__init__.py
 ETL/Transformation/APITaggerClient.py
 ETL/Transformation/DBConnector.py

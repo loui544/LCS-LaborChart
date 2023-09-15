@@ -109,12 +109,16 @@ def webScraperElempleo():
 
         driver.close()
 
-        try:
-            listOffers = list(filter(None, listOffers))
-            print('Ofertas extraídas: ', len(listOffers))
-            return listOffers
-        except Exception as e:
-            raise (ValueError('Error al filtrar ofertas vacías'))
+        print(f"Today's extraction: {len(listOffers)} offers")
+
+        listOffers = list(filter(None, listOffers))
+
+        return listOffers
     except Exception:
-        print('Error producido al relizar la extracción. Se retornan ofertas que se lograron extraer')
+        driver.close()
+
+        print(f"Today's extraction: {len(listOffers)} offers")
+
+        listOffers = list(filter(None, listOffers))
+
         return listOffers

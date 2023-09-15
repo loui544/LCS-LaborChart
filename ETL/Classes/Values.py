@@ -4,19 +4,8 @@ class times:
 
 
 class faissParameters:
-    VORONOICELLS = 50
+    CLUSTERS = 10
     CENTROIDIDS = 8
-    CENTROIDBITS = 6
+    CENTROIDBITS = 2
     SEARCHSCOPE = 5
     NEAREST = 5
-
-
-class offer:
-    TITLE = 'title'
-    COMPANY = 'company'
-    DESCRIPTION = 'description'
-    SALARY = 'salary'
-    EDUCATION = 'education'
-    EXPERIENCE = 'experience'
-    CONTRACT = 'contract'
-    DATE = 'date'

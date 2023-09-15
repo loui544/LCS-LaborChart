@@ -1,10 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from ETL.Config import *
+from ETL.Classes.RawOffer import rawOffer
 from ETL.Classes.Values import *
 import time
 import random
-from Classes.RawOffer import rawOffer
 
 
 # navigation options
@@ -89,7 +89,7 @@ def Offer(box_details, date):
 # Read all the offerts main page
 
 
-def WebScraperComputrabajo():
+def webScraperComputrabajo():
 
     # Page initializer
     try:
@@ -147,15 +147,21 @@ def WebScraperComputrabajo():
             nextButton.click()
 
             page += 1
+
         driver.close()
-        print('Ofertas extraidas: '+len(listOffers) +
-              '\nPaginas recorridas: '+page)
+
+        print("Today's extraction: " + len(listOffers) +
+              ' offers \nPages viewed: '+page)
+
         listOffers = list(filter(None, listOffers))
 
         return listOffers
-    except Exception as e:
+    except Exception:
         driver.close()
-        print(e)
-        print('Ofertas del día: '+len(listOffers) +
-              '\nPaginas recorridas: '+page)
+
+        print("Today´s extraction: " + len(listOffers) +
+              ' offers\nPages viewed: '+page)
+
+        listOffers = list(filter(None, listOffers))
+
         return listOffers

@@ -17,4 +17,4 @@ def retrieveData():
 
 
 if __name__ == '__main__':
-    server.run(debug=True, port=5000)
+    server.run(port=5000)
