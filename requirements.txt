@@ -12,3 +12,5 @@ thefuzz lib
 pymongo lib
 time lib
 requests lib
+dagster lib
+dagster-server lib

@@ -6,8 +6,8 @@ from ETL.Transformation.Receptor import reception
 from ETL.Transformation.Filter import filterOffers
 from ETL.Transformation.APITaggerClient import client
 from ETL.Transformation.DBConnector import sendToElasticSearch
-from dagster import asset
-import pprint
+from dagster import asset, define_asset_job, Definitions, schedule, RunRequest
+from datetime import datetime
 
 
 @asset
@@ -19,7 +19,16 @@ def elempleoExtraction() -> None:
         print(e)
 
 
-@asset(deps=[elempleoExtraction])
+@asset
+def computrabajoExtraction() -> None:
+    try:
+        offers = webScraperComputrabajo()
+        cNormalizer(offers)
+    except Exception as e:
+        print(e)
+
+
+@asset(deps=[elempleoExtraction, computrabajoExtraction])
 def receptor() -> None:
     try:
         reception()
@@ -49,3 +58,16 @@ def elasticConnector(apiClient) -> None:
         sendToElasticSearch(apiClient)
     except Exception as e:
         print(e)
+
+
+allAssetsJob = define_asset_job(name='LaborChartETL')
+
+
+@schedule(job=allAssetsJob, cron_schedule='@daily', execution_timezone='America/Bogota')
+def etlSchedule():
+    return RunRequest(run_key=None, tags={'date': datetime.now().strftime('%d-%m-%Y %H:%M:%S')}, job_name=allAssetsJob.name)
+
+
+defs = Definitions(assets=[elempleoExtraction, computrabajoExtraction, receptor, filter, apiClient, elasticConnector],
+                   schedules=[etlSchedule],
+                   jobs=[allAssetsJob])

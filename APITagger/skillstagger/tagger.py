@@ -1,5 +1,3 @@
-import json
-import numpy as np
 from transformers import AutoTokenizer, TFAutoModelForTokenClassification, pipeline
 from skillstagger.utilis import ner_cleaning
 

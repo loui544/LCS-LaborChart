@@ -6,6 +6,8 @@ APITagger/__init__.py
 APITagger/skillstagger/__init__.py
 APITagger/skillstagger/tagger.py
 APITagger/skillstagger/utilis.py
+Automation/ETLAutomation.py
+Automation/__init__.py
 ETL/Config.py
 ETL/__init__.py
 ETL/Classes/Enums.py
