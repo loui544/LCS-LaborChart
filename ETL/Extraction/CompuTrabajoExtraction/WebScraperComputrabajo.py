@@ -150,18 +150,18 @@ def webScraperComputrabajo():
 
         driver.close()
 
+        listOffers = list(filter(None, listOffers))
+
         print("Today's extraction: " + len(listOffers) +
               ' offers \nPages viewed: '+page)
-
-        listOffers = list(filter(None, listOffers))
 
         return listOffers
     except Exception:
         driver.close()
 
+        listOffers = list(filter(None, listOffers))
+
         print("Today´s extraction: " + len(listOffers) +
               ' offers\nPages viewed: '+page)
-
-        listOffers = list(filter(None, listOffers))
 
         return listOffers

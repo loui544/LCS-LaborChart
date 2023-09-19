@@ -29,17 +29,17 @@ def computrabajoExtraction() -> None:
 
 
 @asset(deps=[elempleoExtraction, computrabajoExtraction])
-def receptor() -> None:
+def receptor():
     try:
-        reception()
+        return reception()
     except Exception as e:
         print(e)
 
 
-@asset(deps=[receptor])
-def filter():
+@asset
+def filter(receptor):
     try:
-        return filterOffers()
+        return filterOffers(receptor)
     except Exception as e:
         print(e)
 

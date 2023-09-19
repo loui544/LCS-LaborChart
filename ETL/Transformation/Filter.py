@@ -4,46 +4,13 @@ import json
 import faiss
 from sentence_transformers import SentenceTransformer
 import pandas as pd
-from pymongo import MongoClient
 from ETL.Config import *
 
 
-def filterExactDuplicates():
-    client = MongoClient(uri.MONGODB)
-    # The corresponding query to remove the exact duplicates (exact title and company)
+def filterSimilars(offers):
     try:
-        db = client[mongoDB.DataBase]
-
-        pipeline = [{"$sort": {"_id": 1}},
-                    {
-            "$group": {
-                "_id": {"title": "$title", "company": "$company"},
-                "doc": {"$first": "$$ROOT"}
-            }
-        },
-            {"$replaceRoot": {"newRoot": "$doc"}},
-            {"$out": mongoDB.Collection}
-        ]
-
-        db[mongoDB.Collection].aggregate(pipeline)
-
-    except Exception:
-        raise ValueError('Error: error trying to do exact offers filtering')
-
-
-def filterSimilars():
-    client = MongoClient(uri.MONGODB)
-    try:
-
-        # gets all offers from MongoDB -> 'Laborchart' DB -> 'Offers' collection without '_id' field
-        db = client[mongoDB.DataBase]
-        collection = db[mongoDB.Collection]
-        offers = collection.find({}, {'_id': False})
-
         # Converts to dataframe and concatenates title and company
         offers = pd.DataFrame(offers)
-
-        client.close()
 
         pd.set_option('display.max_columns', None)
         titlesCompanies = (offers['title'] + ' ' + offers['company']).tolist()
@@ -100,28 +67,12 @@ def filterSimilars():
         return json.loads(offers.to_json(
             orient='records', force_ascii=False))
 
-    except Exception:
-        raise ValueError('Error: error trying to filter by PQ technic')
-
-
-def deleteOffers():
-    client = MongoClient(uri.MONGODB)
-    try:
-        db = client[mongoDB.DataBase]
-        collection = db[mongoDB.Collection]
-        # Delete all the current offers in the MongoDB collection
-        collection.delete_many({})
-        client.close()
     except Exception as e:
-        raise ValueError('Error: error trying to delete offers from MongoDB')
+        raise ValueError(f'Error: error trying to filter by PQ technic: {e}')
 
 
-def filterOffers():
+def filterOffers(offers):
     try:
-        filterExactDuplicates()
-        filtered = filterSimilars()
-        # TODO quitar o poner comentario cuando sea necesario
-        deleteOffers()
-        return filtered
+        return filterSimilars(offers)
     except Exception as e:
         raise ValueError(e)

@@ -109,16 +109,16 @@ def webScraperElempleo():
 
         driver.close()
 
-        print(f"Today's extraction: {len(listOffers)} offers")
-
         listOffers = list(filter(None, listOffers))
+
+        print(f"Today's extraction: {len(listOffers)} offers")
 
         return listOffers
     except Exception:
         driver.close()
 
-        print(f"Today's extraction: {len(listOffers)} offers")
-
         listOffers = list(filter(None, listOffers))
+
+        print(f"Today's extraction: {len(listOffers)} offers")
 
         return listOffers
