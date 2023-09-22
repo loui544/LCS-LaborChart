@@ -27,8 +27,6 @@ def client(offers):
 
             # Adds labeled entities to each corresponding offer and convert date format from number to date
             for idx, item in enumerate(offers):
-                item['date'] = datetime.utcfromtimestamp(
-                    item['date']/1000).strftime('%d-%m-%Y')
                 if str(idx) in result:
                     item["entities"] = result[str(idx)]["entities"]
 

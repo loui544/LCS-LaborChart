@@ -98,7 +98,7 @@ def sendList(offers):
 
         channel.queue_declare(queue=rabbitQueue.COMPUTRABAJO)
 
-        message = json.dumps([offer.__dict__ for offer in offers])
+        message = json.dumps([offer.__dict__ for offer in offers],ensure_ascii=False)
 
         channel.basic_publish(
             exchange='', routing_key=rabbitQueue.COMPUTRABAJO, body=message)

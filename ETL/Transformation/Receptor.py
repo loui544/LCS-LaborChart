@@ -28,7 +28,7 @@ def receiveList():
         connection.close()
 
         if offersList:
-            print('\nOffers received successfully from RabbitMQ\n')
+            print(f'\n{len(offersList)} offers received successfully from RabbitMQ\n')
             return offersList
         else:
             raise ValueError('Error: No offers available')

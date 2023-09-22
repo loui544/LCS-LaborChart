@@ -6,6 +6,6 @@ class times:
 class faissParameters:
     CLUSTERS = 10
     CENTROIDIDS = 8
-    CENTROIDBITS = 2
+    CENTROIDBITS = 8
     SEARCHSCOPE = 5
     NEAREST = 5

@@ -41,7 +41,7 @@ def Offer(box_details, date):
             company = box_details.find_element(
                 By.XPATH, 'div[1]/div[1]/a').text
         except:
-            print('Empresa')
+            print('Company')
             company = 'Empresa confidencial'
 
         # Get the description of the offer
@@ -129,7 +129,7 @@ def webScraperComputrabajo():
                     pass
                 # End the program and send the raw_offers
                 if 'Ayer' in date:
-                    print(f'Ofertas del dia: {len(listOffers)}')
+                    print(f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
                     return listOffers
 
                 # Define the element to read
@@ -152,8 +152,7 @@ def webScraperComputrabajo():
 
         listOffers = list(filter(None, listOffers))
 
-        print("Today's extraction: " + len(listOffers) +
-              ' offers \nPages viewed: '+page)
+        print(f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
 
         return listOffers
     except Exception:
@@ -161,7 +160,6 @@ def webScraperComputrabajo():
 
         listOffers = list(filter(None, listOffers))
 
-        print("Today´s extraction: " + len(listOffers) +
-              ' offers\nPages viewed: '+page)
+        print(f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
 
         return listOffers
