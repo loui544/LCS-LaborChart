@@ -134,7 +134,7 @@ def webScraperComputrabajo():
                     date = box.find_element(By.CLASS_NAME, 'fc_aux').text
                     box.click()
                 except Exception as e:
-                    logging.error(f'Error en id: {ids[i]}\n {e}')
+                    logging.error(f'Error en id: {ids[i]}\n')
                     pass
                 # End the program and send the raw_offers
                 if 'Ayer' in date:
