@@ -83,7 +83,7 @@ def filterSimilars(offers, titlesCompanies, model, index):
         else:
             logging.info(
                 f'No near indexes found for index ({i}) {titleCompany}')
-    skip.append(i)
+        skip.append(i)
 
     logging.info(f'Deleted: {deleted}')
     logging.info(f'Offers left after filter: {offers.shape[0]}')
