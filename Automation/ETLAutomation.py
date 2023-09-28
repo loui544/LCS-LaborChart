@@ -6,6 +6,7 @@ from ETL.Transformation.Receptor import reception
 from ETL.Transformation.Filter import filterOffers
 from ETL.Transformation.APITaggerClient import client
 from ETL.Transformation.DBConnector import sendToElasticSearch
+from ETL.Transformation.OffersCheck import offersCheck
 from dagster import asset, define_asset_job, Definitions, schedule, RunRequest
 from datetime import datetime
 
@@ -60,6 +61,14 @@ def elasticConnector(apiClient) -> None:
         print(e)
 
 
+@asset(deps=[elasticConnector])
+def offersSimilarityCheck() -> None:
+    try:
+        offersCheck()
+    except Exception as e:
+        print(e)
+
+
 allAssetsJob = define_asset_job(name='LaborChartETL')
 
 
@@ -68,6 +77,6 @@ def etlSchedule():
     return RunRequest(run_key=None, tags={'date': datetime.now().strftime('%d-%m-%Y %H:%M:%S')}, job_name=allAssetsJob.name)
 
 
-defs = Definitions(assets=[elempleoExtraction, computrabajoExtraction, receptor, filter, apiClient, elasticConnector],
+defs = Definitions(assets=[elempleoExtraction, computrabajoExtraction, receptor, filter, apiClient, elasticConnector, offersSimilarityCheck],
                    schedules=[etlSchedule],
                    jobs=[allAssetsJob])

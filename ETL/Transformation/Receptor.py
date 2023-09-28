@@ -1,12 +1,21 @@
 import pika
 import json
 from ETL.Config import *
+from datetime import datetime
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 
 def receiveList():
     try:
         connection = pika.BlockingConnection(
-            pika.ConnectionParameters(uri.RABBITMQ))
+            pika.ConnectionParameters(url.RABBITMQ))
         channel = connection.channel()
 
         queues = rabbitQueue.QUEUES
@@ -28,16 +37,17 @@ def receiveList():
         connection.close()
 
         if offersList:
-            print(f'\n{len(offersList)} offers received successfully from RabbitMQ\n')
+            logging.info(
+                f'\n{len(offersList)} offers received successfully from RabbitMQ\n')
             return offersList
         else:
-            raise ValueError('Error: No offers available')
+            logging.error('Error: No offers available')
     except Exception as e:
-        raise ValueError(f'Error while trying to connect to RabbitMQ: {e}')
+        logging.error(f'Error while trying to connect to RabbitMQ: {e}')
 
 
 def reception():
     try:
         return receiveList()
     except Exception as e:
-        print(e)
+        raise ValueError(e)

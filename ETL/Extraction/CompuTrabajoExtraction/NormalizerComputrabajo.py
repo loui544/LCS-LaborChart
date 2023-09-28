@@ -7,6 +7,15 @@ import json
 from ETL.Classes.Values import *
 import pika
 from ETL.Classes.Enums import educationLevel, contractType
+from datetime import datetime
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 computrabajoEducationLevels = {
     'Educación Básica Primaria': educationLevel.HIGH,
@@ -61,7 +70,7 @@ def formatDate(date):
         date = datetime.today().strftime('%d-%m-%Y')
         return date
     except Exception as e:
-        raise ValueError(f'Incorrect date field ({e})')
+        logging.error(f'Incorrect date field ({e})')
 
 # Standardizes the level of education
 
@@ -93,12 +102,13 @@ def standardizeContractType(contract):
 def sendList(offers):
     try:
         connection = pika.BlockingConnection(
-            pika.ConnectionParameters(uri.RABBITMQ))
+            pika.ConnectionParameters(url.RABBITMQ))
         channel = connection.channel()
 
         channel.queue_declare(queue=rabbitQueue.COMPUTRABAJO)
 
-        message = json.dumps([offer.__dict__ for offer in offers],ensure_ascii=False)
+        message = json.dumps(
+            [offer.__dict__ for offer in offers], ensure_ascii=False)
 
         channel.basic_publish(
             exchange='', routing_key=rabbitQueue.COMPUTRABAJO, body=message)
@@ -119,9 +129,10 @@ def offersNormalizer(offers):
             offer.education = standardizeEducationLevel(offer.education)
             offer.contract = standardizeContractType(offer.contract)
         except Exception as e:
-            raise ValueError('Error: ' + str(e))
+            logging.error('Error: ' + str(e))
     try:
         sendList(offers)
-        print('\nOffers sent succesfully to RabbitMQ queue\n')
+        logging.info(
+            '\nComputrabajo offers sent succesfully to RabbitMQ queue\n')
     except Exception as e:
-        raise ValueError(f'Error while trying to send offer to RabbitMQ: {e}')
+        logging.error(f'Error while trying to send offer to RabbitMQ: {e}')

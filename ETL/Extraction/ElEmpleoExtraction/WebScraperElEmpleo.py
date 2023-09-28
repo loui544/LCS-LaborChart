@@ -9,6 +9,15 @@ from ETL.Classes.Values import *
 import time
 import random
 from ETL.Classes.RawOffer import rawOffer
+from datetime import datetime
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 
 # navigation options
@@ -111,7 +120,7 @@ def webScraperElempleo():
 
         listOffers = list(filter(None, listOffers))
 
-        print(f"Today's extraction: {len(listOffers)} offers")
+        logging.info(f"Today's extraction: {len(listOffers)} offers")
 
         return listOffers
     except Exception:
@@ -119,6 +128,6 @@ def webScraperElempleo():
 
         listOffers = list(filter(None, listOffers))
 
-        print(f"Today's extraction: {len(listOffers)} offers")
+        logging.info(f"Today's extraction: {len(listOffers)} offers")
 
         return listOffers

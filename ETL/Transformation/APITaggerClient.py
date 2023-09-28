@@ -2,7 +2,14 @@ import requests
 from ETL.Classes.Values import *
 from ETL.Config import *
 from datetime import datetime
-from pprint import pprint
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 
 def client(offers):
@@ -11,12 +18,12 @@ def client(offers):
         descriptions = [{"description": offer['description']}
                         for offer in offers]
 
-        response = requests.post(uri.SkillsTaggerAPI, json=descriptions)
+        response = requests.post(url.SKILLSTAGGERAPI, json=descriptions)
 
         if response.status_code == 200:
 
-            print(
-                f'\nSuccessful request. Status code: {response.status_code}\n')
+            logging.info(
+                f'Successful request. Status code: {response.status_code}\n')
             result = response.json()
 
             # Removes 'index','start',and 'end' keys
@@ -32,7 +39,9 @@ def client(offers):
 
             return offers
         else:
-            raise ValueError(
+            logging.error(
                 f"Request error. Status code: {response.status_code}")
+            raise ValueError(response.status_code)
     except requests.exceptions.RequestException as e:
-        raise (f"Connection error: {e}")
+        logging.error(f"Connection error: {e}")
+        raise ValueError(e)

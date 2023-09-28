@@ -5,8 +5,16 @@ import pika
 import re
 import json
 from ETL.Classes.Values import *
-
 from ETL.Classes.Enums import educationLevel, contractType
+from datetime import datetime
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 # Elempleo education level dict
 elempleoEducationLevels = {
@@ -83,12 +91,13 @@ def standardizeContractType(contract):
 def sendList(offers):
     try:
         connection = pika.BlockingConnection(
-            pika.ConnectionParameters(uri.RABBITMQ))
+            pika.ConnectionParameters(url.RABBITMQ))
         channel = connection.channel()
 
         channel.queue_declare(queue=rabbitQueue.ELEMPLEO)
 
-        message = json.dumps([offer.__dict__ for offer in offers],ensure_ascii=False)
+        message = json.dumps(
+            [offer.__dict__ for offer in offers], ensure_ascii=False)
 
         channel.basic_publish(
             exchange='', routing_key=rabbitQueue.ELEMPLEO, body=message)
@@ -110,10 +119,10 @@ def offersNormalizer(offers):
             off.education = standardizeEducationLevel(off.education)
             off.contract = standardizeContractType(off.contract)
         except Exception as e:
-            raise ValueError(f'Error: {e}')
+            logging.error(f'Error: {e}')
     try:
         sendList(offers)
-        return '\nOffers sent successfully to RabbitMQ queue\n'
+        logging.info('\nOffers sent successfully to RabbitMQ queue\n')
     except Exception as e:
-        raise ValueError(
+        logging.error(
             f'Error while trying to send offers to RabbitMQ queue: {e}')

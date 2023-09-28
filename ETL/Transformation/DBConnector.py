@@ -2,15 +2,25 @@ from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk, BulkIndexError
 from ETL.Classes.Values import *
 from ETL.Config import *
+from datetime import datetime
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 
 def sendToElasticSearch(offers):
     try:
-        es = Elasticsearch(uri.ElasticSearch)
-        offers = [{'_index': 'laborchart', '_source': offer}
+        es = Elasticsearch(url.ELASTICSEARCH)
+        offers = [{'_index': elasticSearch.INDEX, '_source': offer}
                   for offer in offers]
         success, _ = bulk(es, offers)
-        print(f'{success} offers succesfully loaded to Elastic Search')
+        logging.info(f'{success} offers succesfully loaded to Elastic Search')
 
     except BulkIndexError as e:
-        raise ValueError('Error: ', e)
+        logging.critical('Error: ', e)
+        raise ValueError(e)

@@ -5,20 +5,30 @@ import faiss
 from sentence_transformers import SentenceTransformer
 import pandas as pd
 from ETL.Config import *
+from datetime import datetime
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 
-def filterSimilars(offers):
-    try: 
+def modelTraining(offers):
+    try:
         # Converts to dataframe and concatenates title and company
         offers = pd.DataFrame(offers)
 
-        titlesCompanies = (offers['title'].str.replace('\u0301','') + ' ' + offers['company'].str.replace('\u0301','')).tolist()
+        titlesCompanies = (offers['title'].str.replace(
+            '\u0301', '') + ' ' + offers['company'].str.replace('\u0301', '')).tolist()
 
         # Encoding title-company list
         model = SentenceTransformer('bert-base-nli-mean-tokens')
         offersEmbeddings = model.encode(
             titlesCompanies, show_progress_bar=True)
-        
+
         # setting parameters for Product Quantization model
         vectorsDimensionality = offersEmbeddings.shape[1]
         quantizier = faiss.IndexFlatL2(vectorsDimensionality)
@@ -30,12 +40,18 @@ def filterSimilars(offers):
         index.add(offersEmbeddings)
         index.nprobe = faissParameters.SEARCHSCOPE
 
-        deleted = 0
+        return offers, titlesCompanies, model, index
     except Exception as e:
-        raise ValueError(f'\nError trying to train the PQ technic: {e}\n')
-    
-    print(f'\nInitial quantity of offers: {offers.shape[0]}\n')
+        logging.error(f'Error trying to train the PQ technic: {e}\n')
+        raise ValueError(e)
+
+
+def filterSimilars(offers, titlesCompanies, model, index):
+
+    deleted = 0
+    logging.info(f'Initial quantity of offers: {offers.shape[0]}')
     skip = []
+
     # For each offer title-company, find the 5 nearest Indexes
     for i, titleCompany in enumerate(titlesCompanies):
         try:
@@ -44,36 +60,34 @@ def filterSimilars(offers):
             nearestIndexes = nearestIndexes[0]
             nearestIndexes = [
                 near for near in nearestIndexes if near != i and near not in skip]
-            print(f'\nNearest indexes: {nearestIndexes}')
         except Exception as e:
-            print(f'\nError trying to find nearest indexes: {e}\n')
+            logging.error(f'Error trying to find nearest indexes: {e}')
+            raise ValueError(e)
 
         if nearestIndexes:
-            print(f'Near indexes found for ({i}) {titleCompany}\n')
             # For each offers title-company, compares the string similarity percentage
             for nearIndex in nearestIndexes:
                 try:
-                    try: 
-                        print(f'({i}) {titleCompany} <-> ({nearIndex}) {titlesCompanies[nearIndex]}')
-                        print(f"Similarity percentage: {fuzz.ratio(titleCompany, titlesCompanies[nearIndex])}%")
-                    except Exception as e:
-                        print(f'\nError al imprimir comparasión de ofertas y porcentaje de similitud {e}\n')
                     # If offer's title-companies have a pecentage equal or higher of similarity, the second one is deleted
-                    try:
-                        if fuzz.ratio(titleCompany, titlesCompanies[nearIndex]) >= 95:
-                            offers = offers.drop(nearIndex)
-                            skip.append(nearIndex)
-                            deleted += 1
-                    except Exception as e:
-                        print(f'\nError al hacer condición de porcentaje de similitud: {e}\n')
-                    skip.append(i)
+                    if fuzz.ratio(titleCompany, titlesCompanies[nearIndex]) >= 95:
+                        logging.info(
+                            f'({i}) {titleCompany} <-> ({nearIndex}) {titlesCompanies[nearIndex]}')
+                        logging.info(
+                            f"Similarity percentage: {fuzz.ratio(titleCompany, titlesCompanies[nearIndex])}%")
+                        offers = offers.drop(nearIndex)
+                        skip.append(nearIndex)
+                        deleted += 1
                 except Exception as e:
-                    print(f'\nError trying to compare indexes: {e}\n')
+                    logging.error(f'Error trying to compare indexes: {e}')
+
         else:
-            print(f'\nNo near indexes found for index ({i}) {titleCompany}')
-            
-    print(f'\nDeleted: {deleted}')
-    print(f'Offers left after filter: {offers.shape[0]}\n')
+            logging.info(
+                f'No near indexes found for index ({i}) {titleCompany}')
+    skip.append(i)
+
+    logging.info(f'Deleted: {deleted}')
+    logging.info(f'Offers left after filter: {offers.shape[0]}')
+
     # Converts again into JSON list the offers dataframe
     return json.loads(offers.to_json(
         orient='records', force_ascii=False))
@@ -81,6 +95,7 @@ def filterSimilars(offers):
 
 def filterOffers(offers):
     try:
-        return filterSimilars(offers)
+        offers, titlesCompanies, model, index = modelTraining(offers)
+        return filterSimilars(offers, titlesCompanies, model, index)
     except Exception as e:
         raise ValueError(e)

@@ -5,6 +5,15 @@ from ETL.Classes.RawOffer import rawOffer
 from ETL.Classes.Values import *
 import time
 import random
+from datetime import datetime
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
+)
 
 
 # navigation options
@@ -33,7 +42,7 @@ def Offer(box_details, date):
             title = box_details.find_element(
                 By.CSS_SELECTOR, 'p.title_offer').text
         except:
-            print('Title\n')
+            logging.error('Title element from Computrabajo not found')
             return None
 
         # Get the name of the company
@@ -41,7 +50,7 @@ def Offer(box_details, date):
             company = box_details.find_element(
                 By.XPATH, 'div[1]/div[1]/a').text
         except:
-            print('Company')
+            logging.error('Company element from Computrabajo not found')
             company = 'Empresa confidencial'
 
         # Get the description of the offer
@@ -49,7 +58,7 @@ def Offer(box_details, date):
             description = box_details.find_element(
                 By.CSS_SELECTOR, 'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs16').text.replace('\n', ' ')
         except:
-            print('Description\n')
+            logging.error('Description element from Computrabajo not found')
             return None
 
         # Get the salary of the offer
@@ -57,7 +66,7 @@ def Offer(box_details, date):
             salary = box_details.find_element(
                 By.CSS_SELECTOR, 'span.tag base mb10'.replace(' ', '.')).text
         except:
-            print('Salary\n')
+            logging.error('Salary element from Computrabajo not found')
             return None
         # Get the requirements of the offer
         try:
@@ -69,7 +78,7 @@ def Offer(box_details, date):
                 else:
                     experience = 'mes'
         except:
-            print('Requirements\n')
+            logging.error('Requirements element from Computrabajo not found')
             return None
 
         # Get the contract type
@@ -77,7 +86,7 @@ def Offer(box_details, date):
             contract = box_details.find_element(
                 By.CSS_SELECTOR, 'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs14.mb10 > div > span:nth-child(2)').text
         except:
-            print('Contract\n')
+            logging.error('Contract element from Computrabajo not found')
             return None
         aux = rawOffer(title, company, description, salary,
                        education, experience, contract, date)
@@ -125,11 +134,12 @@ def webScraperComputrabajo():
                     date = box.find_element(By.CLASS_NAME, 'fc_aux').text
                     box.click()
                 except Exception as e:
-                    print(f'Error en id: {ids[i]}\n {e}')
+                    logging.error(f'Error en id: {ids[i]}\n {e}')
                     pass
                 # End the program and send the raw_offers
                 if 'Ayer' in date:
-                    print(f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
+                    logging.info(
+                        f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
                     return listOffers
 
                 # Define the element to read
@@ -152,7 +162,8 @@ def webScraperComputrabajo():
 
         listOffers = list(filter(None, listOffers))
 
-        print(f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
+        logging.info(
+            f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
 
         return listOffers
     except Exception:
@@ -160,6 +171,7 @@ def webScraperComputrabajo():
 
         listOffers = list(filter(None, listOffers))
 
-        print(f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
+        logging.info(
+            f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
 
         return listOffers

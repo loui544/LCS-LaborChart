@@ -9,7 +9,11 @@ class rabbitQueue:
     QUEUES = [COMPUTRABAJO, ELEMPLEO]
 
 
-class uri:
-    SkillsTaggerAPI = 'http://localhost:5000/retrieveDescriptions'
-    ElasticSearch = 'http://localhost:9200'
+class url:
+    SKILLSTAGGERAPI = 'http://localhost:5000/retrieveDescriptions'
+    ELASTICSEARCH = 'http://localhost:9200'
     RABBITMQ = 'localhost'
+
+
+class elasticSearch:
+    INDEX = 'laborchart'
