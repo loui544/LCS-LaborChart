@@ -1,10 +1,12 @@
 class educationLevel:
+    PRIM = 'Primaria'
     HIGH = 'Bachillerato'
     TECHNIC = 'Técnico'
     TECHNOLOGY = 'Tecnológica'
     PRE = 'Profesional Pregrado'
     SPEC = 'Profesional Especialización'
     MASTER = 'Profesional Maestría'
+    DOC = 'Profesional Doctorado'
 
 
 class contractType:
@@ -12,3 +14,8 @@ class contractType:
     INDEF = 'Indefinido'
     OBR = 'Por obra'
     PRES = 'Prestación de servicios'
+    APR = 'Aprendizaje'
+    OCAS = 'Ocasional detrabajo'
+    HOR = 'Por horas'
+    PAR = 'Tiempo Parcial'
+    COM = 'Tiempo completo'

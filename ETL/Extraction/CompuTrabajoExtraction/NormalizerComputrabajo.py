@@ -18,11 +18,13 @@ logging.basicConfig(
 )
 
 computrabajoEducationLevels = {
-    'Educación Básica Primaria': educationLevel.HIGH,
+    'Educación Básica Primaria': educationLevel.PRIM,
+    'Educación Básica Secundaria': educationLevel.HIGH,
     'Bachillerato / Educación Media': educationLevel.HIGH,
     'Universidad / Carrera técnica': educationLevel.TECHNIC,
     'Universidad / Carrera tecnológica': educationLevel.TECHNOLOGY,
     'Universidad / Carrera Profesional': educationLevel.PRE,
+    'Postgrado / Doctorado': educationLevel.DOC,
     'Especialización': educationLevel.SPEC,
     'Maestría': educationLevel.MASTER
 }
@@ -31,6 +33,8 @@ computrabajoContracts = {
     'Contrato de Obra o labor': contractType.OBR,
     'Contrato civil por prestación de servicios': contractType.PRES,
     'Contrato a término indefinido': contractType.INDEF,
+    'Contrato de aprendizaje': contractType.APR,
+    'Contrato ocasional de trabajo': contractType.OCAS,
     'Contrato a término fijo': contractType.DEF
 }
 
@@ -128,6 +132,7 @@ def offersNormalizer(offers):
             offer.date = formatDate(offer.date)
             offer.education = standardizeEducationLevel(offer.education)
             offer.contract = standardizeContractType(offer.contract)
+            offer.lowerCase()
         except Exception as e:
             logging.error('Error: ' + str(e))
     try:

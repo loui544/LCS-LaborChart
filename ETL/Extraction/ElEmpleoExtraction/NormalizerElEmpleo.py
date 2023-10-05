@@ -18,6 +18,8 @@ logging.basicConfig(
 
 # Elempleo education level dict
 elempleoEducationLevels = {
+    'Básica Primaria (1° - 5°)': educationLevel.PRIM,
+    'Básica Secundaria (6° - 9°)': educationLevel.HIGH,
     'Media (10° - 13°)': educationLevel.HIGH,
     'Técnico Laboral': educationLevel.TECHNIC,
     'Formación Tec profesional': educationLevel.TECHNIC,
@@ -32,7 +34,10 @@ elempleoContracts = {
     'Contrato Por obra o labor': contractType.OBR,
     'Contrato Prestacion de Servicios': contractType.PRES,
     'Contrato Indefinido': contractType.INDEF,
-    'Contrato Definido': contractType.DEF
+    'Contrato Definido': contractType.DEF,
+    'Por Horas': contractType.HOR,
+    'Tiempo Parcial': contractType.PAR,
+    'Tiempo Completo': contractType.COM
 }
 
 # Delete from description the substring 'Descripción general'
@@ -118,11 +123,12 @@ def offersNormalizer(offers):
             off.experience = transformExp(off.experience)
             off.education = standardizeEducationLevel(off.education)
             off.contract = standardizeContractType(off.contract)
+            off.lowerCase()
         except Exception as e:
             logging.error(f'Error: {e}')
     try:
         sendList(offers)
-        logging.info('\nOffers sent successfully to RabbitMQ queue\n')
+        logging.info('Elempleo offers sent successfully to RabbitMQ queue')
     except Exception as e:
         logging.error(
             f'Error while trying to send offers to RabbitMQ queue: {e}')

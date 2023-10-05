@@ -79,10 +79,6 @@ def filterSimilars(offers, titlesCompanies, model, index):
                         deleted += 1
                 except Exception as e:
                     logging.error(f'Error trying to compare indexes: {e}')
-
-        else:
-            logging.info(
-                f'No near indexes found for index ({i}) {titleCompany}')
         skip.append(i)
 
     logging.info(f'Deleted: {deleted}')

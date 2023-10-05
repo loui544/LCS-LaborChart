@@ -202,9 +202,9 @@ def checkCompanies(companies, model, index):
                         updated += updateCompany(companies[i],
                                                  companies[nearIndex])
                         skip.append(nearIndex)
-                    skip.append(i)
                 except Exception as e:
                     logging.error(f'Error trying to compare indexes: {e}')
+        skip.append(i)
     logging.info(f'{updated} offers updated')
 
 
