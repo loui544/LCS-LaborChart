@@ -1,8 +1,6 @@
-from ETL.Classes.Values import *
+from ETL.Transformation.FaissCommons.Commons import *
 from thefuzz import fuzz
 import json
-import faiss
-from sentence_transformers import SentenceTransformer
 import pandas as pd
 from ETL.Config import *
 from datetime import datetime
@@ -16,36 +14,6 @@ logging.basicConfig(
 )
 
 
-def modelTraining(offers):
-    try:
-        # Converts to dataframe and concatenates title and company
-        offers = pd.DataFrame(offers)
-
-        titlesCompanies = (offers['title'].str.replace(
-            '\u0301', '') + ' ' + offers['company'].str.replace('\u0301', '')).tolist()
-
-        # Encoding title-company list
-        model = SentenceTransformer('bert-base-nli-mean-tokens')
-        offersEmbeddings = model.encode(
-            titlesCompanies, show_progress_bar=True)
-
-        # setting parameters for Product Quantization model
-        vectorsDimensionality = offersEmbeddings.shape[1]
-        quantizier = faiss.IndexFlatL2(vectorsDimensionality)
-        index = faiss.IndexIVFPQ(quantizier, vectorsDimensionality, faissParameters.CLUSTERS,
-                                 faissParameters.CENTROIDIDS, faissParameters.CENTROIDBITS)
-
-        # Training and preparing model for production
-        index.train(offersEmbeddings)
-        index.add(offersEmbeddings)
-        index.nprobe = faissParameters.SEARCHSCOPE
-
-        return offers, titlesCompanies, model, index
-    except Exception as e:
-        logging.error(f'Error trying to train the PQ technic: {e}\n')
-        raise ValueError(e)
-
-
 def filterSimilars(offers, titlesCompanies, model, index):
 
     deleted = 0
@@ -55,8 +23,8 @@ def filterSimilars(offers, titlesCompanies, model, index):
     # For each offer title-company, find the 5 nearest Indexes
     for i, titleCompany in enumerate(titlesCompanies):
         try:
-            D, nearestIndexes = index.search(model.encode([titleCompany]),
-                                             faissParameters.NEAREST)
+            D, nearestIndexes = index.search(model.encode(
+                [titleCompany], show_progress_bar=False), faissParameters.NEAREST)
             nearestIndexes = nearestIndexes[0]
             nearestIndexes = [
                 near for near in nearestIndexes if near != i and near not in skip]
@@ -91,7 +59,11 @@ def filterSimilars(offers, titlesCompanies, model, index):
 
 def filterOffers(offers):
     try:
-        offers, titlesCompanies, model, index = modelTraining(offers)
+        # Converts to dataframe and concatenates title and company
+        offers = pd.DataFrame(offers)
+        titlesCompanies = (offers['title'].str.replace(
+            '\u0301', '') + ' ' + offers['company'].str.replace('\u0301', '')).tolist()
+        model, index = modelTraining(titlesCompanies)
         return filterSimilars(offers, titlesCompanies, model, index)
     except Exception as e:
         raise ValueError(e)

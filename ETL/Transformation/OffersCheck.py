@@ -1,9 +1,7 @@
+from ETL.Transformation.FaissCommons.Commons import *
 from elasticsearch import Elasticsearch, ConflictError
 import pandas as pd
 from ETL.Config import *
-import faiss
-from sentence_transformers import SentenceTransformer
-from ETL.Classes.Values import *
 from thefuzz import fuzz
 from datetime import datetime
 import logging
@@ -49,37 +47,11 @@ def getOffers():
                     logging.error(
                         f'Error: error while trying to retrieve offers')
             else:
-                titlesCompanies = []
+                offers = []
                 for company in resp['aggregations']['unique_categories']['buckets']:
-                    titlesCompanies.extend([{'title': title['key'], 'company': company['key'], 'title company': title['key'] +
-                                             ' ' + company['key']} for title in company['unique_categories']['buckets']])
-
-                titlesCompanies = pd.DataFrame(titlesCompanies)
-                return titlesCompanies
-
-
-def modelTraining(titlesCompanies):
-    try:
-        titlesCompaniesDf = titlesCompanies
-        titlesCompanies = (titlesCompanies['title company']).tolist()
-        # Encoding title-company list
-        model = SentenceTransformer('bert-base-nli-mean-tokens')
-        offersEmbeddings = model.encode(titlesCompanies)
-
-        # setting parameters for Product Quantization model
-        vectorsDimensionality = offersEmbeddings.shape[1]
-        quantizier = faiss.IndexFlatL2(vectorsDimensionality)
-        index = faiss.IndexIVFPQ(quantizier, vectorsDimensionality, faissParameters.CLUSTERS,
-                                 faissParameters.CENTROIDIDS, faissParameters.CENTROIDBITS)
-
-        # Training and preparing model for production
-        index.train(offersEmbeddings)
-        index.add(offersEmbeddings)
-        index.nprobe = faissParameters.SEARCHSCOPE
-
-        return titlesCompaniesDf, titlesCompanies, model, index
-    except Exception as e:
-        logging.error(f'Error trying to train the PQ technic: {e}')
+                    offers.extend([{'title': title['key'], 'company': company['key'], 'title company': title['key'] +
+                                    ' ' + company['key']} for title in company['unique_categories']['buckets']])
+                return offers
 
 
 def updateOffers(reference, toChange):
@@ -109,7 +81,7 @@ def updateOffers(reference, toChange):
         return resp['updated']
 
 
-def checkSimilars(titlesCompaniesDf, titlesCompanies, model, index):
+def checkSimilars(offers, titlesCompanies, model, index):
 
     updated = 0
     skip = []
@@ -117,8 +89,8 @@ def checkSimilars(titlesCompaniesDf, titlesCompanies, model, index):
     for i, titleCompany in enumerate(titlesCompanies):
 
         try:
-            D, nearestIndexes = index.search(model.encode([titleCompany]),
-                                             faissParameters.NEAREST)
+            D, nearestIndexes = index.search(model.encode(
+                [titleCompany], show_progress_bar=False), faissParameters.NEAREST)
             nearestIndexes = nearestIndexes[0]
             nearestIndexes = [
                 near for near in nearestIndexes if near != i and near not in skip]
@@ -138,8 +110,8 @@ def checkSimilars(titlesCompaniesDf, titlesCompanies, model, index):
                             f'({i}) {titleCompany} <-> ({nearIndex}) {titlesCompanies[nearIndex]}')
                         logging.info(
                             f"Similarity percentage: {fuzz.ratio(titleCompany, titlesCompanies[nearIndex])}%")
-                        updated += updateOffers(titlesCompaniesDf.loc[i],
-                                                titlesCompaniesDf.loc[nearIndex])
+                        updated += updateOffers(offers.loc[i],
+                                                offers.loc[nearIndex])
                         skip.append(nearIndex)
                 except Exception as e:
                     logging.error(f'Error trying to compare indexes: {e}')
@@ -182,8 +154,8 @@ def checkCompanies(companies, model, index):
     # For each offer title-company, find the 5 nearest Indexes
     for i, company in enumerate(companies):
         try:
-            D, nearestIndexes = index.search(model.encode([company]),
-                                             faissParameters.NEAREST)
+            D, nearestIndexes = index.search(model.encode(
+                [company], show_progress_bar=False), faissParameters.NEAREST)
             nearestIndexes = nearestIndexes[0]
             nearestIndexes = [
                 near for near in nearestIndexes if near != i and near not in skip]
@@ -196,7 +168,7 @@ def checkCompanies(companies, model, index):
                     # If offer's title-companies have a pecentage equal or higher of similarity, the second one is deleted
                     if fuzz.ratio(company, companies[nearIndex]) >= 85 and fuzz.ratio(company, companies[nearIndex]) < 100:
                         logging.info(
-                            f'Near index found for ({i}) {company}({i}) {company} <-> ({nearIndex}) {companies[nearIndex]}')
+                            f'({i}) {company} <-> ({nearIndex}) {companies[nearIndex]}')
                         logging.info(
                             f"Similarity percentage: {fuzz.ratio(company, companies[nearIndex])}%")
                         updated += updateCompany(companies[i],
@@ -209,8 +181,9 @@ def checkCompanies(companies, model, index):
 
 
 def offersCheck():
-    titlesCompanies = getOffers()
-    titlesCompaniesDf, titlesCompanies, model, index = modelTraining(
-        titlesCompanies)
-    checkSimilars(titlesCompaniesDf, titlesCompanies, model, index)
-    checkCompanies((titlesCompaniesDf['company']).tolist(), model, index)
+    offers = getOffers()
+    offers = pd.DataFrame(offers)
+    titlesCompanies = (offers['title company']).tolist()
+    model, index = modelTraining(titlesCompanies)
+    checkSimilars(offers, titlesCompanies, model, index)
+    checkCompanies((offers['company']).tolist(), model, index)

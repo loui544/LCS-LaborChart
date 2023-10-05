@@ -4,7 +4,6 @@ from statistics import mean
 import pika
 import re
 import json
-from ETL.Classes.Values import *
 from ETL.Classes.Enums import educationLevel, contractType
 from datetime import datetime
 import logging

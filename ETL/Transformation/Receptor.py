@@ -38,7 +38,7 @@ def receiveList():
 
         if offersList:
             logging.info(
-                f'\n{len(offersList)} offers received successfully from RabbitMQ\n')
+                f'{len(offersList)} offers received successfully from RabbitMQ')
             return offersList
         else:
             logging.error('Error: No offers available')

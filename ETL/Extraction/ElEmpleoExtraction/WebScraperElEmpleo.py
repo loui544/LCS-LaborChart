@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
 from ETL.Config import *
-from ETL.Classes.Values import *
+from ETL.Classes.Enums import *
 import time
 import random
 from ETL.Classes.RawOffer import rawOffer

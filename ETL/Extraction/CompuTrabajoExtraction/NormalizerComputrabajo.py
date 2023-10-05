@@ -4,7 +4,6 @@ from statistics import mean
 from datetime import datetime
 import re
 import json
-from ETL.Classes.Values import *
 import pika
 from ETL.Classes.Enums import educationLevel, contractType
 from datetime import datetime
@@ -138,6 +137,6 @@ def offersNormalizer(offers):
     try:
         sendList(offers)
         logging.info(
-            '\nComputrabajo offers sent succesfully to RabbitMQ queue\n')
+            'Computrabajo offers sent succesfully to RabbitMQ queue')
     except Exception as e:
         logging.error(f'Error while trying to send offer to RabbitMQ: {e}')

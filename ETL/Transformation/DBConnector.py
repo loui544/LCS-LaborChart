@@ -1,6 +1,5 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk, BulkIndexError
-from ETL.Classes.Values import *
 from ETL.Config import *
 from datetime import datetime
 import logging

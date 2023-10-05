@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from ETL.Config import *
 from ETL.Classes.RawOffer import rawOffer
-from ETL.Classes.Values import *
+from ETL.Classes.Enums import *
 import time
 import random
 from datetime import datetime
@@ -139,7 +139,7 @@ def webScraperComputrabajo():
                 # End the program and send the raw_offers
                 if 'Ayer' in date:
                     logging.info(
-                        f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
+                        f"Today's extraction: {len(listOffers)} offers      Pages viewed: {page}")
                     return listOffers
 
                 # Define the element to read
@@ -163,7 +163,7 @@ def webScraperComputrabajo():
         listOffers = list(filter(None, listOffers))
 
         logging.info(
-            f"Today's extraction: {len(listOffers)} offers \nPages viewed: {page}")
+            f"Today's extraction: {len(listOffers)} offers      Pages viewed: {page}")
 
         return listOffers
     except Exception:

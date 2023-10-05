@@ -17,5 +17,10 @@ class contractType:
     APR = 'Aprendizaje'
     OCAS = 'Ocasional detrabajo'
     HOR = 'Por horas'
-    PAR = 'Tiempo Parcial'
+    PAR = 'Tiempo parcial'
     COM = 'Tiempo completo'
+
+
+class times:
+    MIN = 2
+    MAX = 4

@@ -1,5 +1,4 @@
 import requests
-from ETL.Classes.Values import *
 from ETL.Config import *
 from datetime import datetime
 import logging
@@ -23,7 +22,7 @@ def client(offers):
         if response.status_code == 200:
 
             logging.info(
-                f'Successful request. Status code: {response.status_code}\n')
+                f'Successful request. Status code: {response.status_code}')
             result = response.json()
 
             # Removes 'index','start',and 'end' keys
