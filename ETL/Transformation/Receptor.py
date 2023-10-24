@@ -1,15 +1,9 @@
 import pika
 import json
-from ETL.Config import *
-from datetime import datetime
-import logging
+from etl.config import *
+from dagster import get_dagster_logger
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(message)s',
-    datefmt='%d-%m-%Y %H:%M:%S',
-    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
-)
+logger = get_dagster_logger()
 
 
 def receiveList():
@@ -37,13 +31,14 @@ def receiveList():
         connection.close()
 
         if offersList:
-            logging.info(
-                f'{len(offersList)} offers received successfully from RabbitMQ')
+            logger.info(
+                f'(LABORCHART) {len(offersList)} offers received successfully from RabbitMQ')
             return offersList
         else:
-            logging.error('Error: No offers available')
+            logger.error('(LABORCHART) Error: No offers available')
     except Exception as e:
-        logging.error(f'Error while trying to connect to RabbitMQ: {e}')
+        logger.error(
+            f'(LABORCHART) Error while trying to connect to RabbitMQ: {e}')
 
 
 def reception():

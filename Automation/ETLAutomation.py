@@ -1,12 +1,12 @@
-from ETL.Extraction.ElEmpleoExtraction.WebScraperElEmpleo import webScraperElempleo
-from ETL.Extraction.ElEmpleoExtraction.NormalizerElEmpleo import offersNormalizer as eNormalizer
-from ETL.Extraction.CompuTrabajoExtraction.WebScraperComputrabajo import webScraperComputrabajo
-from ETL.Extraction.CompuTrabajoExtraction.NormalizerComputrabajo import offersNormalizer as cNormalizer
-from ETL.Transformation.Receptor import reception
-from ETL.Transformation.Filter import filterOffers
-from ETL.Transformation.APITaggerClient import client
-from ETL.Transformation.DBConnector import sendToElasticSearch
-from ETL.Transformation.OffersCheck import offersCheck
+from etl.extraction.elempleo.webscraper import webScraperElempleo
+from etl.extraction.elempleo.normalizer import offersNormalizer as eNormalizer
+from etl.extraction.computrabajo.webscraper import webScraperComputrabajo
+from etl.extraction.computrabajo.normalizer import offersNormalizer as cNormalizer
+from etl.transformation.receptor import reception
+from etl.transformation.filter import filterOffers
+from etl.transformation.apiconsumer import client
+from etl.transformation.dbconnector import sendToElasticSearch
+from etl.transformation.offersmanager import offersCheck
 from dagster import asset, define_asset_job, Definitions, schedule, RunRequest
 from datetime import datetime
 

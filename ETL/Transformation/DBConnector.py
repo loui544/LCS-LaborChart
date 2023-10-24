@@ -1,15 +1,9 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk, BulkIndexError
-from ETL.Config import *
-from datetime import datetime
-import logging
+from etl.config import *
+from dagster import get_dagster_logger
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(message)s',
-    datefmt='%d-%m-%Y %H:%M:%S',
-    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
-)
+logger = get_dagster_logger()
 
 
 def sendToElasticSearch(offers):
@@ -18,8 +12,9 @@ def sendToElasticSearch(offers):
         offers = [{'_index': elasticSearch.INDEX, '_source': offer}
                   for offer in offers]
         success, _ = bulk(es, offers)
-        logging.info(f'{success} offers succesfully loaded to Elastic Search')
+        logger.info(
+            f'(LABORCHART) {success} offers succesfully loaded to Elasticsearch')
 
     except BulkIndexError as e:
-        logging.critical('Error: ', e)
+        logger.critical('(LABORCHART) Error: ', e)
         raise ValueError(e)

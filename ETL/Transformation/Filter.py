@@ -1,23 +1,17 @@
-from ETL.Transformation.FaissCommons.Commons import *
+from etl.transformation.faiss.commons import *
 from thefuzz import fuzz
 import json
 import pandas as pd
-from ETL.Config import *
-from datetime import datetime
-import logging
+from etl.config import *
+from dagster import get_dagster_logger
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(message)s',
-    datefmt='%d-%m-%Y %H:%M:%S',
-    filename='Logs/'+datetime.today().strftime('%d-%m-%Y')+'.log'
-)
+logger = get_dagster_logger()
 
 
 def filterSimilars(offers, titlesCompanies, model, index):
 
     deleted = 0
-    logging.info(f'Initial quantity of offers: {offers.shape[0]}')
+    logger.info(f'(LABORCHART) Initial quantity of offers: {offers.shape[0]}')
     skip = []
 
     # For each offer title-company, find the 5 nearest Indexes
@@ -29,7 +23,8 @@ def filterSimilars(offers, titlesCompanies, model, index):
             nearestIndexes = [
                 near for near in nearestIndexes if near != i and near not in skip]
         except Exception as e:
-            logging.error(f'Error trying to find nearest indexes: {e}')
+            logger.error(
+                f'(LABORCHART) Error trying to find nearest indexes: {e}')
             raise ValueError(e)
 
         if nearestIndexes:
@@ -38,19 +33,20 @@ def filterSimilars(offers, titlesCompanies, model, index):
                 try:
                     # If offer's title-companies have a pecentage equal or higher of similarity, the second one is deleted
                     if fuzz.ratio(titleCompany, titlesCompanies[nearIndex]) >= 95:
-                        logging.info(
-                            f'({i}) {titleCompany} <-> ({nearIndex}) {titlesCompanies[nearIndex]}')
-                        logging.info(
-                            f"Similarity percentage: {fuzz.ratio(titleCompany, titlesCompanies[nearIndex])}%")
+                        logger.info(
+                            f'(LABORCHART) ({i}) {titleCompany} <-> ({nearIndex}) {titlesCompanies[nearIndex]}')
+                        logger.info(
+                            f"(LABORCHART) Similarity percentage: {fuzz.ratio(titleCompany, titlesCompanies[nearIndex])}%")
                         offers = offers.drop(nearIndex)
                         skip.append(nearIndex)
                         deleted += 1
                 except Exception as e:
-                    logging.error(f'Error trying to compare indexes: {e}')
+                    logger.error(
+                        f'(LABORCHART) Error trying to compare indexes: {e}')
         skip.append(i)
 
-    logging.info(f'Deleted: {deleted}')
-    logging.info(f'Offers left after filter: {offers.shape[0]}')
+    logger.info(f'(LABORCHART) Deleted: {deleted}')
+    logger.info(f'(LABORCHART) Offers left after filter: {offers.shape[0]}')
 
     # Converts again into JSON list the offers dataframe
     return json.loads(offers.to_json(

@@ -1,5 +1,5 @@
 from flask import Flask, request, make_response
-from APITaggerController import tagOffers
+from apitaggerservice import tagOffers
 import json
 
 server = Flask(__name__)
