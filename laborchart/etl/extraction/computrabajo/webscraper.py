@@ -5,7 +5,6 @@ from etl.classes.rawoffer import rawOffer
 from etl.classes.enums import *
 import time
 import random
-from datetime import datetime
 from dagster import get_dagster_logger
 
 logger = get_dagster_logger()
@@ -103,10 +102,8 @@ def webScraperComputrabajo():
 
     # Page initializer
     try:
-        # Computrabajo URL of the last post in the last 7 days
-
-        # Initializa the web driver
-        driver = webdriver.Chrome(options=options)
+        # initialize browser
+        driver = webdriver.Remote(url.CTDRIVER, options=options)
 
         time.sleep(randomSleep())
 
@@ -137,7 +134,8 @@ def webScraperComputrabajo():
                     date = box.find_element(By.CLASS_NAME, 'fc_aux').text
                     box.click()
                 except Exception as e:
-                    logger.error(f'(LABORCHART) Error in id: {ids[i]}\n')
+                    logger.error(
+                        f'(LABORCHART) Error finding element {ids[i]} id')
                     pass
 
                 # End the program and send the raw_offers

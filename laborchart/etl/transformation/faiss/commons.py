@@ -41,3 +41,4 @@ def modelTraining(titlesCompanies):
         return model, index
     except Exception as e:
         logger.error(f'(LABORCHART) Error trying to train the PQ technic: {e}')
+        raise ValueError(e)

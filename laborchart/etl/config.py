@@ -10,9 +10,11 @@ class rabbitQueue:
 
 
 class url:
-    SKILLSTAGGERAPI = 'http://localhost:5000/retrieveDescriptions'
-    ELASTICSEARCH = 'http://localhost:9200'
-    RABBITMQ = 'localhost'
+    CTDRIVER = 'http://ctdriver:4444/wd/hub'
+    EEDRIVER = 'http://eedriver:4444/wd/hub'
+    SKILLSTAGGERAPI = 'http://apitagger:5000/retrieveDescriptions'
+    ELASTICSEARCH = 'http://elasticsearch:9200'
+    RABBITMQ = 'rabbitmq'
 
 
 class elasticSearch:

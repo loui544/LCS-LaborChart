@@ -36,9 +36,11 @@ def receiveList():
             return offersList
         else:
             logger.error('(LABORCHART) Error: No offers available')
+            raise ValueError('Error: No offers available')
     except Exception as e:
         logger.error(
             f'(LABORCHART) Error while trying to connect to RabbitMQ: {e}')
+        raise ValueError(e)
 
 
 def reception():

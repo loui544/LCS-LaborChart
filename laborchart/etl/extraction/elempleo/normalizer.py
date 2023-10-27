@@ -127,3 +127,4 @@ def offersNormalizer(offers):
     except Exception as e:
         logger.error(
             f'(LABORCHART) Error while trying to send offers to RabbitMQ queue: {e}')
+        raise ValueError(e)

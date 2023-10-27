@@ -25,7 +25,6 @@ def filterSimilars(offers, titlesCompanies, model, index):
         except Exception as e:
             logger.error(
                 f'(LABORCHART) Error trying to find nearest indexes: {e}')
-            raise ValueError(e)
 
         if nearestIndexes:
             # For each offers title-company, compares the string similarity percentage

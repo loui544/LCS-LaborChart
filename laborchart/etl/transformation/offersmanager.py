@@ -16,6 +16,8 @@ def getOffers():
         if offersQuantity['status'] == 400:
             logger.error(
                 f'(LABORCHART) Error: error while trying get total offers in ElasticSearch')
+            raise ValueError(
+                'Error: error while trying get total offers in ElasticSearch')
     else:
         if offersQuantity['_all']['primaries']['docs']['count'] == 0:
             logger.info('(LABORCHART) No offers loaded to ElasticSearch')
@@ -71,6 +73,7 @@ def updateOffers(reference, toChange):
     if resp.get('status') is not None:
         if resp['status'] >= 400:
             logger.error(f'(LABORCHART) Error while trying to update offers')
+            raise ValueError('Error while trying to update offers')
     else:
         return resp['updated']
 
@@ -134,13 +137,13 @@ def updateCompany(reference, toChange):
             if resp['status'] == 400:
                 logger.error(
                     f'(LABORCHART) Error while trying to update offers')
-                return 0
+                raise ValueError('Error while trying to update offers')
         else:
             return resp['updated']
     except ConflictError as e:
         logger.error(
             f'(LABORCHART) Error while trying to update offers: {e.meta.status}')
-        return 0
+        raise ValueError(e.meta.status)
 
 
 def checkCompanies(companies, model, index):
@@ -179,9 +182,12 @@ def checkCompanies(companies, model, index):
 
 
 def offersCheck():
-    offers = getOffers()
-    offers = pd.DataFrame(offers)
-    titlesCompanies = (offers['title company']).tolist()
-    model, index = modelTraining(titlesCompanies)
-    checkSimilars(offers, titlesCompanies, model, index)
-    checkCompanies((offers['company']).tolist(), model, index)
+    try:
+        offers = getOffers()
+        offers = pd.DataFrame(offers)
+        titlesCompanies = (offers['title company']).tolist()
+        model, index = modelTraining(titlesCompanies)
+        checkSimilars(offers, titlesCompanies, model, index)
+        checkCompanies((offers['company']).tolist(), model, index)
+    except Exception as e:
+        raise ValueError(e)

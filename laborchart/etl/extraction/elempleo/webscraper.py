@@ -15,6 +15,7 @@ from dagster import get_dagster_logger
 # Set Dagster Logger
 logger = get_dagster_logger()
 
+
 # navigation options
 options = webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
@@ -77,7 +78,7 @@ def webScraperElempleo():
     """
     try:
         # initialize browser
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Remote(url.EEDRIVER, options=options)
         driver.get(pageURL.ELEMPLEO)
         time.sleep(randomSleep())
         WebDriverWait(driver, 3).until(ec.element_to_be_clickable(

@@ -128,10 +128,12 @@ def offersNormalizer(offers):
             offer.lowerCase()
         except Exception as e:
             logger.error('(LABORCHART) Error: ' + str(e))
+            raise e
     try:
         sendList(offers)
         logger.info(
             '(LABORCHART) Computrabajo offers sent succesfully to RabbitMQ queue')
     except Exception as e:
         logger.error(
-            f'(LABORCHART) Error while trying to send offer to RabbitMQ: {e}')
+            f'(LABORCHART) Error while trying to send offers to RabbitMQ: {e}')
+        raise ValueError(e)
