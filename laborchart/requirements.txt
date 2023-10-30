@@ -10,3 +10,4 @@ dagster-webserver == 1.5.4
 dagit == 1.5.4
 dagster-postgres == 0.21.4
 elasticsearch == 8.10.1
+appengine-python-standard==1.1.4
