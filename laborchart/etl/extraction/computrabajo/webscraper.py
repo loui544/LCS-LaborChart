@@ -36,16 +36,16 @@ def Offer(box_details, date):
             title = box_details.find_element(
                 By.CSS_SELECTOR, 'p.title_offer').text
         except:
-            logger.error(
+            logger.info(
                 '(LABORCHART) Title element from Computrabajo not found')
             return None
 
         # Get the name of the company
         try:
             company = box_details.find_element(
-                By.XPATH, 'div[1]/div[1]/a').text
+                By.XPATH, 'div[1]/div[1]/p[2]/a').text
         except:
-            logger.error(
+            logger.info(
                 '(LABORCHART) Company element from Computrabajo not found')
             company = 'Empresa confidencial'
 
@@ -54,7 +54,7 @@ def Offer(box_details, date):
             description = box_details.find_element(
                 By.CSS_SELECTOR, 'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs16').text.replace('\n', ' ')
         except:
-            logger.error(
+            logger.info(
                 '(LABORCHART) Description element from Computrabajo not found')
             return None
 
@@ -63,7 +63,7 @@ def Offer(box_details, date):
             salary = box_details.find_element(
                 By.CSS_SELECTOR, 'span.tag base mb10'.replace(' ', '.')).text
         except:
-            logger.error(
+            logger.info(
                 '(LABORCHART) Salary element from Computrabajo not found')
             return None
         # Get the requirements of the offer
@@ -76,7 +76,7 @@ def Offer(box_details, date):
                 else:
                     experience = 'mes'
         except:
-            logger.error(
+            logger.info(
                 '(LABORCHART) Requirements element from Computrabajo not found')
             return None
 
@@ -85,7 +85,7 @@ def Offer(box_details, date):
             contract = box_details.find_element(
                 By.CSS_SELECTOR, 'body > main > div.box_border.menu_top > div > div.dFlex.dIB_m.w100_m > div:nth-child(2) > div:nth-child(7) > div:nth-child(1) > div.fs14.mb10 > div > span:nth-child(2)').text
         except:
-            logger.error(
+            logger.info(
                 '(LABORCHART) Contract element from Computrabajo not found')
             return None
         aux = rawOffer(title, company, description, salary,
@@ -134,7 +134,7 @@ def webScraperComputrabajo():
                     date = box.find_element(By.CLASS_NAME, 'fc_aux').text
                     box.click()
                 except Exception as e:
-                    logger.error(
+                    logger.info(
                         f'(LABORCHART) Error finding element {ids[i]} id')
                     pass
 
@@ -155,7 +155,7 @@ def webScraperComputrabajo():
 
             # Click button to the next page offer
             nextButton = driver.find_element(
-                By.XPATH, '/html/body/main/div[6]/div/div[2]/div[1]/div[7]/span[2]')
+                By.XPATH, '/html/body/main/div[6]/div/div[2]/div[1]/div[6]/span[2]')
             nextButton.click()
 
             page += 1

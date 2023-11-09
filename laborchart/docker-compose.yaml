@@ -10,7 +10,7 @@ services:
     volumes:
       - ./volumes/elastic-data:/usr/share/elasticsearch/data/
     environment:
-      ES_JAVA_OPTS: "-Xmx250m -Xms250m"
+      ES_JAVA_OPTS: "-Xmx500m -Xms500m"
       discovery.type: single-node
       ELASTIC_PASSWORD: elastic
       xpack.security.enabled: false
