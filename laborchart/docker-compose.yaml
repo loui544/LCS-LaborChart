@@ -7,6 +7,8 @@ services:
     container_name: Elasticsearch
     hostname: elasticsearch
     restart: always
+    storage_opt:
+      size: 1GB
     volumes:
       - ./volumes/elastic-data:/usr/share/elasticsearch/data/
     environment:
@@ -27,6 +29,8 @@ services:
     image: kibana:8.9.1
     container_name: Kibana
     restart: always
+    storage_opt:
+      size: 1GB
     ports:
       - '5601:5601'
     environment:
@@ -43,6 +47,8 @@ services:
     container_name: rabbitmq
     hostname: rabbitmq
     restart: always
+    storage_opt:
+      size: 1GB
     ports:
       - '5672:5672'
       - '15672:15672'
@@ -53,6 +59,8 @@ services:
     container_name: ComputrabajoDriver
     hostname: ctdriver
     restart: always
+    storage_opt:
+      size: 1GB
     image: selenium/standalone-chrome:latest
     ports:
       - 4444:4444
@@ -65,6 +73,8 @@ services:
     container_name: ElempleoDriver
     hostname: eedriver
     restart: always
+    storage_opt:
+      size: 1GB
     image: selenium/standalone-chrome:latest
     ports:
       - 4445:4444
@@ -76,6 +86,8 @@ services:
   dagster:
     container_name: Dagster
     restart: always
+    storage_opt:
+      size: 1GB
     volumes:
       - ./volumes/dagster-data:/usr/src/app/Dagster
     build: 
