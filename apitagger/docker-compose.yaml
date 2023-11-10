@@ -6,6 +6,8 @@ services:
     hostname: apitagger
     container_name: ApiTagger
     restart: always
+    storage_opt:
+      size: 1GB
     build: 
       context: .
       dockerfile: Dockerfile
