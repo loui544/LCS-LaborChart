@@ -8,7 +8,7 @@ services:
     hostname: elasticsearch
     restart: always
     storage_opt:
-      size: 1GB
+      size: 5GB
     volumes:
       - ./volumes/elastic-data:/usr/share/elasticsearch/data/
     environment:
@@ -30,7 +30,7 @@ services:
     container_name: Kibana
     restart: always
     storage_opt:
-      size: 1GB
+      size: 5GB
     ports:
       - '5601:5601'
     environment:
@@ -87,7 +87,7 @@ services:
     container_name: Dagster
     restart: always
     storage_opt:
-      size: 1GB
+      size: 2GB
     volumes:
       - ./volumes/dagster-data:/usr/src/app/Dagster
     build: 
