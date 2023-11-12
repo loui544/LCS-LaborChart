@@ -6,8 +6,8 @@ logger = get_dagster_logger()
 
 
 class faissParameters:
-    CLUSTERS = 10
-    CENTROIDIDS = 8
+    CLUSTERS = 20
+    CENTROIDIDS = 24
     SEARCHSCOPE = 5
     NEAREST = 5
 
