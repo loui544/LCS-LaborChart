@@ -23,17 +23,21 @@ def test_transformExp_false():
     experience1 = transformExp(experience)
     assert not (isinstance(experience1, str))
 
-def test_formatDate():
-    pass
+"""def test_formatDate():
+    date  = formatDate("11/11/2023") 
+    assert (isinstance(date, datetime))
+
 
 def test_formatDate_false():
     pass
-
+"""
 def test_standardizeEducationLevel():
-    pass
+    result = standardizeEducationLevel("Educación mínima:  Bachillerato completo") 
+    assert ( result == "Bachillerato completo")
 
 def test_standardizeEducationLevel_false():
-    pass
+    result = standardizeEducationLevel("Educación mínima:  Bachillerato completo") 
+    assert not ( result == "Educación mínima:  Bachillerato completo")
 
 def test_standardizeContractType():
     pass
