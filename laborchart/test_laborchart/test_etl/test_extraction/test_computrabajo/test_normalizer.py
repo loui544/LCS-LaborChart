@@ -58,12 +58,12 @@ def test_standardizeEducationLevel_false():
     result = standardizeEducationLevel('Educación Básica Primaria')
     assert not(result == educationLevel.HIGH)
 
-#Prove that the function standardizeContractType take the type of contract  it correctly
+#Prove that the function standardizeContractType take the type of contract and assigns it correctly
 def test_standardizeContractType():
     result = standardizeContractType('Contrato civil por prestación de servicios')
     assert (result == contractType.PRES)
 
-#Prove that the function standardizeContractType take the type of contract  it correctly, by a false case
+#Prove that the function standardizeContractType take the type of contract and assigns it correctly, by a false case
 def test_standardizeContractType_false():
     result = standardizeContractType('Contrato civil por prestación de servicios')
     assert not(result == contractType.DEF)
