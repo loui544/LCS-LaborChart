@@ -1,4 +1,5 @@
 from etl.extraction.computrabajo.normalizer import *
+from datetime import datetime
 
 
 def test_calculateSalary():
@@ -23,44 +24,43 @@ def test_transformExp_false():
     experience1 = transformExp(experience)
     assert not (isinstance(experience1, str))
 
-"""def test_formatDate():
-    date  = formatDate("11/11/2023") 
-    assert (isinstance(date, datetime))
 
+
+"""
+def test_formatDate(monkeypatch):
+    pass
 
 def test_formatDate_false():
-    pass
-"""
-def test_standardizeEducationLevel():
+    pass"""
+
+def test_standardizeEducationLevel_filter():
     result = standardizeEducationLevel("Educación mínima:  Bachillerato completo") 
     assert ( result == "Bachillerato completo")
 
+
+def test_standardizeEducationLevel():
+    result = standardizeEducationLevel('Educación Básica Primaria')
+    assert (result == educationLevel.PRIM)
+
+
 def test_standardizeEducationLevel_false():
-    result = standardizeEducationLevel("Educación mínima:  Bachillerato completo") 
-    assert not ( result == "Educación mínima:  Bachillerato completo")
+    result = standardizeEducationLevel('Educación Básica Primaria')
+    assert not(result == educationLevel.HIGH)
+
 
 def test_standardizeContractType():
-    pass
+    result = standardizeContractType('Contrato civil por prestación de servicios')
+    assert (result == contractType.PRES)
+
 
 def test_standardizeContractType_false():
-    pass
+    result = standardizeContractType('Contrato civil por prestación de servicios')
+    assert not(result == contractType.DEF)
 
-def test_sendList():
-    pass
-
-def test_sendList_false():
-    pass
-
+"""
 def test_offersNormalizer():
     pass
 
 def test_offersNormalizer_false():
     pass
-
-"""
-formatDate
-standardizeEducationLevel
-standardizeContractType
-sendList
-offersNormalizer
 """
