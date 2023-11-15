@@ -11,6 +11,18 @@ es = Elasticsearch(url.ELASTICSEARCH)
 
 
 def getOffers():
+    """
+    Retrieves offers information from Elasticsearch.
+
+    Returns:
+        list: A list of dictionaries containing title, company, and combined title-company information.
+
+    Raises:
+        ValueError: If there is an error while trying to retrieve offers from Elasticsearch.
+
+    Notes:
+        This function retrieves offers from Elasticsearch and aggregates them by company and title.
+    """
     offersQuantity = es.indices.stats(index=elasticSearch.INDEX)
     if offersQuantity.get('status') is not None:
         if offersQuantity['status'] == 400:
@@ -51,6 +63,23 @@ def getOffers():
 
 
 def updateOffers(reference, toChange):
+    """
+    Updates Elasticsearch offers based on reference information.
+
+    Args:
+        reference (dict): The reference offer containing the new title and company information.
+        to_change (dict): The offer to be updated, identified by its title and company.
+
+    Returns:
+        int: The number of updated offers.
+
+    Raises:
+        ValueError: If there is an error while trying to update offers in Elasticsearch.
+
+    Notes:
+        This function updates Elasticsearch offers that match the title and company of the 'to_change' offer
+        with the new title and company information provided in the 'reference' offer.
+    """
 
     query = {
         'bool': {
@@ -79,7 +108,19 @@ def updateOffers(reference, toChange):
 
 
 def checkSimilars(offers, titlesCompanies, model, index):
+    """
+    Checks for similar offers and updates them in the Elasticsearch index.
 
+    Args:
+        offers (DataFrame): The DataFrame containing offer information.
+        titles_companies (list): The list of concatenated title and company strings.
+        model: The SentenceTransformer model for encoding text.
+        index: The Faiss index for similarity search.
+
+    Notes:
+        This function identifies similar offers based on the 'titles_companies' list,
+        compares their string similarity percentage, and updates similar offers in the Elasticsearch index.
+    """
     updated = 0
     skip = []
     # For each offer title-company, find the 5 nearest Indexes
@@ -118,6 +159,23 @@ def checkSimilars(offers, titlesCompanies, model, index):
 
 
 def updateCompany(reference, toChange):
+    """
+    Updates the company name in the Elasticsearch index.
+
+    Args:
+        reference (str): The new company name to be used as a reference.
+        to_change (str): The existing company name to be updated.
+
+    Returns:
+        int: The number of updated documents in the Elasticsearch index.
+
+    Raises:
+        ValueError: If there is an error while trying to update the offers.
+
+    Notes:
+        This function updates documents in the Elasticsearch index where the 'company'
+        field matches the specified 'to_change' value, setting the 'company' field to the 'reference' value.
+    """
     query = {
         'bool': {
             'must': [
@@ -147,7 +205,22 @@ def updateCompany(reference, toChange):
 
 
 def checkCompanies(companies, model, index):
+    """
+    Checks and updates similar company names in Elasticsearch index.
 
+    Args:
+        companies (List[str]): A list of company names to be checked and updated.
+        model: The sentence embedding model used for similarity comparison.
+        index: The Faiss index used for nearest neighbor search.
+
+    Raises:
+        ValueError: If there is an error while trying to update the offers.
+
+    Notes:
+        This function checks for similarity among company names in the provided list.
+        If two companies have a similarity percentage between 85 and 99 (inclusive),
+        the function updates the Elasticsearch index to use the more common company name.
+    """
     updated = 0
     skip = []
     # For each offer title-company, find the 5 nearest Indexes
@@ -182,6 +255,19 @@ def checkCompanies(companies, model, index):
 
 
 def offersCheck():
+    """
+    Retrieves offers from Elasticsearch, checks for similarity among titles and companies,
+    and updates the index accordingly.
+
+    Raises:
+        ValueError: If there is an error during the offers checking and updating process.
+
+    Notes:
+        This function uses the Elasticsearch index to retrieve offers and checks for
+        similarity among titles and companies. If two titles or companies have a similarity
+        percentage of 95 or higher, the function updates the Elasticsearch index to use
+        the more common title or company name.
+    """
     try:
         offers = getOffers()
         offers = pd.DataFrame(offers)

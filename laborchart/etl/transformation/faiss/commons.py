@@ -13,6 +13,16 @@ class faissParameters:
 
 
 def centroidBits(offersLen, max=8):
+    """
+    Calculate the number of bits needed to represent the number of offers in a centroid calculation.
+
+    Args:
+        offers_len (int): The number of offers.
+        max_bits (int): The maximum number of bits. Default is 8.
+
+    Returns:
+        int: The calculated number of bits.
+    """
     if offersLen <= 1:
         return 0
     else:
@@ -21,6 +31,15 @@ def centroidBits(offersLen, max=8):
 
 
 def modelTraining(titlesCompanies):
+    """
+    Train a model using sentence embeddings and create an IndexIVFPQ model using Faiss.
+
+    Args:
+        titles_companies (List[str]): List of titles and companies.
+
+    Returns:
+        Tuple[SentenceTransformer, faiss.IndexIVFPQ]: Trained model and Faiss index.
+    """
     try:
         # Encoding title-company list
         model = SentenceTransformer('bert-base-nli-mean-tokens')

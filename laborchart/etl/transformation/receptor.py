@@ -7,6 +7,23 @@ logger = get_dagster_logger()
 
 
 def receiveList():
+    """
+    Connects to RabbitMQ and retrieves offers lists from multiple queues. Each queue
+    corresponds to a specific source or category of offers. The received lists are
+    concatenated into a single list.
+
+    Returns:
+        list: A list containing offers received from all RabbitMQ queues.
+
+    Raises:
+        ValueError: If there is an error during the RabbitMQ connection or if no offers
+        are available.
+
+    Notes:
+        This function assumes that each RabbitMQ queue contains offers in JSON format.
+        It retrieves offers from each queue, decodes the JSON data, and concatenates
+        the lists into a single list of offers.
+    """
     try:
         connection = pika.BlockingConnection(
             pika.ConnectionParameters(url.RABBITMQ))
@@ -44,6 +61,18 @@ def receiveList():
 
 
 def reception():
+    """
+    Connects to RabbitMQ and retrieves offers lists from multiple queues using the
+    `receiveList` function. Each queue corresponds to a specific source or category
+    of offers. The received lists are concatenated into a single list.
+
+    Returns:
+        list: A list containing offers received from all RabbitMQ queues.
+
+    Raises:
+        ValueError: If there is an error during the RabbitMQ connection or if no offers
+        are available. The specific error message is propagated.
+    """
     try:
         return receiveList()
     except Exception as e:

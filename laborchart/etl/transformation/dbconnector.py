@@ -10,6 +10,15 @@ es = Elasticsearch(url.ELASTICSEARCH)
 
 
 def sendToElasticSearch(offers):
+    """
+    Send a list of offers to Elasticsearch.
+
+    Args:
+        offers (List[dict]): List of offers.
+
+    Returns:
+        bool: True if the indexing process is successful, False otherwise.
+    """
     try:
         es.indices.create(index=elasticSearch.INDEX, body={
             "mappings": {

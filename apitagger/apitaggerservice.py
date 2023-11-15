@@ -4,6 +4,15 @@ import json
 
 
 def tagOffers(descriptions):
+    """
+    Processes a list of item descriptions and generates results using the `descriptionsResult` function.
+
+    Args:
+        descriptions (str): A JSON-encoded string containing a list of items with descriptions.
+
+    Returns:
+        str: A JSON-encoded string containing the results of processing the item descriptions.
+    """
     descriptions = json.loads(descriptions)
     descriptions = list(map(lambda item: item['description'], descriptions))
     result = descriptionsResult(descriptions)

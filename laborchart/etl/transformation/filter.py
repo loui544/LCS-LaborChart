@@ -9,6 +9,26 @@ logger = get_dagster_logger()
 
 
 def filterSimilars(offers, titlesCompanies, model, index):
+    """
+    Filters similar offers based on titles and companies using a trained model and index.
+
+    Args:
+        offers (pd.DataFrame): DataFrame containing offers data.
+        titles_companies (list): List of title and company combinations.
+        model: Trained SentenceTransformer model.
+        index: Trained Faiss index.
+
+    Returns:
+        list: Filtered offers in JSON format.
+
+    Raises:
+        ValueError: If there are errors during the filtering process.
+
+    Notes:
+        This function uses fuzzy string matching to compare title and company combinations.
+        Offers with a similarity percentage equal or higher than 95% are considered similar,
+        and the second one is deleted.
+    """
 
     deleted = 0
     logger.info(f'(LABORCHART) Initial quantity of offers: {offers.shape[0]}')
@@ -53,6 +73,16 @@ def filterSimilars(offers, titlesCompanies, model, index):
 
 
 def filterOffers(offers):
+    """
+    Filter similar offers based on their titles and companies.
+
+    Args:
+        offers (List[dict]): List of offers.
+
+    Returns:
+        List[dict]: Filtered offers.
+    """
+
     try:
         # Converts to dataframe and concatenates title and company
         offers = pd.DataFrame(offers)

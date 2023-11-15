@@ -38,12 +38,30 @@ elempleoContracts = {
 
 
 def cleanDescription(description):
+    """
+    Remove a specified substring from the given description.
+
+    Args:
+        description (str): The input description.
+    
+    Returns:
+        str: The cleaned description.
+    """
     return description.replace('Descripción general', '')
 
 # Calculate the salary from the range showed in salary string
 
 
 def calculateSalary(salary):
+    """
+    Calculate the average salary from the range shown in the salary string.
+
+    Args:
+        salary_string (str): The input salary string containing numeric values.
+
+    Returns:
+        int or None: The calculated average salary, or None if no numeric values are found.
+    """
     numbers = re.findall(r'\d+\.\d+|\d+', salary.replace(',', '.'))
     numbered = [float(number) for number in numbers]
     if not numbered:
@@ -57,6 +75,15 @@ def calculateSalary(salary):
 
 
 def transformExp(experience):
+    """
+    Transform experience string into an integer.
+
+    Args:
+        experience_string (str): The input experience string containing numeric values.
+
+    Returns:
+        int or None: The transformed experience as an integer, or None if no numeric values are found.
+    """
     expNumber = re.findall(r'\d+\.\d+|\d+', experience)
     if not expNumber:
         experience = 0
@@ -68,6 +95,15 @@ def transformExp(experience):
 
 
 def standardizeEducationLevel(education):
+    """
+    Standardize the input education level using a mapping.
+
+    Args:
+        education_string (str): The input education level string.
+
+    Returns:
+        str or None: The standardized education level or None if no match is found.
+    """
     for key, value in elempleoEducationLevels.items():
         if key in education:
             education = value
@@ -78,6 +114,15 @@ def standardizeEducationLevel(education):
 
 
 def standardizeContractType(contract):
+    """
+    Standardize the input contract type using a mapping.
+
+    Args:
+        contract_string (str): The input contract type string.
+
+    Returns:
+        str or None: The standardized contract type or None if no match is found.
+    """
     for key, value in elempleoContracts.items():
         if key in contract:
             contract = value
@@ -88,6 +133,15 @@ def standardizeContractType(contract):
 
 
 def sendList(offers):
+    """
+    Send a list of offers to a RabbitMQ queue.
+
+    Args:
+        offers (List[YourOfferType]): List of offer objects.
+
+    Returns:
+        bool: True if the offers are sent successfully, False otherwise.
+    """
     try:
         connection = pika.BlockingConnection(
             pika.ConnectionParameters(url.RABBITMQ))
@@ -109,7 +163,15 @@ def sendList(offers):
 
 
 def offersNormalizer(offers):
+    """
+    Normalize and send a list of offers to a RabbitMQ queue.
 
+    Args:
+        offers (List[YourOfferType]): List of offer objects.
+
+    Returns:
+        bool: True if the normalization and sending process is successful, False otherwise.
+    """
     for off in offers:
         try:
             off.description = cleanDescription(off.description)
