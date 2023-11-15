@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  apitagger:
+    hostname: apitagger
+    container_name: ApiTagger
+    restart: always
+    storage_opt:
+      size: 1GB
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    networks:
+      - laborchart
+
+networks:
+  laborchart:
+    external:
+      name: laborchart
