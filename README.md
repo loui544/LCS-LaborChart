@@ -1,4 +1,4 @@
-##LCS-LaborChart
+#LCS-LaborChart
 
 Laborchart es un sistema que permite visualizar las tendencias de la demanda de habilidades en el mercado laboral de Bogotá, mediante un dashboard. Además, es periódicamente alimentado por un flujo de datos que, por medio de Web Scraping, extrae datos relevantes de ofertas publicadas por empresas. Además, procesa y normaliza estos datos, y muy importante, hace uso de un modelo de etiquetadio de habilidades (MEH). Este modelo identifica las habilidades que son demandadas en las descripcione de las ofertas, por medio de ténicas de procesamiento de lenguaje natural (NLP), y las categoriza en tres competencias: socioemocional, técnico, o digital.
 
