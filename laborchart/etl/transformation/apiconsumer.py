@@ -6,7 +6,15 @@ logger = get_dagster_logger()
 
 
 def client(offers):
+    """
+    Tag skills in offers by making a POST request to a skill tagging API.
 
+    Args:
+        offers (List[dict]): List of offers.
+
+    Returns:
+        List[dict]: Processed offers with tagged entities.
+    """
     try:
         descriptions = [{"description": offer['description']}
                         for offer in offers]

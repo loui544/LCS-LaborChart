@@ -35,6 +35,15 @@ computrabajoContracts = {
 
 
 def calculateSalary(salary):
+    """
+    Extracts the float number of the salary in the offer.
+
+    Args:
+        salary (str): The salary string.
+
+    Returns:
+        float or None: The calculated salary, or None if 'convenir' is in the salary.
+    """
     try:
         if 'convenir' in salary:
             salary = None
@@ -48,6 +57,15 @@ def calculateSalary(salary):
 
 # Extract the integer nunber of the experience in the offer
 def transformExp(experience):
+    """
+    Extracts the integer number of the experience in the offer.
+
+    Args:
+        experience (str): The experience string.
+
+    Returns:
+        int: The transformed experience value.
+    """
     if 'mes' in experience:
         experience = 0
         return experience
@@ -63,6 +81,15 @@ def transformExp(experience):
 
 
 def formatDate(date):
+    """
+    Adjusts the date of the offer to the current day.
+
+    Args:
+        date (str): The date string.
+
+    Returns:
+        str: The formatted date.
+    """
     try:
         date = datetime.today().strftime('%d-%m-%Y')
         return date
@@ -73,6 +100,15 @@ def formatDate(date):
 
 
 def standardizeEducationLevel(education):
+    """
+    Standardizes the level of education.
+
+    Args:
+        education (str): The education string.
+
+    Returns:
+        educationLevel: The standardized education level.
+    """
     valid = education.find("Educación mínima:")
     if valid != -1:
         # Extraemos la parte de la cadena después de "Educación mínima:"
@@ -87,6 +123,15 @@ def standardizeEducationLevel(education):
 
 
 def standardizeContractType(contract):
+    """
+    Standardizes the contract type.
+
+    Args:
+        contract (str): The contract string.
+
+    Returns:
+        contractType: The standardized contract type.
+    """
     for key, value in computrabajoContracts.items():
         if key in contract:
             contract = value
@@ -97,6 +142,12 @@ def standardizeContractType(contract):
 
 
 def sendList(offers):
+    """
+    Sends a list of offers to a RabbitMQ queue.
+
+    Args:
+        offers (List[rawOffer]): The list of offers to send.
+    """
     try:
         connection = pika.BlockingConnection(
             pika.ConnectionParameters(url.RABBITMQ))
@@ -117,7 +168,12 @@ def sendList(offers):
 
 
 def offersNormalizer(offers):
+    """
+    Normalizes a list of Computrabajo offers.
 
+    Args:
+        offers (List[rawOffer]): The list of offers to normalize.
+    """
     for offer in offers:
         try:
             offer.salary = calculateSalary(offer.salary)

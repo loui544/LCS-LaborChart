@@ -20,12 +20,33 @@ options.add_argument('--log-level=3')
 
 
 def randomSleep():
+    """
+    Generate a random sleep duration between min_value and max_value.
+
+    Returns:
+        float: The random sleep duration.
+    """
     return random.uniform(times.MIN, times.MAX)
 
 # Read the a offer
 
 
 def Offer(box_details, date):
+    """
+    Extract information from the given 'box_details' element and create a 'rawOffer' object.
+
+    Args:
+        box_details (selenium.webdriver.remote.webelement.WebElement): The WebElement containing details of the job offer.
+        date (str): The date of the job offer.
+
+    Returns:
+        etl.classes.rawoffer.rawOffer or None: A 'rawOffer' object if information is successfully extracted, 
+            None if any essential element is not found.
+
+    Raises:
+        NoSuchElementException: If any required element is not found in 'box_details'.
+        Exception: If an unexpected error occurs during the data extraction process.
+    """
     try:
         aux = rawOffer
         # do the data collection of the pages
@@ -99,7 +120,17 @@ def Offer(box_details, date):
 
 
 def webScraperComputrabajo():
+    """
+    Scrapes job offers from Computrabajo website.
 
+    Initializes a browser, navigates through pages, and extracts job offer details.
+
+    Returns:
+        List[etl.classes.rawoffer.rawOffer]: A list of 'rawOffer' objects representing job offers.
+
+    Raises:
+        Exception: If an unexpected error occurs during the scraping process.
+    """
     # Page initializer
     try:
         # initialize browser
