@@ -1,0 +1,20 @@
+2023-11-20 05:28:58 +0000 - dagster - DEBUG - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - 4275 - LOGS_CAPTURED - Started capturing logs in process (pid: 4275).
+2023-11-20 05:28:58 +0000 - dagster - DEBUG - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - 4275 - offersSimilarityCheck - STEP_START - Started execution of step "offersSimilarityCheck".
+2023-11-20 05:30:58 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) (83) asesor servicio al cliente konecta <-> (88) asesora servicio al cliente konecta
+2023-11-20 05:30:58 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-20 05:31:28 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) (975) call center comercial bachiller con o sin experiencia global contact call center <-> (979) asesor call center comercial bachiller con o sin experiencia global contact call center
+2023-11-20 05:31:28 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) Similarity percentage: 96%
+2023-11-20 05:32:45 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) (3325) vigilantes para zona norte de bogotá acocel ltda asesores colombianos de celaduria <-> (3332) vigilante para zona norte de bogotá acocel ltda asesores colombianos de celaduria
+2023-11-20 05:32:45 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-20 05:33:10 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) (4076) supervisora empresarios eyc <-> (4081) supervisor empresarios eyc
+2023-11-20 05:33:10 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-20 05:34:20 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) (6228) auxiliar de corte metalúrgico corporacion de comerciantes plaza de mercado de paloquemao <-> (6229) auxiliar de corte metálico corporacion de comerciantes plaza de mercado de paloquemao
+2023-11-20 05:34:20 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-20 05:34:48 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) (7070) coordinadora de proyectos data inventarios sas <-> (7071) coordinadora proyectos data inventarios sas
+2023-11-20 05:34:48 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-20 05:37:53 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) 302 offers updated
+2023-11-20 05:44:20 +0000 - dagster - INFO - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - offersSimilarityCheck - (LABORCHART) 0 offers updated
+2023-11-20 05:44:20 +0000 - dagster - DEBUG - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - 4275 - offersSimilarityCheck - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-20 05:44:20 +0000 - dagster - DEBUG - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - 4275 - offersSimilarityCheck - ASSET_MATERIALIZATION - Materialized value offersSimilarityCheck.
+2023-11-20 05:44:20 +0000 - dagster - DEBUG - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - 4275 - offersSimilarityCheck - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-20 05:44:20 +0000 - dagster - DEBUG - LaborChartETL - 91e2a6fe-205a-40bf-9d96-fcbfd4b0744c - 4275 - offersSimilarityCheck - STEP_SUCCESS - Finished execution of step "offersSimilarityCheck" in 15m21s.

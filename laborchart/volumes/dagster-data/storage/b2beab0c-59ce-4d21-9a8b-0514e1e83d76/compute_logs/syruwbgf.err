@@ -1,0 +1,81 @@
+2023-11-13 05:00:09 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 9020 - LOGS_CAPTURED - Started capturing logs in process (pid: 9020).
+2023-11-13 05:00:09 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 9020 - computrabajoExtraction - STEP_START - Started execution of step "computrabajoExtraction".
+2023-11-13 05:00:28 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:00:31 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:00:34 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:00:37 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:00:39 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:00:58 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:31 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:34 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:37 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:42 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:45 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:49 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:52 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:54 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:01:57 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:02:12 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:02:15 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:02:20 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:02:23 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:02:37 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:02:52 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:02:55 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:13 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:17 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:24 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:27 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:31 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:35 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:38 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:42 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:46 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:50 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:52 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:03:56 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:07 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:10 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:13 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:17 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:21 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:35 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:39 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:45 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:48 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:52 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:56 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:04:59 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:05:03 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:05:05 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:05:43 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:05:46 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:05:54 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:05:58 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:06:15 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:06:19 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:06:22 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:06:28 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:07:09 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:07:19 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:07 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:10 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:13 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:26 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:28 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:33 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:37 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:40 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:43 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:52 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:08:57 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:09:08 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:09:16 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:09:26 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:09:30 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Company element from Computrabajo not found
+2023-11-13 05:09:32 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Today's extraction: 141 offers      Pages viewed: 9
+2023-11-13 05:09:32 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - computrabajoExtraction - (LABORCHART) Computrabajo offers sent succesfully to RabbitMQ queue
+2023-11-13 05:09:32 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 9020 - computrabajoExtraction - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-13 05:09:32 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 9020 - computrabajoExtraction - ASSET_MATERIALIZATION - Materialized value computrabajoExtraction.
+2023-11-13 05:09:32 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 9020 - computrabajoExtraction - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-13 05:09:32 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 9020 - computrabajoExtraction - STEP_SUCCESS - Finished execution of step "computrabajoExtraction" in 9m23s.

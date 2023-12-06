@@ -1,0 +1,12 @@
+2023-11-14 05:43:40 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - LOGS_CAPTURED - Started capturing logs in process (pid: 7911).
+2023-11-14 05:43:40 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - STEP_START - Started execution of step "apiClient".
+2023-11-14 05:43:41 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - apiClient - Loading file from: /usr/src/app/Dagster/storage/filter using PickledObjectFilesystemIOManager...
+2023-11-14 05:43:41 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - ASSET_OBSERVATION - ASSET_OBSERVATION for step apiClient
+2023-11-14 05:43:41 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - LOADED_INPUT - Loaded input "filter" using input manager "io_manager", from output "result" of step "filter"
+2023-11-14 05:43:41 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - STEP_INPUT - Got input "filter" of type "Any". (Type check passed).
+2023-11-14 05:46:47 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - apiClient - (LABORCHART) Successful request. Status code: 200
+2023-11-14 05:46:47 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2023-11-14 05:46:47 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - apiClient - Writing file at: /usr/src/app/Dagster/storage/apiClient using PickledObjectFilesystemIOManager...
+2023-11-14 05:46:47 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - ASSET_MATERIALIZATION - Materialized value apiClient.
+2023-11-14 05:46:47 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-14 05:46:47 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 7911 - apiClient - STEP_SUCCESS - Finished execution of step "apiClient" in 3m6s.

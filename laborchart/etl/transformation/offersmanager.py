@@ -239,7 +239,7 @@ def checkCompanies(companies, model, index):
             for nearIndex in nearestIndexes:
                 try:
                     # If offer's title-companies have a pecentage equal or higher of similarity, the second one is deleted
-                    if fuzz.ratio(company, companies[nearIndex]) >= 85 and fuzz.ratio(company, companies[nearIndex]) < 100:
+                    if fuzz.ratio(company, companies[nearIndex]) >= 90 and fuzz.ratio(company, companies[nearIndex]) < 100:
                         logger.info(
                             f'(LABORCHART) ({i}) {company} <-> ({nearIndex}) {companies[nearIndex]}')
                         logger.info(

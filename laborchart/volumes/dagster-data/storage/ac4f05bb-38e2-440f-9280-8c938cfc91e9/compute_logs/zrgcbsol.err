@@ -1,0 +1,11 @@
+2023-11-14 05:46:50 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - LOGS_CAPTURED - Started capturing logs in process (pid: 15814).
+2023-11-14 05:46:50 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - STEP_START - Started execution of step "elasticConnector".
+2023-11-14 05:46:50 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - elasticConnector - Loading file from: /usr/src/app/Dagster/storage/apiClient using PickledObjectFilesystemIOManager...
+2023-11-14 05:46:50 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - ASSET_OBSERVATION - ASSET_OBSERVATION for step elasticConnector
+2023-11-14 05:46:50 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - LOADED_INPUT - Loaded input "apiClient" using input manager "io_manager", from output "result" of step "apiClient"
+2023-11-14 05:46:50 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - STEP_INPUT - Got input "apiClient" of type "Any". (Type check passed).
+2023-11-14 05:46:51 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - elasticConnector - (LABORCHART) 675 offers succesfully loaded to Elasticsearch
+2023-11-14 05:46:51 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-14 05:46:51 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - ASSET_MATERIALIZATION - Materialized value elasticConnector.
+2023-11-14 05:46:51 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-14 05:46:51 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 15814 - elasticConnector - STEP_SUCCESS - Finished execution of step "elasticConnector" in 594ms.
