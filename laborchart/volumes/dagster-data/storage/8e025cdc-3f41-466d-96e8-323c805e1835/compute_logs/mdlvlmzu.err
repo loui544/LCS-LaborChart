@@ -1,0 +1,8 @@
+2023-11-18 07:14:46 +0000 - dagster - DEBUG - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - 4743 - LOGS_CAPTURED - Started capturing logs in process (pid: 4743).
+2023-11-18 07:14:46 +0000 - dagster - DEBUG - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - 4743 - receptor - STEP_START - Started execution of step "receptor".
+2023-11-18 07:14:46 +0000 - dagster - INFO - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - receptor - (LABORCHART) 2307 offers received successfully from RabbitMQ
+2023-11-18 07:14:46 +0000 - dagster - DEBUG - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - 4743 - receptor - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2023-11-18 07:14:46 +0000 - dagster - DEBUG - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - receptor - Writing file at: /usr/src/app/Dagster/storage/receptor using PickledObjectFilesystemIOManager...
+2023-11-18 07:14:46 +0000 - dagster - DEBUG - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - 4743 - receptor - ASSET_MATERIALIZATION - Materialized value receptor.
+2023-11-18 07:14:46 +0000 - dagster - DEBUG - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - 4743 - receptor - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-18 07:14:46 +0000 - dagster - DEBUG - LaborChartETL - 8e025cdc-3f41-466d-96e8-323c805e1835 - 4743 - receptor - STEP_SUCCESS - Finished execution of step "receptor" in 280ms.

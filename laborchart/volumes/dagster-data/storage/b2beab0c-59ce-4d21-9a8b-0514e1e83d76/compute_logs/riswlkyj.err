@@ -1,0 +1,40 @@
+2023-11-13 05:11:01 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 4417 - LOGS_CAPTURED - Started capturing logs in process (pid: 4417).
+2023-11-13 05:11:01 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 4417 - offersSimilarityCheck - STEP_START - Started execution of step "offersSimilarityCheck".
+2023-11-13 05:13:21 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (1101) conductora sitp zona sur con licencia c2c3 masivo capital sas <-> (1103) conductora sitp zona norte con licencia c2c3 masivo capital sas
+2023-11-13 05:13:21 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-13 05:13:28 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (1300) operario de confección permoda ltda <-> (1304) operarios de confección permoda ltda
+2023-11-13 05:13:28 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-13 05:13:45 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (1877) auxiliar bodega omm colombia sas <-> (1878) auxiliar de bodega omm colombia sas
+2023-11-13 05:13:45 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 96%
+2023-11-13 05:13:47 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (1910) trabaja con o sin experiencia asesor comercial call center convertia <-> (1915) trabaja sin experiencia asesor comercial call center convertia
+2023-11-13 05:13:47 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-13 05:14:07 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (2577) camarera de hoteles ar construcciones sas <-> (2578) camareroa de hoteles ar construcciones sas
+2023-11-13 05:14:07 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-13 05:14:08 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (2604) asesor soporte comercial sector ferretero industrial consultoria soluciones humanas sas <-> (2606) asistente soporte comercial sector ferretero industrial consultoria soluciones humanas sas
+2023-11-13 05:14:08 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-13 05:14:10 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (2663) mensajeros o domiciliarios conductor de carro y moto bogota aservit  cia <-> (2666) mensajeros o domiciliarios conductor de carro y moto bogota norte aservit  cia
+2023-11-13 05:14:10 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 96%
+2023-11-13 05:14:14 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (2777) enfermera jefe clínica nueva <-> (2778) enfermero a jefe clínica nueva
+2023-11-13 05:14:14 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-13 05:14:45 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (3781) asesor de cobranza empresarios eyc <-> (3786) asesor cobranza empresarios eyc
+2023-11-13 05:14:45 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-13 05:15:03 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (4370) guarda de seguridad 4x4x2 seguridad evicol ltda <-> (4371) guarda de seguridad 4x2 seguridad evicol ltda
+2023-11-13 05:15:03 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-13 05:15:04 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (4389) operador de medios tecnologicos servision de colombia y cia ltda <-> (4398) operadores de medios tecnoologicos servision de colombia y cia ltda
+2023-11-13 05:15:04 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-13 05:16:04 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (6347) asistente de microbiologia laboratorio emical sas <-> (6350) asistente de microbiología laboratorio emical sas
+2023-11-13 05:16:04 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-13 05:16:11 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (6569) jefe de planta auxiliar de planta astemprosas <-> (6570) jefe de planta auxiliar planta astemprosas
+2023-11-13 05:16:11 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-13 05:17:07 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (8388) auxiliar contable serquerer sas <-> (8391) auxilio contable serquerer sas
+2023-11-13 05:17:07 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-13 05:18:53 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) 39 offers updated
+2023-11-13 05:18:55 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (90) agencia de empleo de colsubsidio <-> (8490) agencia de empleo colsubsidio
+2023-11-13 05:18:55 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-13 05:19:02 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) (320) medicall talento humano <-> (11300) medicall talento humano sas
+2023-11-13 05:19:02 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 92%
+2023-11-13 05:24:30 +0000 - dagster - INFO - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - offersSimilarityCheck - (LABORCHART) 4 offers updated
+2023-11-13 05:24:30 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 4417 - offersSimilarityCheck - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-13 05:24:30 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 4417 - offersSimilarityCheck - ASSET_MATERIALIZATION - Materialized value offersSimilarityCheck.
+2023-11-13 05:24:30 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 4417 - offersSimilarityCheck - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-13 05:24:30 +0000 - dagster - DEBUG - LaborChartETL - b2beab0c-59ce-4d21-9a8b-0514e1e83d76 - 4417 - offersSimilarityCheck - STEP_SUCCESS - Finished execution of step "offersSimilarityCheck" in 13m28s.

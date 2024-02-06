@@ -1,0 +1,52 @@
+2023-11-21 08:10:48 +0000 - dagster - DEBUG - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - 16584 - LOGS_CAPTURED - Started capturing logs in process (pid: 16584).
+2023-11-21 08:10:48 +0000 - dagster - DEBUG - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - 16584 - offersSimilarityCheck - STEP_START - Started execution of step "offersSimilarityCheck".
+2023-11-21 08:13:01 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (490) asesora comercial tiempos sas <-> (3350) asesor comercial atiempo sas
+2023-11-21 08:13:01 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-21 08:13:02 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (533) mensajeroa motorizado megalinea sa <-> (539) mensajero motorizado megalinea sa
+2023-11-21 08:13:02 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-21 08:13:23 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (1250) operarias de aseo diamante <-> (1256) operarioa de aseo diamante
+2023-11-21 08:13:23 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 96%
+2023-11-21 08:13:24 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (1264) auxiliar de contact center chevyplan sa <-> (1269) auxiliar contac center chevyplan sa
+2023-11-21 08:13:24 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-21 08:13:59 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (2482) auxiliar metalmecanico gehutemp <-> (2483) auxiliar metalmecánico gehutemp
+2023-11-21 08:13:59 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-21 08:14:04 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (2630) analista de laboratorio químico grupo kopelle ltda <-> (2631) analista laboratorio químico grupo kopelle ltda
+2023-11-21 08:14:04 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-21 08:14:25 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (3345) director de gestión inmobiliaria admicentros sas <-> (3346) director gestión inmobiliaria admicentros sas
+2023-11-21 08:14:25 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-21 08:14:33 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (3638) auxiliar de enfermería rohi ips sas <-> (3641) auxiliar de enfermeria rohi ips sas
+2023-11-21 08:14:33 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-21 08:14:38 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (3790) asesor comercial distribucion hormigon urbano sas <-> (3791) asesor comercial distribución hormigon urbano sas
+2023-11-21 08:14:38 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-21 08:14:57 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (4417) auxiliar administrativo clinica la sabana sa <-> (4418) auxiliar administrativoa clinica la sabana sa
+2023-11-21 08:14:57 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-21 08:15:21 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (5231) administrativo de seguridad vial expreso brasilia sa <-> (5232) administrativo de seguridad vial y sst expreso brasilia sa
+2023-11-21 08:15:21 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-21 08:15:41 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (5902) operador de medios tecnológicos sevin ltda <-> (9678) operador de medios tecnológicos isvi ltda
+2023-11-21 08:15:41 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 96%
+2023-11-21 08:15:53 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (6319) asesor de optica univer plus sa <-> (6320) asesor de óptica univer plus sa
+2023-11-21 08:15:53 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-21 08:15:56 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (6414) asesor comercial marca de lujo estibol sa s <-> (6415) asesor comercial marca de lujo tumi estibol sa s
+2023-11-21 08:15:56 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-21 08:16:17 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (7111) practicante diseo gráfico accedo colombia sas <-> (7112) practicante diseño gráfico accedo colombia sas
+2023-11-21 08:16:17 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-21 08:16:40 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (7885) medico movilmedica atencion integral domiciliaria sas <-> (7887) médicoa movilmedica atencion integral domiciliaria sas
+2023-11-21 08:16:40 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-21 08:16:50 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (8231) mesero círculo de suboficiales de las fuerzas militares <-> (8233) todero círculo de suboficiales de las fuerzas militares
+2023-11-21 08:16:50 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-21 08:17:10 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (8911) lider de tienda hobbys y juguetes <-> (8912) líder de tienda hobbys y juguetes
+2023-11-21 08:17:10 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 97%
+2023-11-21 08:17:21 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (9277) mecanico de equipo de procesamiento de plasticos aven group sas <-> (9278) mecanico de equipo procesamiento de plasticos aven group sas
+2023-11-21 08:17:21 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-21 08:17:37 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (9833) asesor de ventas tienda pandora pandora jewelry colombia <-> (9834) asesor de ventas tiendas pandora pandora jewelry colombia
+2023-11-21 08:17:37 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-21 08:18:09 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (10908) ejecutivoa de cobranza yo asesora comercial en bogota procobas ltda <-> (10909) ejecutivoa de cobranza yo asesora comercial en bogotá procobas ltda
+2023-11-21 08:18:09 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-21 08:19:16 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) 32 offers updated
+2023-11-21 08:21:10 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) (4305) sales marketing temporales sas <-> (10986) sales marketing temporales
+2023-11-21 08:21:10 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) Similarity percentage: 93%
+2023-11-21 08:25:14 +0000 - dagster - INFO - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - offersSimilarityCheck - (LABORCHART) 19 offers updated
+2023-11-21 08:25:14 +0000 - dagster - DEBUG - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - 16584 - offersSimilarityCheck - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-21 08:25:14 +0000 - dagster - DEBUG - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - 16584 - offersSimilarityCheck - ASSET_MATERIALIZATION - Materialized value offersSimilarityCheck.
+2023-11-21 08:25:14 +0000 - dagster - DEBUG - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - 16584 - offersSimilarityCheck - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-21 08:25:14 +0000 - dagster - DEBUG - LaborChartETL - 89cbbecf-82e7-48b4-b318-860f4d0a864a - 16584 - offersSimilarityCheck - STEP_SUCCESS - Finished execution of step "offersSimilarityCheck" in 14m26s.

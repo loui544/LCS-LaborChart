@@ -1,0 +1,12 @@
+2023-11-19 05:34:47 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - LOGS_CAPTURED - Started capturing logs in process (pid: 28402).
+2023-11-19 05:34:47 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - STEP_START - Started execution of step "apiClient".
+2023-11-19 05:34:47 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - apiClient - Loading file from: /usr/src/app/Dagster/storage/filter using PickledObjectFilesystemIOManager...
+2023-11-19 05:34:48 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - ASSET_OBSERVATION - ASSET_OBSERVATION for step apiClient
+2023-11-19 05:34:48 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - LOADED_INPUT - Loaded input "filter" using input manager "io_manager", from output "result" of step "filter"
+2023-11-19 05:34:48 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - STEP_INPUT - Got input "filter" of type "Any". (Type check passed).
+2023-11-19 05:36:38 +0000 - dagster - INFO - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - apiClient - (LABORCHART) Successful request. Status code: 200
+2023-11-19 05:36:38 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2023-11-19 05:36:38 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - apiClient - Writing file at: /usr/src/app/Dagster/storage/apiClient using PickledObjectFilesystemIOManager...
+2023-11-19 05:36:39 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - ASSET_MATERIALIZATION - Materialized value apiClient.
+2023-11-19 05:36:39 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-19 05:36:39 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 28402 - apiClient - STEP_SUCCESS - Finished execution of step "apiClient" in 1m51s.

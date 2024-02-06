@@ -1,0 +1,11 @@
+2023-11-19 05:36:41 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - LOGS_CAPTURED - Started capturing logs in process (pid: 765).
+2023-11-19 05:36:41 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - STEP_START - Started execution of step "elasticConnector".
+2023-11-19 05:36:41 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - elasticConnector - Loading file from: /usr/src/app/Dagster/storage/apiClient using PickledObjectFilesystemIOManager...
+2023-11-19 05:36:42 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - ASSET_OBSERVATION - ASSET_OBSERVATION for step elasticConnector
+2023-11-19 05:36:42 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - LOADED_INPUT - Loaded input "apiClient" using input manager "io_manager", from output "result" of step "apiClient"
+2023-11-19 05:36:42 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - STEP_INPUT - Got input "apiClient" of type "Any". (Type check passed).
+2023-11-19 05:36:42 +0000 - dagster - INFO - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - elasticConnector - (LABORCHART) 500 offers succesfully loaded to Elasticsearch
+2023-11-19 05:36:42 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-19 05:36:42 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - ASSET_MATERIALIZATION - Materialized value elasticConnector.
+2023-11-19 05:36:42 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-19 05:36:42 +0000 - dagster - DEBUG - LaborChartETL - 708454e4-d89f-41a8-8eb0-dda7039c6b8b - 765 - elasticConnector - STEP_SUCCESS - Finished execution of step "elasticConnector" in 439ms.

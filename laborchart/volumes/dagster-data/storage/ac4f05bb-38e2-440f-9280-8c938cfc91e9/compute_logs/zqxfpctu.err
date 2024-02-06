@@ -1,0 +1,18 @@
+2023-11-14 05:46:54 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 16021 - LOGS_CAPTURED - Started capturing logs in process (pid: 16021).
+2023-11-14 05:46:54 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 16021 - offersSimilarityCheck - STEP_START - Started execution of step "offersSimilarityCheck".
+2023-11-14 05:48:49 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) (100) asesora servicio al cliente call center konecta <-> (105) asesora servicio al cliente call center chat konecta
+2023-11-14 05:48:49 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 95%
+2023-11-14 05:49:44 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) (1796) promotor winner group sa <-> (1797) promotora winner group sa
+2023-11-14 05:49:44 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-14 05:51:14 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) (4554) supervisor motorizado naser ltda <-> (4555) supervisores motorizados naser ltda
+2023-11-14 05:51:14 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 96%
+2023-11-14 05:51:20 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) (4729) coordinador punto de venta distribuciones el mayorista <-> (4733) coordinadora punto de venta distribuciones el mayorista
+2023-11-14 05:51:20 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 99%
+2023-11-14 05:53:14 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) (8246) panadero pastelero hortus sas <-> (8247) panadero pasteleroa hortus sas
+2023-11-14 05:53:14 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) Similarity percentage: 98%
+2023-11-14 05:55:17 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) 28 offers updated
+2023-11-14 06:01:24 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - offersSimilarityCheck - (LABORCHART) 0 offers updated
+2023-11-14 06:01:24 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 16021 - offersSimilarityCheck - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-14 06:01:24 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 16021 - offersSimilarityCheck - ASSET_MATERIALIZATION - Materialized value offersSimilarityCheck.
+2023-11-14 06:01:24 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 16021 - offersSimilarityCheck - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-14 06:01:24 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 16021 - offersSimilarityCheck - STEP_SUCCESS - Finished execution of step "offersSimilarityCheck" in 14m29s.

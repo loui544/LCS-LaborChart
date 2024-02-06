@@ -1,0 +1,99 @@
+2023-11-22 05:14:15 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - LOGS_CAPTURED - Started capturing logs in process (pid: 6299).
+2023-11-22 05:14:15 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - STEP_START - Started execution of step "filter".
+2023-11-22 05:14:15 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - Loading file from: /usr/src/app/Dagster/storage/receptor using PickledObjectFilesystemIOManager...
+2023-11-22 05:14:15 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - ASSET_OBSERVATION - ASSET_OBSERVATION for step filter
+2023-11-22 05:14:15 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - LOADED_INPUT - Loaded input "receptor" using input manager "io_manager", from output "result" of step "receptor"
+2023-11-22 05:14:15 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - STEP_INPUT - Got input "receptor" of type "Any". (Type check passed).
+WARNING clustering 273 points to 20 centroids: please provide at least 780 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 273 points to 256 centroids: please provide at least 9984 training points
+2023-11-22 05:14:20 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Initial quantity of offers: 273
+2023-11-22 05:14:20 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (0) gran convocatoria agente call centermigracion apex américa colombia <-> (1) gran convocatoria agente call centermigracion apex américa colombia
+2023-11-22 05:14:20 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (15) auxiliar de call center ventas chevyplan sa <-> (16) auxiliar de call center ventas chevyplan sa
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (18) ejecutivo comercial chevyplan sa <-> (19) ejecutivo comercial chevyplan sa
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (20) asesor ventas contrato a termino indefinido experiencia en ventas chevyplan sa <-> (21) asesor ventas contrato a termino indefinido experiencia en ventas chevyplan sa
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (20) asesor ventas contrato a termino indefinido experiencia en ventas chevyplan sa <-> (26) asesor ventas contrato a termino indefinido experiencia en ventas chevyplan sa
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (23) asesor comercial comisiones sin techo bogotá chevyplan sa <-> (27) asesor comercial comisiones sin techo bogotá chevyplan sa
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (23) asesor comercial comisiones sin techo bogotá chevyplan sa <-> (28) asesor comercial comisiones sin techo bogotá chevyplan sa
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (24) asesor comercial contac center chevyplan sa <-> (30) asesor comercial contac center chevyplan sa
+2023-11-22 05:14:21 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:22 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (34) asesor call center webhelp colombia <-> (80) asesor call center webhelp colombia
+2023-11-22 05:14:22 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:22 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (41) asesor comercial para entidad financiera call center bachiller atento sa <-> (42) asesor comercial para entidad financiera call center bachiller atento sa
+2023-11-22 05:14:22 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:22 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (48) promotora asesor de venta temporada navideña urgente mision temporal <-> (49) promotora asesor de venta temporada navideña urgente mision temporal
+2023-11-22 05:14:22 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:23 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (82) auxiliar contable grupo asthec sa <-> (83) auxiliar contable grupo asthec sa
+2023-11-22 05:14:23 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (103) agente call center bilingue  inglés c1 dos dias off  great salary atento sa <-> (138) agente call center bilingue  inglés c1 dos dias off  great salary atento sa
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (103) agente call center bilingue  inglés c1 dos dias off  great salary atento sa <-> (151) agente call center bilingue  inglés c1 dos dias off  great salary atento sa
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (103) agente call center bilingue  inglés c1 dos dias off  great salary atento sa <-> (202) agente call center bilingue  inglés c1 dos dias off  great salary atento sa
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (104) agente call center bilingue inglés avanzado 42 horas 2 dias off atento sa <-> (137) agente call center bilingue inglés avanzado 42 horas 2 dias off atento sa
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (104) agente call center bilingue inglés avanzado 42 horas 2 dias off atento sa <-> (152) agente call center bilingue inglés avanzado 42 horas 2 dias off atento sa
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (104) agente call center bilingue inglés avanzado 42 horas 2 dias off atento sa <-> (200) agente call center bilingue inglés avanzado 42 horas 2 dias off atento sa
+2023-11-22 05:14:24 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (105) call center bilingüe excelentes remuneraciones por desempeño  42 h 2 days off atento sa <-> (136) call center bilingüe excelentes remuneraciones por desempeño  42 h 2 days off atento sa
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (105) call center bilingüe excelentes remuneraciones por desempeño  42 h 2 days off atento sa <-> (153) call center bilingüe excelentes remuneraciones por desempeño  42 h 2 days off atento sa
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (105) call center bilingüe excelentes remuneraciones por desempeño  42 h 2 days off atento sa <-> (199) call center bilingüe excelentes remuneraciones por desempeño  42 h 2 days off atento sa
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (106) asesor de call center bilingüe en bogotá servicio al cliente en inglés sin experiencia atento sa <-> (135) asesor de call center bilingüe en bogotá servicio al cliente en inglés sin experiencia atento sa
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (106) asesor de call center bilingüe en bogotá servicio al cliente en inglés sin experiencia atento sa <-> (154) asesor de call center bilingüe en bogotá servicio al cliente en inglés sin experiencia atento sa
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (106) asesor de call center bilingüe en bogotá servicio al cliente en inglés sin experiencia atento sa <-> (198) asesor de call center bilingüe en bogotá servicio al cliente en inglés sin experiencia atento sa
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (107) asesor call center servicio al cliente  experiencia 6 meses call center covisian colombia sas <-> (213) asesor call center servicio al cliente  experiencia 6 meses call center covisian colombia sas
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (112) promotores impulsadores  ventas call center empresa confidencial <-> (166) promotores impulsadores  ventas call center empresa confidencial
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (112) promotores impulsadores  ventas call center empresa confidencial <-> (168) promotores impulsadores  ventas call center empresa confidencial
+2023-11-22 05:14:25 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:28 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (182) digitador iron mountain <-> (183) digitador iron mountain
+2023-11-22 05:14:28 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:28 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (185) operario de maquina mision empresarial sa <-> (190) operario de maquina mision empresarial sa
+2023-11-22 05:14:28 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 100%
+2023-11-22 05:14:28 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) (185) operario de maquina mision empresarial sa <-> (186) operario maquina mision empresarial sa
+2023-11-22 05:14:28 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Similarity percentage: 96%
+2023-11-22 05:14:31 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Deleted: 30
+2023-11-22 05:14:31 +0000 - dagster - INFO - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - (LABORCHART) Offers left after filter: 243
+2023-11-22 05:14:31 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2023-11-22 05:14:31 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - filter - Writing file at: /usr/src/app/Dagster/storage/filter using PickledObjectFilesystemIOManager...
+2023-11-22 05:14:31 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - ASSET_MATERIALIZATION - Materialized value filter.
+2023-11-22 05:14:31 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-22 05:14:31 +0000 - dagster - DEBUG - LaborChartETL - ce764adb-0e95-4561-b6fc-7b64d20d2d60 - 6299 - filter - STEP_SUCCESS - Finished execution of step "filter" in 16.28s.

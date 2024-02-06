@@ -16,3 +16,6 @@ Ahora puedes hacer uso de LaborChart.
 
 # Recomendación
 Ejecutar en mínimo en una máquina con mínimo: CPU de 8 cores, memoria 16GB, y almacenamiento de 16GB (almacenamiento alojado para los contenedores)
+
+# ¡Advertencia!!
+No eliminar el folder "volumes".

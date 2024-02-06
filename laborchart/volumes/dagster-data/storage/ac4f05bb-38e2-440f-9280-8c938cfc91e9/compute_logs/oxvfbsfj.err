@@ -1,0 +1,8 @@
+2023-11-14 05:00:09 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 26677 - LOGS_CAPTURED - Started capturing logs in process (pid: 26677).
+2023-11-14 05:00:09 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 26677 - elempleoExtraction - STEP_START - Started execution of step "elempleoExtraction".
+2023-11-14 05:09:51 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - elempleoExtraction - (LABORCHART) Today's extraction: 48 offers
+2023-11-14 05:09:51 +0000 - dagster - INFO - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - elempleoExtraction - (LABORCHART) Elempleo offers sent successfully to RabbitMQ queue
+2023-11-14 05:09:51 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 26677 - elempleoExtraction - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2023-11-14 05:09:52 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 26677 - elempleoExtraction - ASSET_MATERIALIZATION - Materialized value elempleoExtraction.
+2023-11-14 05:09:52 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 26677 - elempleoExtraction - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2023-11-14 05:09:52 +0000 - dagster - DEBUG - LaborChartETL - ac4f05bb-38e2-440f-9280-8c938cfc91e9 - 26677 - elempleoExtraction - STEP_SUCCESS - Finished execution of step "elempleoExtraction" in 9m42s.
